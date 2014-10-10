@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Explog</title>
+        <link href="./theme/bootstrap/css/bootstrap.min.css" 
+              rel="stylesheet" media="screen"/>
+        <link href="./theme/css/explog.css" rel="stylesheet"
+              media="screen" />
+        <link href="./theme/css/font-awesome.min.css"
+              rel="stylesheet" media="screen" />
+        <link href="./theme/css/syntax.css" rel="stylesheet"
+              media="screen" />
+
+                    
+    <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type= "text/javascript">
+       MathJax.Hub.Config({
+           config: ["MMLorHTML.js"],
+           jax: ["input/TeX","input/MathML","output/HTML-CSS","output/NativeMML"],
+           TeX: { extensions: ["AMSmath.js","AMSsymbols.js","noErrors.js","noUndefined.js"], equationNumbers: { autoNumber: "AMS" } },
+           extensions: ["tex2jax.js","mml2jax.js","MathMenu.js","MathZoom.js"],
+           tex2jax: { 
+               inlineMath: [ ['$','$'] ],
+               displayMath: [ ['$$','$$'] ],
+               processEscapes: true },
+           "HTML-CSS": {
+               styles: { ".MathJax .mo, .MathJax .mi": {color: "black ! important"}}
+           }
+       });
+    </script>
+
+            </head>
+
+    <body>
+        <header class="row" id="main-page-heading">
+            <section class="row-fluid">
+                <section class="span12">
+                    <h1 class="muted">
+                        <a href=".">
+                            <span style="color:black;">exp</span><span style="color:rgb(0, 136, 204);">log</span>
+                        </a>
+                    </h1>
+                </section>
+            </section>
+        </header>
+        <hr />
+        <article class="container-fluid">
+            <section class="row-fluid">
+                <section class="span2">
+                    <section class="row-fluid">
+                        <section class="well sidebar-nav">
+                            <ul class="nav nav-list">
+                                <li class=""><a href=".">Home</a></li>
+                                <li class=" dropdown-submenu">
+                                    <a tabindex="-1" href="./categories.html">Categories</a>
+                                    <ul class="dropdown-menu">
+                                                                                <li>
+                                        <a tabindex="-1" href="./category/foss.html">FOSS</a>
+                                        </li>
+                                                                                <li>
+                                        <a tabindex="-1" href="./category/misc.html">misc</a>
+                                        </li>
+                                                                                <li>
+                                        <a tabindex="-1" href="./category/programming.html">programming</a>
+                                        </li>
+                                                                                <li>
+                                        <a tabindex="-1" href="./category/python.html">python</a>
+                                        </li>
+                                                                            </ul>
+                                </li>
+                            </ul>
+                            <ul class="nav nav-list">
+                                <li class="divider"></li>
+                                <li class=""><a href="./pages/about.html">About</a></li>
+                            </ul>
+                        </section>
+                    </section>
+                    <section class="row-fluid">
+                        <section class="span12">
+                            <span class="nav-header">Tag Cloud</span>
+                            <section class="well sidebar-nav" id="tag-cloud">
+                                <ul>
+                                                                        <li class="tag-1"><a href="./tag/lisp.html">lisp</a></li>
+                                                                        <li class="tag-4"><a href="./tag/decorators.html">decorators</a></li>
+                                                                        <li class="tag-4"><a href="./tag/gunicorn.html">gunicorn</a></li>
+                                                                        <li class="tag-4"><a href="./tag/django.html">django</a></li>
+                                                                        <li class="tag-4"><a href="./tag/nginx.html">nginx</a></li>
+                                                                        <li class="tag-4"><a href="./tag/scipy.html">scipy</a></li>
+                                                                        <li class="tag-2"><a href="./tag/algorithms.html">algorithms</a></li>
+                                                                        <li class="tag-2"><a href="./tag/math.html">math</a></li>
+                                                                        <li class="tag-4"><a href="./tag/Go.html">Go</a></li>
+                                                                        <li class="tag-4"><a href="./tag/functional-programming.html">functional-programming</a></li>
+                                                                        <li class="tag-4"><a href="./tag/scala.html">scala</a></li>
+                                                                        <li class="tag-1"><a href="./tag/programming.html">programming</a></li>
+                                                                        <li class="tag-4"><a href="./tag/Wikipedia.html">Wikipedia</a></li>
+                                                                        <li class="tag-4"><a href="./tag/MediaWiki.html">MediaWiki</a></li>
+                                                                        <li class="tag-4"><a href="./tag/FOSS.html">FOSS</a></li>
+                                                                        <li class="tag-4"><a href="./tag/machine-learning.html">machine-learning</a></li>
+                                                                        <li class="tag-1"><a href="./tag/python.html">python</a></li>
+                                                                        <li class="tag-4"><a href="./tag/C++.html">C++</a></li>
+                                                                        <li class="tag-4"><a href="./tag/OpenCV.html">OpenCV</a></li>
+                                                                    </ul>
+                            </section>
+                        </section>
+                    </section>
+                </section>
+                <section class="span9">
+    <section class="row-fluid">
+        <header class="span9 article-heading">
+            <h1><a href="functional-reverse.html" rel="bookmark"
+                   title="Permalink to Reversing a list recursively">
+                   Reversing a list recursively</a></h1>
+        </header>
+        <section class="span3">
+            Sun 21 April 2013 
+        </section>
+    </section>
+    <section class="row-fluid">
+        <section class="span11 article-content">
+            <p>Suppose we have a list implementation in which every element (or node) in the
+list contains a <tt class="docutils literal">head</tt>, which is the item at this node and a <tt class="docutils literal">tail</tt>, which is
+rest of the list.</p>
+<div class="highlight"><pre><span class="k">trait</span> <span class="nc">List</span> <span class="o">{</span>
+  <span class="k">def</span> <span class="n">isEmpty</span><span class="k">:</span> <span class="kt">Boolean</span>
+  <span class="k">def</span> <span class="n">head</span><span class="k">:</span> <span class="kt">Int</span>
+  <span class="k">def</span> <span class="n">tail</span><span class="k">:</span> <span class="kt">List</span>
+<span class="o">}</span>
+
+<span class="k">class</span> <span class="nc">Cons</span><span class="o">(</span><span class="k">val</span> <span class="n">head</span><span class="k">:</span> <span class="kt">Int</span><span class="o">,</span> <span class="k">val</span> <span class="n">tail</span><span class="k">:</span> <span class="kt">List</span><span class="o">)</span> <span class="k">extends</span> <span class="nc">List</span> <span class="o">{</span>
+  <span class="k">def</span> <span class="n">isEmpty</span> <span class="k">=</span> <span class="kc">false</span>
+<span class="o">}</span>
+
+<span class="k">object</span> <span class="nc">Nil</span> <span class="k">extends</span> <span class="nc">List</span> <span class="o">{</span>
+  <span class="k">def</span> <span class="n">isEmpty</span> <span class="k">=</span> <span class="kc">true</span>
+  <span class="k">def</span> <span class="n">head</span> <span class="k">=</span> <span class="k">throw</span> <span class="k">new</span> <span class="nc">NoSuchElementException</span><span class="o">(</span><span class="s">&quot;Nil.head&quot;</span><span class="o">)</span>
+  <span class="k">def</span> <span class="n">tail</span> <span class="k">=</span> <span class="k">throw</span> <span class="k">new</span> <span class="nc">NoSuchElementException</span><span class="o">(</span><span class="s">&quot;Nil.tail&quot;</span><span class="o">)</span>
+<span class="o">}</span>
+</pre></div>
+<p>One way to reverse this without any mutation is:</p>
+<div class="highlight"><pre><span class="k">def</span> <span class="n">reversed</span><span class="o">(</span><span class="n">xs</span><span class="k">:</span> <span class="kt">List</span><span class="o">)</span><span class="k">:</span> <span class="kt">List</span> <span class="o">=</span> <span class="o">{</span>
+  <span class="k">def</span> <span class="n">aux</span><span class="o">(</span><span class="n">xs</span><span class="k">:</span> <span class="kt">List</span><span class="o">,</span> <span class="n">acc</span><span class="k">:</span> <span class="kt">List</span><span class="o">)</span> <span class="k">=</span>
+    <span class="k">if</span> <span class="o">(</span><span class="n">xs</span><span class="o">.</span><span class="n">isEmpty</span><span class="o">)</span> <span class="n">acc</span>
+    <span class="k">else</span> <span class="n">reversed</span><span class="o">(</span><span class="n">xs</span><span class="o">.</span><span class="n">tail</span><span class="o">,</span> <span class="k">new</span> <span class="nc">Cons</span><span class="o">(</span><span class="n">xs</span><span class="o">.</span><span class="n">head</span><span class="o">,</span> <span class="n">acc</span><span class="o">))</span>
+  <span class="n">aux</span><span class="o">(</span><span class="n">xs</span><span class="o">,</span> <span class="nc">Nil</span><span class="o">)</span>
+<span class="o">}</span>
+</pre></div>
+<p>Here is how this works. Suppose we have a list [1, 2, 3, 4, 5]. This is
+represented in our scheme as:</p>
+<div class="highlight"><pre>  []
+ /  \
+1   []
+   /  \
+  2   []
+     /  \
+    3   []
+       /  \
+      4   []
+         /  \
+        5   Nil
+</pre></div>
+<p>Here, each node is a <tt class="docutils literal">Cons</tt> and the left child of a node is the value at that
+node and the right child is the tail, which can either be another <tt class="docutils literal">Cons</tt> or
+<tt class="docutils literal">Nil</tt>.</p>
+<p>The Scala code to create this list is:</p>
+<div class="highlight"><pre><span class="k">val</span> <span class="n">l</span> <span class="k">=</span> <span class="k">new</span> <span class="nc">Cons</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="k">new</span> <span class="nc">Cons</span><span class="o">(</span><span class="mi">2</span><span class="o">,</span> <span class="k">new</span> <span class="nc">Cons</span><span class="o">(</span><span class="mi">3</span><span class="o">,</span> <span class="k">new</span> <span class="nc">Cons</span><span class="o">(</span><span class="mi">4</span><span class="o">,</span> <span class="k">new</span> <span class="nc">Cons</span><span class="o">(</span><span class="mi">5</span><span class="o">,</span> <span class="nc">Nil</span><span class="o">)))))</span>
+</pre></div>
+<p>Now, in the <tt class="docutils literal">reversed</tt> function, all the work is done by the auxilliary inner
+function <tt class="docutils literal">aux</tt>. If the argument <tt class="docutils literal">xs</tt> to <tt class="docutils literal">aux</tt> is empty(meaning a <tt class="docutils literal">Nil</tt>),
+return the accumulator argument <tt class="docutils literal">acc</tt>. Otherwise, add the head of <tt class="docutils literal">xs</tt> to
+the accumulator and recursively call <tt class="docutils literal">reversed</tt> with just the tail of <tt class="docutils literal">xs</tt>.
+It is clear that the recursion always terminates, as <tt class="docutils literal">xs.tail</tt> will always have
+one element less than <tt class="docutils literal">xs</tt> and eventually, a call to <tt class="docutils literal">reversed(Nil, <span class="pre">...)</span></tt> will
+be made, which just returns the second argument, breaking the recursion. Let
+us trace the execution of reversed:</p>
+<div class="highlight"><pre>val l = new Cons(1, new Cons(2, new Cons(3, new Cons(4, new Cons(5, Nil)))))
+reversed(l)
+\_ aux([1, 2, 3, 4, 5], Nil)
+   \_ aux([2, 3, 4, 5], [1])
+      \_ aux([3, 4, 5], [2, 1])
+         \_ aux([4, 5], [3, 2, 1])
+            \_ aux([5], [4, 3, 2, 1])
+               \_ aux(Nil, [5, 4, 3, 2, 1])
+                   |
+&lt;------------------[5, 4, 3, 2, 1]
+</pre></div>
+
+        </section>
+    </section>
+</section>
+            </section>
+        </article>
+        <hr />
+        <footer class="row-fluid muted" id="footer">
+            <section class="span12" id="connect">
+                <ul>
+                    <li class="social-icon">
+                        <a href="./pages/about.html">About</a>
+                    </li> |
+                                        <li class="social-icon">
+                        <a href="http://www.twitter.com/yati_itay" title="twitter"><i class="icon-twitter icon-large"></i></a>
+                    </li> |                                         <li class="social-icon">
+                        <a href="http://www.github.com/yati-sagade" title="github"><i class="icon-github icon-large"></i></a>
+                    </li> |                                         <li class="social-icon">
+                        <a href="https://plus.google.com/102607933018279616737" title="google-plus"><i class="icon-google-plus icon-large"></i></a>
+                    </li>                     
+                    |<li class="social-icon">
+                        <a href="https://github.com/yati-sagade/explog-theme" title="get this theme">Get this theme</a>
+                    </li>
+                </ul>
+            </section>
+        </footer>
+                <script src="./theme/js/jquery-1.8.3.min.js"></script>
+        <script src="./theme/bootstrap/js/bootstrap.min.js"></script>
+    </body>
+</html>

@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Explog</title>
+        <link href="./theme/bootstrap/css/bootstrap.min.css" 
+              rel="stylesheet" media="screen"/>
+        <link href="./theme/css/explog.css" rel="stylesheet"
+              media="screen" />
+        <link href="./theme/css/font-awesome.min.css"
+              rel="stylesheet" media="screen" />
+        <link href="./theme/css/syntax.css" rel="stylesheet"
+              media="screen" />
+
+                    
+    <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type= "text/javascript">
+       MathJax.Hub.Config({
+           config: ["MMLorHTML.js"],
+           jax: ["input/TeX","input/MathML","output/HTML-CSS","output/NativeMML"],
+           TeX: { extensions: ["AMSmath.js","AMSsymbols.js","noErrors.js","noUndefined.js"], equationNumbers: { autoNumber: "AMS" } },
+           extensions: ["tex2jax.js","mml2jax.js","MathMenu.js","MathZoom.js"],
+           tex2jax: { 
+               inlineMath: [ ['$','$'] ],
+               displayMath: [ ['$$','$$'] ],
+               processEscapes: true },
+           "HTML-CSS": {
+               styles: { ".MathJax .mo, .MathJax .mi": {color: "black ! important"}}
+           }
+       });
+    </script>
+
+            </head>
+
+    <body>
+        <header class="row" id="main-page-heading">
+            <section class="row-fluid">
+                <section class="span12">
+                    <h1 class="muted">
+                        <a href=".">
+                            <span style="color:black;">exp</span><span style="color:rgb(0, 136, 204);">log</span>
+                        </a>
+                    </h1>
+                </section>
+            </section>
+        </header>
+        <hr />
+        <article class="container-fluid">
+            <section class="row-fluid">
+                <section class="span2">
+                    <section class="row-fluid">
+                        <section class="well sidebar-nav">
+                            <ul class="nav nav-list">
+                                <li class=""><a href=".">Home</a></li>
+                                <li class=" dropdown-submenu">
+                                    <a tabindex="-1" href="./categories.html">Categories</a>
+                                    <ul class="dropdown-menu">
+                                                                                <li>
+                                        <a tabindex="-1" href="./category/foss.html">FOSS</a>
+                                        </li>
+                                                                                <li>
+                                        <a tabindex="-1" href="./category/misc.html">misc</a>
+                                        </li>
+                                                                                <li>
+                                        <a tabindex="-1" href="./category/programming.html">programming</a>
+                                        </li>
+                                                                                <li>
+                                        <a tabindex="-1" href="./category/python.html">python</a>
+                                        </li>
+                                                                            </ul>
+                                </li>
+                            </ul>
+                            <ul class="nav nav-list">
+                                <li class="divider"></li>
+                                <li class=""><a href="./pages/about.html">About</a></li>
+                            </ul>
+                        </section>
+                    </section>
+                    <section class="row-fluid">
+                        <section class="span12">
+                            <span class="nav-header">Tag Cloud</span>
+                            <section class="well sidebar-nav" id="tag-cloud">
+                                <ul>
+                                                                        <li class="tag-1"><a href="./tag/lisp.html">lisp</a></li>
+                                                                        <li class="tag-4"><a href="./tag/decorators.html">decorators</a></li>
+                                                                        <li class="tag-4"><a href="./tag/gunicorn.html">gunicorn</a></li>
+                                                                        <li class="tag-4"><a href="./tag/django.html">django</a></li>
+                                                                        <li class="tag-4"><a href="./tag/nginx.html">nginx</a></li>
+                                                                        <li class="tag-4"><a href="./tag/scipy.html">scipy</a></li>
+                                                                        <li class="tag-2"><a href="./tag/algorithms.html">algorithms</a></li>
+                                                                        <li class="tag-2"><a href="./tag/math.html">math</a></li>
+                                                                        <li class="tag-4"><a href="./tag/Go.html">Go</a></li>
+                                                                        <li class="tag-4"><a href="./tag/functional-programming.html">functional-programming</a></li>
+                                                                        <li class="tag-4"><a href="./tag/scala.html">scala</a></li>
+                                                                        <li class="tag-1"><a href="./tag/programming.html">programming</a></li>
+                                                                        <li class="tag-4"><a href="./tag/Wikipedia.html">Wikipedia</a></li>
+                                                                        <li class="tag-4"><a href="./tag/MediaWiki.html">MediaWiki</a></li>
+                                                                        <li class="tag-4"><a href="./tag/FOSS.html">FOSS</a></li>
+                                                                        <li class="tag-4"><a href="./tag/machine-learning.html">machine-learning</a></li>
+                                                                        <li class="tag-1"><a href="./tag/python.html">python</a></li>
+                                                                        <li class="tag-4"><a href="./tag/C++.html">C++</a></li>
+                                                                        <li class="tag-4"><a href="./tag/OpenCV.html">OpenCV</a></li>
+                                                                    </ul>
+                            </section>
+                        </section>
+                    </section>
+                </section>
+                <section class="span9">
+    <section class="row-fluid">
+        <header class="span9 article-heading">
+            <h1><a href="decorators-optional-arguments.html" rel="bookmark"
+                   title="Permalink to Decorators with optional arguments">
+                   Decorators with optional arguments</a></h1>
+        </header>
+        <section class="span3">
+            Tue 02 October 2012 
+        </section>
+    </section>
+    <section class="row-fluid">
+        <section class="span11 article-content">
+            <p>Python decorators are one of the best features of the language, and I think
+that <a class="reference external" href="http://stackoverflow.com/a/1594484">this SO answer</a> describes them the best. I'll take an example similar
+to the example from that question itself. We want to write a decorator that,
+when used to decorate a function that returns a string, will wrap that string
+with the HTML bold tags.</p>
+<p>Concretely, given a function <cite>say_hello()</cite>,</p>
+<div class="highlight"><pre><span class="k">def</span> <span class="nf">say_hello</span><span class="p">(</span><span class="n">user</span><span class="p">):</span>
+    <span class="k">return</span> <span class="s">&#39;hello, {}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">user</span><span class="p">)</span>
+</pre></div>
+<p>We should be able to do this</p>
+<div class="highlight"><pre><span class="nd">@makebold</span>
+<span class="k">def</span> <span class="nf">say_hello</span><span class="p">(</span><span class="n">user</span><span class="p">):</span>
+    <span class="k">return</span> <span class="s">&#39;hello, {}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">user</span><span class="p">)</span>
+</pre></div>
+<p>And call it to get this:</p>
+<div class="highlight"><pre><span class="o">&gt;&gt;&gt;</span> <span class="n">say_hello</span><span class="p">(</span><span class="s">&#39;lama&#39;</span><span class="p">)</span>
+<span class="s">&#39;&lt;b&gt;hello, lama&lt;/b&gt;&#39;</span>
+<span class="o">&gt;&gt;&gt;</span>
+</pre></div>
+<p>Doing that is simple. The makebold <cite>decorator</cite> can be written as</p>
+<div class="highlight"><pre><span class="k">def</span> <span class="nf">makebold</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">inner</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s">&#39;&lt;b&gt;{}&lt;/b&gt;&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">inner</span>
+</pre></div>
+<p>Now what if we wanted to optionally specify a colour for the greeting?
+Sure, we could write another decorator <cite>colour</cite> that takes as an argument the
+colour. But to build up on this contrived example, say I want to pass that
+colour on to the makebold decorator when I want to specify a colour other than
+black. Concretely, we should be able to do this</p>
+<div class="highlight"><pre><span class="nd">@makebold</span>
+<span class="k">def</span> <span class="nf">say_hello</span><span class="p">(</span><span class="n">user</span><span class="p">):</span>
+    <span class="k">return</span> <span class="s">&#39;hello, {}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">user</span><span class="p">)</span>
+
+<span class="nd">@makebold</span><span class="p">(</span><span class="n">colour</span><span class="o">=</span><span class="s">&#39;red&#39;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">say_bye</span><span class="p">(</span><span class="n">user</span><span class="p">):</span>
+    <span class="k">return</span> <span class="s">&#39;See you, {}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">user</span><span class="p">)</span>
+</pre></div>
+<p>And get output like this</p>
+<div class="highlight"><pre><span class="o">&gt;&gt;&gt;</span> <span class="n">say_hello</span><span class="p">(</span><span class="s">&#39;Lama&#39;</span><span class="p">)</span>
+<span class="o">&lt;</span><span class="n">b</span><span class="o">&gt;</span><span class="n">hello</span><span class="p">,</span> <span class="n">Lama</span><span class="o">&lt;/</span><span class="n">b</span><span class="o">&gt;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">say_bye</span><span class="p">(</span><span class="s">&#39;Lama&#39;</span><span class="p">)</span>
+<span class="o">&lt;</span><span class="n">span</span> <span class="n">style</span><span class="o">=</span><span class="s">&quot;color: red;&quot;</span><span class="o">&gt;&lt;</span><span class="n">b</span><span class="o">&gt;</span><span class="n">See</span> <span class="n">you</span><span class="p">,</span> <span class="n">Lama</span><span class="o">&lt;/</span><span class="n">b</span><span class="o">&gt;&lt;/</span><span class="n">span</span><span class="o">&gt;</span>
+<span class="o">&gt;&gt;&gt;</span>
+</pre></div>
+<p>Now if we simply add an optional colour parameter to our <cite>makebold</cite> decorator,
+it will look like this</p>
+<div class="highlight"><pre><span class="k">def</span> <span class="nf">makebold</span><span class="p">(</span><span class="n">colour</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">decorator</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
+        <span class="n">colour_open</span> <span class="o">=</span> <span class="p">(</span><span class="s">&#39;&lt;span style=&quot;color: {};&quot;&gt;&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">colour</span><span class="p">)</span>
+                       <span class="k">if</span> <span class="n">colour</span> <span class="k">else</span> <span class="s">&#39;&#39;</span><span class="p">)</span>
+        <span class="n">colour_close</span> <span class="o">=</span> <span class="s">&#39;&lt;/span&gt;&#39;</span> <span class="k">if</span> <span class="n">colour</span> <span class="k">else</span> <span class="s">&#39;&#39;</span>
+        <span class="k">def</span> <span class="nf">inner</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+            <span class="k">return</span> <span class="p">(</span><span class="s">&#39;{colour_open}&lt;b&gt;{message}&lt;/b&gt;{colour_close}&#39;</span>
+                    <span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">colour_open</span><span class="o">=</span><span class="n">colour_open</span><span class="p">,</span>
+                            <span class="n">colour_close</span><span class="o">=</span><span class="n">colour_close</span><span class="p">,</span>
+                            <span class="n">message</span><span class="o">=</span><span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)))</span>
+        <span class="k">return</span> <span class="n">inner</span>
+<span class="k">return</span> <span class="n">decorator</span>
+</pre></div>
+<p>The thing to note is that we can no longer just return a function from the
+decorator that does the boldification. We must, instead, return a function that
+is the actual decorator that takes the function.</p>
+<p>But then, the decoration syntax changes to</p>
+<div class="highlight"><pre><span class="nd">@makebold</span><span class="p">()</span>
+<span class="k">def</span> <span class="nf">say_hello</span><span class="p">(</span><span class="n">user</span><span class="p">):</span>
+    <span class="k">return</span> <span class="s">&#39;hello, {}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">user</span><span class="p">)</span>
+
+<span class="nd">@makebold</span><span class="p">(</span><span class="n">colour</span><span class="o">=</span><span class="s">&#39;red&#39;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">say_bye</span><span class="p">(</span><span class="n">user</span><span class="p">):</span>
+    <span class="k">return</span> <span class="s">&#39;See you, {}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">user</span><span class="p">)</span>
+</pre></div>
+<p>Close enough, but definitely very ugly.</p>
+<p>To achieve what we are after, we'll exploit the default function arguments in
+Python. It turns out that the decorator we are after can be written like this</p>
+<div class="highlight"><pre><span class="k">def</span> <span class="nf">makebold</span><span class="p">(</span><span class="n">func</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">colour</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">decorator</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
+        <span class="n">colour_open</span> <span class="o">=</span> <span class="p">(</span><span class="s">&#39;&lt;span style=&quot;color: {};&quot;&gt;&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">colour</span><span class="p">)</span>
+                       <span class="k">if</span> <span class="n">colour</span> <span class="k">else</span> <span class="s">&#39;&#39;</span><span class="p">)</span>
+        <span class="n">colour_close</span> <span class="o">=</span> <span class="s">&#39;&lt;/span&gt;&#39;</span> <span class="k">if</span> <span class="n">colour</span> <span class="k">else</span> <span class="s">&#39;&#39;</span>
+        <span class="k">def</span> <span class="nf">inner</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+            <span class="k">return</span> <span class="p">(</span><span class="s">&#39;{colour_open}&lt;b&gt;{message}&lt;/b&gt;{colour_close}&#39;</span>
+                    <span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">colour_open</span><span class="o">=</span><span class="n">colour_open</span><span class="p">,</span>
+                            <span class="n">colour_close</span><span class="o">=</span><span class="n">colour_close</span><span class="p">,</span>
+                            <span class="n">message</span><span class="o">=</span><span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)))</span>
+        <span class="k">return</span> <span class="n">inner</span>
+    <span class="k">if</span> <span class="n">func</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">decorator</span><span class="p">(</span><span class="n">func</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">decorator</span>
+</pre></div>
+<p>Now we can say this</p>
+<div class="highlight"><pre><span class="nd">@makebold</span>
+<span class="k">def</span> <span class="nf">say_hello</span><span class="p">(</span><span class="n">user</span><span class="p">):</span>
+    <span class="k">return</span> <span class="s">&#39;hello, {}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">user</span><span class="p">)</span>
+
+<span class="nd">@makebold</span><span class="p">(</span><span class="n">colour</span><span class="o">=</span><span class="s">&#39;red&#39;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">say_bye</span><span class="p">(</span><span class="n">user</span><span class="p">):</span>
+    <span class="k">return</span> <span class="s">&#39;See you, {}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">user</span><span class="p">)</span>
+</pre></div>
+<p>And the calls will give us the expected output:</p>
+<div class="highlight"><pre><span class="o">&gt;&gt;&gt;</span> <span class="n">say_hello</span><span class="p">(</span><span class="s">&#39;Lama&#39;</span><span class="p">)</span>
+<span class="o">&lt;</span><span class="n">b</span><span class="o">&gt;</span><span class="n">hello</span><span class="p">,</span> <span class="n">Lama</span><span class="o">&lt;/</span><span class="n">b</span><span class="o">&gt;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">say_bye</span><span class="p">(</span><span class="s">&#39;Lama&#39;</span><span class="p">)</span>
+<span class="o">&lt;</span><span class="n">span</span> <span class="n">style</span><span class="o">=</span><span class="s">&quot;color: red;&quot;</span><span class="o">&gt;&lt;</span><span class="n">b</span><span class="o">&gt;</span><span class="n">See</span> <span class="n">you</span><span class="p">,</span> <span class="n">Lama</span><span class="o">&lt;/</span><span class="n">b</span><span class="o">&gt;&lt;/</span><span class="n">span</span><span class="o">&gt;</span>
+<span class="o">&gt;&gt;&gt;</span>
+</pre></div>
+<div class="section" id="explanation">
+<h2>Explanation</h2>
+<p>In the first decoration, we just decorate using <cite>&#64;makebold</cite> and not
+<cite>&#64;makebold()</cite>. That passes our <cite>say_hello()</cite> function as the first parameter
+<cite>func</cite> to the <cite>makebold</cite> decorator, as we we meant this</p>
+<div class="highlight"><pre><span class="n">say_hello</span> <span class="o">=</span> <span class="n">makebold</span><span class="p">(</span><span class="n">say_hello</span><span class="p">)</span>
+</pre></div>
+<p><cite>say_hello</cite> is passed as the first positional argument, which is, according to
+the signature of <cite>makebold</cite>, <cite>func</cite>. Now, on line 12 in the latest definition
+of <cite>makebold</cite>, we check if the <cite>func</cite> argument is <cite>None</cite>, which it isn't and
+hence, we pass <cite>func</cite> to the actual <cite>decorator()</cite> function and return whatever
+is returned - which we know, will be the function <cite>inner()</cite> defined inside <cite>decorator()</cite>. Hence, everytime this
+decorated <cite>say_hello()</cite> is called, it is actually a version of <cite>inner()</cite> being
+called.</p>
+<p>In the second case, we decorate by specifying the <cite>colour</cite> keyword argument,
+and very importantly, we make an <em>explicit call</em> to the decorator. In short, we
+are asking for this:</p>
+<div class="highlight"><pre><span class="n">say_bye</span> <span class="o">=</span> <span class="n">makebold</span><span class="p">(</span><span class="n">colour</span><span class="o">=</span><span class="s">&#39;red&#39;</span><span class="p">)(</span><span class="n">say_hello</span><span class="p">)</span>
+</pre></div>
+<p>which is conceptually equivalent to:</p>
+<div class="highlight"><pre><span class="n">real_decorator</span> <span class="o">=</span> <span class="n">makebold</span><span class="p">(</span><span class="n">colour</span><span class="o">=</span><span class="s">&#39;red&#39;</span><span class="p">)</span>
+<span class="n">say_bye</span> <span class="o">=</span> <span class="n">real_decorator</span><span class="p">(</span><span class="n">say_bye</span><span class="p">)</span>
+</pre></div>
+<p>In the call to <cite>makebold()</cite>, we specify <em>just</em> the <cite>colour</cite> kwarg, which
+leaves the <cite>func</cite> kwarg None (the default value). Now, on line 12, the check
+for non-<cite>None`ness of `func</cite> fails and hence, we return the inner decorator
+function(which is the one that is assigned to <cite>real_decorator</cite> above), which
+can in turn, take <cite>say_bye()</cite> as its parameter.</p>
+</div>
+<div class="section" id="caveats">
+<h2>Caveats</h2>
+<p>This method relies on the default argument mechanism of Python. But code like
+this could break it:</p>
+<div class="highlight"><pre><span class="nd">@makebold</span><span class="p">(</span><span class="n">colour</span><span class="o">=</span><span class="s">&#39;blue&#39;</span><span class="p">,</span> <span class="n">func</span><span class="o">=</span><span class="s">&#39;yada&#39;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">curse</span><span class="p">(</span><span class="n">user</span><span class="p">):</span>
+    <span class="k">return</span> <span class="s">&#39;$%$%#@$^#%^@ {}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">user</span><span class="p">)</span>
+</pre></div>
+<p>This will raise a <cite>TypeError</cite> saying that an <cite>str</cite> is not callable, which
+happens as our decorator tries to call its <cite>func</cite> parameter. I personally don't
+think this is a problem, as if we added a check to see if <cite>func</cite> was callable
+in <cite>makebold()</cite>, we'd also likely raise a similar <cite>TypeError</cite> if it was not.</p>
+<p>Additionally, this method requires the decorating code to always use kwargs,
+which, again, is fine with me, as decorators are most of the time, part of a
+library and calling them with explicit kwargs is, IMHO, better than using
+positional args. However, there obviously are ways to write decorators that
+take optional positional args, similar to this:</p>
+<div class="highlight"><pre><span class="nd">@makebold</span>
+<span class="k">def</span> <span class="nf">say_hello</span><span class="p">(</span><span class="n">user</span><span class="p">):</span>
+    <span class="k">return</span> <span class="s">&#39;hello, {}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">user</span><span class="p">)</span>
+
+<span class="nd">@makebold</span><span class="p">(</span><span class="s">&#39;red&#39;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">say_bye</span><span class="p">(</span><span class="n">user</span><span class="p">):</span>
+    <span class="k">return</span> <span class="s">&#39;See you, {}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">user</span><span class="p">)</span>
+</pre></div>
+<p>Achieving this behaviour requires a few changes in the <cite>makebold</cite> decorator,
+but frankly, I wouldn't bother.</p>
+</div>
+
+        </section>
+    </section>
+</section>
+            </section>
+        </article>
+        <hr />
+        <footer class="row-fluid muted" id="footer">
+            <section class="span12" id="connect">
+                <ul>
+                    <li class="social-icon">
+                        <a href="./pages/about.html">About</a>
+                    </li> |
+                                        <li class="social-icon">
+                        <a href="http://www.twitter.com/yati_itay" title="twitter"><i class="icon-twitter icon-large"></i></a>
+                    </li> |                                         <li class="social-icon">
+                        <a href="http://www.github.com/yati-sagade" title="github"><i class="icon-github icon-large"></i></a>
+                    </li> |                                         <li class="social-icon">
+                        <a href="https://plus.google.com/102607933018279616737" title="google-plus"><i class="icon-google-plus icon-large"></i></a>
+                    </li>                     
+                    |<li class="social-icon">
+                        <a href="https://github.com/yati-sagade/explog-theme" title="get this theme">Get this theme</a>
+                    </li>
+                </ul>
+            </section>
+        </footer>
+                <script src="./theme/js/jquery-1.8.3.min.js"></script>
+        <script src="./theme/bootstrap/js/bootstrap.min.js"></script>
+    </body>
+</html>

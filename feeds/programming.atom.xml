@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>explog</title><link href="/" rel="alternate"></link><link href="/feeds/programming.atom.xml" rel="self"></link><id>/</id><updated>2013-05-11T00:00:00+02:00</updated><entry><title>Wrapping OpenCV functions with Boost Python</title><link href="/numpy-boost-python-opencv.html" rel="alternate"></link><updated>2013-05-11T00:00:00+02:00</updated><author><name>Yati Sagade</name></author><id>tag:,2013-05-11:numpy-boost-python-opencv.html</id><summary type="html">&lt;p&gt;Both C++ and Python are excellent languages that complement each other in many
+ways. I have been working on interesting Computer Vision and Document Analysis
+problem and I have had the need of offloading some performance critical code to
+C++ and expose it neatly to the other pieces, which in turn are in Python.&lt;/p&gt;
+&lt;p&gt;Here, I will take a simpler problem as a running example - matrix
+multiplication. We want to write a super-efficient C++ function that multiplies
+two matrices and expose that function to be callable from Python. The Python
+code should be able to pass in two &lt;tt class="docutils literal"&gt;numpy.ndarray&lt;/tt&gt; objects to be multiplied
+and get back the result in a &lt;tt class="docutils literal"&gt;numpy.ndarray&lt;/tt&gt;.&lt;/p&gt;
+&lt;p&gt;We will call our module &lt;tt class="docutils literal"&gt;matrmul&lt;/tt&gt; and the function &lt;tt class="docutils literal"&gt;mul&lt;/tt&gt;. Let us see how
+the calls to this function should look like from Python:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;numpy&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;matrmul&lt;/span&gt; &lt;span class="c"&gt;# our module&lt;/span&gt;
+
+
+&lt;span class="n"&gt;a&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;numpy&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;array&lt;/span&gt;&lt;span class="p"&gt;([[&lt;/span&gt;&lt;span class="mf"&gt;1.&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mf"&gt;2.&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mf"&gt;3.&lt;/span&gt;&lt;span class="p"&gt;]])&lt;/span&gt;
+&lt;span class="n"&gt;b&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;numpy&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;array&lt;/span&gt;&lt;span class="p"&gt;([[&lt;/span&gt;&lt;span class="mf"&gt;1.&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt;
+                 &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mf"&gt;2.&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt;
+                 &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mf"&gt;3.&lt;/span&gt;&lt;span class="p"&gt;]])&lt;/span&gt;
+&lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;matrmul&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;mul&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;b&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt; &lt;span class="c"&gt;# should print [[14.]]&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;With the interface in place, we now begin by starting a Boost Python module
+with the &lt;tt class="docutils literal"&gt;mul&lt;/tt&gt; function. In &lt;a class="reference external" href="https://github.com/yati-sagade/opencv-ndarray-conversion/blob/master/matrmul.cpp"&gt;matrmul.cpp&lt;/a&gt;, there is code&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="cp"&gt;#include &amp;lt;iostream&amp;gt;&lt;/span&gt;
+&lt;span class="cp"&gt;#include &amp;lt;opencv2/imgproc/imgproc.hpp&amp;gt;&lt;/span&gt;
+&lt;span class="cp"&gt;#include &amp;lt;boost/python.hpp&amp;gt;&lt;/span&gt;
+&lt;span class="cp"&gt;#include &amp;quot;conversion.h&amp;quot;&lt;/span&gt;
+
+&lt;span class="k"&gt;namespace&lt;/span&gt; &lt;span class="n"&gt;py&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;boost&lt;/span&gt;&lt;span class="o"&gt;::&lt;/span&gt;&lt;span class="n"&gt;python&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+
+&lt;span class="n"&gt;PyObject&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;
+&lt;span class="n"&gt;mul&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;PyObject&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;left&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;PyObject&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;right&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="n"&gt;NDArrayConverter&lt;/span&gt; &lt;span class="n"&gt;cvt&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="n"&gt;cv&lt;/span&gt;&lt;span class="o"&gt;::&lt;/span&gt;&lt;span class="n"&gt;Mat&lt;/span&gt; &lt;span class="n"&gt;leftMat&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;rightMat&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="n"&gt;leftMat&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;cvt&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;toMat&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;left&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+    &lt;span class="n"&gt;rightMat&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;cvt&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;toMat&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;right&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+    &lt;span class="k"&gt;auto&lt;/span&gt; &lt;span class="n"&gt;c1&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;leftMat&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;cols&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;r2&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;rightMat&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;rows&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="c1"&gt;// Work only with 2-D matrices that can be legally multiplied.&lt;/span&gt;
+    &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;c1&lt;/span&gt; &lt;span class="o"&gt;!=&lt;/span&gt; &lt;span class="n"&gt;r2&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="p"&gt;{&lt;/span&gt;
+        &lt;span class="n"&gt;PyErr_SetString&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;PyExc_TypeError&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+                        &lt;span class="s"&gt;&amp;quot;Incompatible sizes for matrix multiplication.&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+        &lt;span class="n"&gt;py&lt;/span&gt;&lt;span class="o"&gt;::&lt;/span&gt;&lt;span class="n"&gt;throw_error_already_set&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
+    &lt;span class="p"&gt;}&lt;/span&gt;
+    &lt;span class="n"&gt;cv&lt;/span&gt;&lt;span class="o"&gt;::&lt;/span&gt;&lt;span class="n"&gt;Mat&lt;/span&gt; &lt;span class="n"&gt;result&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;leftMat&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="n"&gt;rightMat&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+
+    &lt;span class="n"&gt;PyObject&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="n"&gt;ret&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;cvt&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;toNDArray&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;result&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+
+    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;ret&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+
+&lt;span class="k"&gt;static&lt;/span&gt; &lt;span class="kt"&gt;void&lt;/span&gt; &lt;span class="n"&gt;init&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="n"&gt;Py_Initialize&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
+    &lt;span class="n"&gt;import_array&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+
+&lt;span class="n"&gt;BOOST_PYTHON_MODULE&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;matrmul&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="n"&gt;init&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
+    &lt;span class="n"&gt;py&lt;/span&gt;&lt;span class="o"&gt;::&lt;/span&gt;&lt;span class="n"&gt;def&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;mul&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;mul&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;As a quick tour of that code, the main multiplication &lt;tt class="docutils literal"&gt;mul&lt;/tt&gt; takes two
+parameters of the type &lt;tt class="docutils literal"&gt;PyObject*&lt;/tt&gt;. The &lt;tt class="docutils literal"&gt;PyObject*&lt;/tt&gt; type represents the
+Python &lt;tt class="docutils literal"&gt;object&lt;/tt&gt; type in the C API. Since Python is dynamically typed, the
+function has to figure out what is the actual type of the objects being passed.
+First we use the &lt;tt class="docutils literal"&gt;NDArrayConverter&lt;/tt&gt; class to convert the two arguments(which
+we believe will NumPy arrays) to the OpenCV &lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;cv::Mat&lt;/span&gt;&lt;/tt&gt; type. Then we check if
+the two matrices are multiplication-compatible. If not, a &lt;tt class="docutils literal"&gt;TypeError&lt;/tt&gt; is
+thrown using the code&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;PyErr_SetString&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;PyExc_TypeError&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+                &lt;span class="s"&gt;&amp;quot;Incompatible sizes for matrix multiplication.&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;span class="n"&gt;py&lt;/span&gt;&lt;span class="o"&gt;::&lt;/span&gt;&lt;span class="n"&gt;throw_error_already_set&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;tt class="docutils literal"&gt;py&lt;/tt&gt; refers to the namespace &lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;boost::python&lt;/span&gt;&lt;/tt&gt;, which provides many helpful,
+idiomatic C++ wrappers around the C/Python API. Then we multiply the two
+&lt;tt class="docutils literal"&gt;Mat&lt;/tt&gt; objects and convert the result back to an ndarray using the
+&lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;NDArrayConverter::toNDArray()&lt;/span&gt;&lt;/tt&gt; function the definition of which we shall
+see in a moment.&lt;/p&gt;
+&lt;p&gt;The part that exports this function &lt;tt class="docutils literal"&gt;mul&lt;/tt&gt; as a function in Python is&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;BOOST_PYTHON_MODULE&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;matrmul&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="n"&gt;init&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
+    &lt;span class="n"&gt;py&lt;/span&gt;&lt;span class="o"&gt;::&lt;/span&gt;&lt;span class="n"&gt;def&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;mul&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;mul&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;So we use a macro defined by the Boost Python library that declares a Python
+module called &lt;tt class="docutils literal"&gt;matrmul&lt;/tt&gt;. Within that declaration, we call &lt;tt class="docutils literal"&gt;init()&lt;/tt&gt; that
+in turn initializes the Python runtime and the numpy C library. The latter is
+absolutely necessary, as without it, any calls to the numpy C API will cause
+a segmentation fault. Then, we use &lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;py::def()&lt;/span&gt;&lt;/tt&gt; to define a module level
+function called &lt;tt class="docutils literal"&gt;mul&lt;/tt&gt; (we could give any other name here - this is the name
+seen by Python code). The second argument to &lt;tt class="docutils literal"&gt;py:def&lt;/tt&gt; is of course, our
+function.&lt;/p&gt;
+&lt;p&gt;Now, we need to define the actual conversion functions for&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;Numpy ndarray to &lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;cv::Mat&lt;/span&gt;&lt;/tt&gt; conversion&lt;/li&gt;
+&lt;li&gt;&lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;cv::Mat&lt;/span&gt;&lt;/tt&gt; to Numpy ndarray conversion&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;The code for doing these conversions has been copied(and modified slightly)
+from the OpenCV sources, and resides in &lt;a class="reference external" href="https://github.com/yati-sagade/opencv-ndarray-conversion/blob/master/conversion.h"&gt;conversion.h&lt;/a&gt; and &lt;a class="reference external" href="https://github.com/yati-sagade/opencv-ndarray-conversion/blob/master/conversion.cpp"&gt;conversion.cpp&lt;/a&gt;.
+The high level class exposing functions to do the conversions is called
+&lt;tt class="docutils literal"&gt;NDArrayConverter&lt;/tt&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;NDArrayConverter&lt;/span&gt;
+&lt;span class="p"&gt;{&lt;/span&gt;
+&lt;span class="k"&gt;private&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;
+    &lt;span class="kt"&gt;void&lt;/span&gt; &lt;span class="n"&gt;init&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
+&lt;span class="k"&gt;public&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;
+    &lt;span class="n"&gt;NDArrayConverter&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
+    &lt;span class="n"&gt;cv&lt;/span&gt;&lt;span class="o"&gt;::&lt;/span&gt;&lt;span class="n"&gt;Mat&lt;/span&gt; &lt;span class="n"&gt;toMat&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;const&lt;/span&gt; &lt;span class="n"&gt;PyObject&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="n"&gt;o&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+    &lt;span class="n"&gt;PyObject&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="n"&gt;toNDArray&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;const&lt;/span&gt; &lt;span class="n"&gt;cv&lt;/span&gt;&lt;span class="o"&gt;::&lt;/span&gt;&lt;span class="n"&gt;Mat&lt;/span&gt;&lt;span class="o"&gt;&amp;amp;&lt;/span&gt; &lt;span class="n"&gt;mat&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;span class="p"&gt;};&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;So, &lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;NDArrayConverter::toMat()&lt;/span&gt;&lt;/tt&gt; takes a numpy ndarray, again as
+a &lt;tt class="docutils literal"&gt;PyObject*&lt;/tt&gt;, tests whether it is a valid numpy array(needed, as
+a &lt;tt class="docutils literal"&gt;PyObject*&lt;/tt&gt; can point to any Python object) and returns the equivalent
+&lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;cv::Mat&lt;/span&gt;&lt;/tt&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;NDArrayConverter::toNDArray()&lt;/span&gt;&lt;/tt&gt; does the reverse - takes a reference to
+a &lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;cv::Mat&lt;/span&gt;&lt;/tt&gt; and returns a &lt;tt class="docutils literal"&gt;PyObject*&lt;/tt&gt; that represents the numpy array which
+can be returned to the Python runtime via Boost. All this code, including a few
+tests in Python is present &lt;a class="reference external" href="https://github.com/yati-sagade/opencv-ndarray-conversion"&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Boost Python can automatically convert native types (like &lt;tt class="docutils literal"&gt;str&lt;/tt&gt;
+⇋ &lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;std::string&lt;/span&gt;&lt;/tt&gt;, Python &lt;tt class="docutils literal"&gt;long&lt;/tt&gt; ⇋ C++ &lt;tt class="docutils literal"&gt;long&lt;/tt&gt;, &lt;tt class="docutils literal"&gt;int&lt;/tt&gt;, etc.), but we need
+to do the conversion ourselves when we have stuff like ndarrays that Boost
+Python does not know about. So the process of wrapping a function can be
+summed up as:&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;Write the C++ function to take normal native types if native types is all
+you expect to be passed to it from Python. Boost takes care of the
+plumbing and type checking.&lt;/li&gt;
+&lt;li&gt;If the function(in Python) takes anything other than native types, write
+the C++ function to take &lt;tt class="docutils literal"&gt;PyObject*&lt;/tt&gt; - the generic Python &lt;tt class="docutils literal"&gt;object&lt;/tt&gt;.&lt;/li&gt;
+&lt;li&gt;If using &lt;tt class="docutils literal"&gt;PyObject*&lt;/tt&gt;, convert to whatever format is expected(or throw
+a &lt;tt class="docutils literal"&gt;TypeError&lt;/tt&gt; if a malformed object was passed) and produce the result.&lt;/li&gt;
+&lt;li&gt;If the result is a standard C++ type that can be handled by Boost, no
+conversion is needed. Otherwise, convert that result to a &lt;tt class="docutils literal"&gt;PyObject*&lt;/tt&gt;
+and return this.&lt;/li&gt;
+&lt;li&gt;Use &lt;tt class="docutils literal"&gt;BOOST_PYTHON_MODULE&lt;/tt&gt; to expose your function to Python.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;After the code is ready, we need to compile the code to a shared object file.
+The easiest way to do that would be to use GNU make. The Makefile should
+compile the conversion code(&lt;tt class="docutils literal"&gt;conversion.cpp&lt;/tt&gt;), the module wrapper
+code(&lt;tt class="docutils literal"&gt;matrmul.cpp&lt;/tt&gt;) and link them together. We also need to pass the Boost
+and OpenCV headers while compiling and must link against the Boost, Python and
+OpenCV libs. A working Makefile can be cloned &lt;a class="reference external" href="https://github.com/yati-sagade/opencv-ndarray-conversion/blob/master/Makefile"&gt;from here&lt;/a&gt; and tweaked to
+specific needs. After compiling, one can start the python shell from the same
+directory as &lt;tt class="docutils literal"&gt;matrmul.so&lt;/tt&gt; and test the multiplication routine:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="go"&gt;In [1]: import numpy as np&lt;/span&gt;
+
+&lt;span class="go"&gt;In [2]: import matrmul&lt;/span&gt;
+
+&lt;span class="go"&gt;In [3]: a = np.array([[1., 2., 3.]])&lt;/span&gt;
+
+&lt;span class="go"&gt;In [4]: b = a.reshape(3, 1)&lt;/span&gt;
+
+&lt;span class="go"&gt;In [5]: b&lt;/span&gt;
+&lt;span class="go"&gt;Out[5]:&lt;/span&gt;
+&lt;span class="go"&gt;array([[ 1.],&lt;/span&gt;
+&lt;span class="go"&gt;       [ 2.],&lt;/span&gt;
+&lt;span class="go"&gt;       [ 3.]])&lt;/span&gt;
+
+&lt;span class="go"&gt;In [6]: a.dot(b)&lt;/span&gt;
+&lt;span class="go"&gt;Out[6]: array([[ 14.]])&lt;/span&gt;
+
+&lt;span class="go"&gt;In [7]: matrmul.mul(a, b)&lt;/span&gt;
+&lt;span class="go"&gt;Out[7]: array([[ 14.]])&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Using the Makefile provided, you can also type &lt;tt class="docutils literal"&gt;make test&lt;/tt&gt; to run the tests
+in &lt;tt class="docutils literal"&gt;test.py&lt;/tt&gt;, which verifies that our code is correct.&lt;/p&gt;
+&lt;p&gt;Once again, all the code, including the Makefile and the Python tests can be
+found &lt;a class="reference external" href="https://github.com/yati-sagade/opencv-ndarray-conversion"&gt;here&lt;/a&gt;.&lt;/p&gt;
+</summary><category term="python"></category><category term="C++"></category><category term="OpenCV"></category></entry></feed>

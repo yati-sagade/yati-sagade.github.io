@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Explog</title>
+        <link href="./theme/bootstrap/css/bootstrap.min.css" 
+              rel="stylesheet" media="screen"/>
+        <link href="./theme/css/explog.css" rel="stylesheet"
+              media="screen" />
+        <link href="./theme/css/font-awesome.min.css"
+              rel="stylesheet" media="screen" />
+        <link href="./theme/css/syntax.css" rel="stylesheet"
+              media="screen" />
+
+                    
+    <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type= "text/javascript">
+       MathJax.Hub.Config({
+           config: ["MMLorHTML.js"],
+           jax: ["input/TeX","input/MathML","output/HTML-CSS","output/NativeMML"],
+           TeX: { extensions: ["AMSmath.js","AMSsymbols.js","noErrors.js","noUndefined.js"], equationNumbers: { autoNumber: "AMS" } },
+           extensions: ["tex2jax.js","mml2jax.js","MathMenu.js","MathZoom.js"],
+           tex2jax: { 
+               inlineMath: [ ['$','$'] ],
+               displayMath: [ ['$$','$$'] ],
+               processEscapes: true },
+           "HTML-CSS": {
+               styles: { ".MathJax .mo, .MathJax .mi": {color: "black ! important"}}
+           }
+       });
+    </script>
+
+            </head>
+
+    <body>
+        <header class="row" id="main-page-heading">
+            <section class="row-fluid">
+                <section class="span12">
+                    <h1 class="muted">
+                        <a href=".">
+                            <span style="color:black;">exp</span><span style="color:rgb(0, 136, 204);">log</span>
+                        </a>
+                    </h1>
+                </section>
+            </section>
+        </header>
+        <hr />
+        <article class="container-fluid">
+            <section class="row-fluid">
+                <section class="span2">
+                    <section class="row-fluid">
+                        <section class="well sidebar-nav">
+                            <ul class="nav nav-list">
+                                <li class=""><a href=".">Home</a></li>
+                                <li class=" dropdown-submenu">
+                                    <a tabindex="-1" href="./categories.html">Categories</a>
+                                    <ul class="dropdown-menu">
+                                                                                <li>
+                                        <a tabindex="-1" href="./category/foss.html">FOSS</a>
+                                        </li>
+                                                                                <li>
+                                        <a tabindex="-1" href="./category/misc.html">misc</a>
+                                        </li>
+                                                                                <li>
+                                        <a tabindex="-1" href="./category/programming.html">programming</a>
+                                        </li>
+                                                                                <li>
+                                        <a tabindex="-1" href="./category/python.html">python</a>
+                                        </li>
+                                                                            </ul>
+                                </li>
+                            </ul>
+                            <ul class="nav nav-list">
+                                <li class="divider"></li>
+                                <li class=""><a href="./pages/about.html">About</a></li>
+                            </ul>
+                        </section>
+                    </section>
+                    <section class="row-fluid">
+                        <section class="span12">
+                            <span class="nav-header">Tag Cloud</span>
+                            <section class="well sidebar-nav" id="tag-cloud">
+                                <ul>
+                                                                        <li class="tag-1"><a href="./tag/lisp.html">lisp</a></li>
+                                                                        <li class="tag-4"><a href="./tag/decorators.html">decorators</a></li>
+                                                                        <li class="tag-4"><a href="./tag/gunicorn.html">gunicorn</a></li>
+                                                                        <li class="tag-4"><a href="./tag/django.html">django</a></li>
+                                                                        <li class="tag-4"><a href="./tag/nginx.html">nginx</a></li>
+                                                                        <li class="tag-4"><a href="./tag/scipy.html">scipy</a></li>
+                                                                        <li class="tag-2"><a href="./tag/algorithms.html">algorithms</a></li>
+                                                                        <li class="tag-2"><a href="./tag/math.html">math</a></li>
+                                                                        <li class="tag-4"><a href="./tag/Go.html">Go</a></li>
+                                                                        <li class="tag-4"><a href="./tag/functional-programming.html">functional-programming</a></li>
+                                                                        <li class="tag-4"><a href="./tag/scala.html">scala</a></li>
+                                                                        <li class="tag-1"><a href="./tag/programming.html">programming</a></li>
+                                                                        <li class="tag-4"><a href="./tag/Wikipedia.html">Wikipedia</a></li>
+                                                                        <li class="tag-4"><a href="./tag/MediaWiki.html">MediaWiki</a></li>
+                                                                        <li class="tag-4"><a href="./tag/FOSS.html">FOSS</a></li>
+                                                                        <li class="tag-4"><a href="./tag/machine-learning.html">machine-learning</a></li>
+                                                                        <li class="tag-1"><a href="./tag/python.html">python</a></li>
+                                                                        <li class="tag-4"><a href="./tag/C++.html">C++</a></li>
+                                                                        <li class="tag-4"><a href="./tag/OpenCV.html">OpenCV</a></li>
+                                                                    </ul>
+                            </section>
+                        </section>
+                    </section>
+                </section>
+                <section class="span9">
+    <section class="row-fluid">
+        <header class="span9 article-heading">
+            <h1><a href="common-lisp-dynamic-variables.html" rel="bookmark"
+                   title="Permalink to Dynamic variables in Common Lisp">
+                   Dynamic variables in Common Lisp</a></h1>
+        </header>
+        <section class="span3">
+            Fri 29 March 2013 
+        </section>
+    </section>
+    <section class="row-fluid">
+        <section class="span11 article-content">
+            <p>Many a time, global variables are needed to store stuff like standard I/O
+stream handles. In lisp, global variables are nicer to manage than their
+counterparts in other languages. These variables are called dynamic variables
+in Lisp, and as a convention, their names start and end with a *. There are two
+ways to define dynamic variables, DEFVAR and DEFPARAMETER. DEFVAR assigns to
+the variable only if it is undefined, while DEFPARAMETER works regardless. Both
+DEFVAR and DEFPARAMETER take a variable name, an initial value and an optional
+documentation string. One can leave out the initial value in a DEFVAR, which
+results in an unbound dynamic variable.</p>
+<div class="highlight"><pre><span class="p">(</span><span class="nb">defvar</span> <span class="vg">*count*</span> <span class="mi">0</span>
+  <span class="s">&quot;Count of widgets made so far.&quot;</span><span class="p">)</span>
+
+<span class="p">(</span><span class="nb">defparameter</span> <span class="vg">*gap-tolerance*</span> <span class="mf">0.001</span>
+  <span class="s">&quot;Tolerance to be allowed in widget gaps.&quot;</span><span class="p">)</span>
+</pre></div>
+<div class="section" id="rebinding-dynamic-variables">
+<h2>Rebinding dynamic variables</h2>
+<p>Sometimes, we need to be able to change the value of a global variable just for
+a part of our code. For example, the *standard-output* global variable is
+bound to the standard output stream. One might want a part of the code calling
+functions that write to *standard-output* to actually write to a file instead
+of writing it to stdout. We can do this by assigning to *standard-output*
+a handle to our file, executing our code and resetting *standard-output* to
+stdout. But a neater a way is provided by Lisp. Whenever a form introduces a
+variable having the same name as a dynamic variable, all code within the
+binding form and all code called by this code see the new binding. So for
+example, we can do this:</p>
+<div class="highlight"><pre><span class="p">(</span><span class="nb">format</span> <span class="no">t</span> <span class="s">&quot;This will be printed to stdout.~%&quot;</span><span class="p">)</span>
+<span class="p">(</span><span class="k">let</span> <span class="p">((</span><span class="vg">*standard-output*</span> <span class="vg">*some-other-stream*</span><span class="p">))</span>
+  <span class="p">(</span><span class="nb">format</span> <span class="no">t</span> <span class="s">&quot;This will be printed to a file.~%&quot;</span><span class="p">))</span>
+<span class="p">(</span><span class="nb">format</span> <span class="no">t</span> <span class="s">&quot;This will again be printed to stdout.~%&quot;</span><span class="p">)</span>
+</pre></div>
+<p>What is important to note is that while lexical variable bindings are seen only
+by code textually within the binding form of the variables(and closures, of
+course), all code CALLED from a binding form of a dynamic variable also sees the
+new binding. The binding is restored as soon as the binding form is done
+executing.</p>
+<p>An example:</p>
+<div class="highlight"><pre><span class="nv">CL-USER&gt;</span> <span class="p">(</span><span class="nb">defvar</span> <span class="vg">*x*</span> <span class="mi">10</span><span class="p">)</span>
+<span class="vg">*X*</span>
+<span class="nv">CL-USER&gt;</span> <span class="p">(</span><span class="nb">defun</span> <span class="nv">foo</span> <span class="p">()</span> <span class="p">(</span><span class="nb">format</span> <span class="no">t</span> <span class="s">&quot;x: ~d~%&quot;</span> <span class="vg">*x*</span><span class="p">))</span>
+<span class="nv">STYLE-WARNING:</span> <span class="nv">redefining</span> <span class="nv">COMMON-LISP-USER::FOO</span> <span class="nv">in</span> <span class="nv">DEFUN</span>
+<span class="nv">FOO</span>
+<span class="nv">CL-USER&gt;</span> <span class="p">(</span><span class="nv">foo</span><span class="p">)</span>
+<span class="nv">x:</span> <span class="mi">10</span>
+<span class="no">NIL</span>
+<span class="nv">CL-USER&gt;</span> <span class="p">(</span><span class="k">let</span> <span class="p">((</span><span class="vg">*x*</span> <span class="mi">100</span><span class="p">))</span> <span class="p">(</span><span class="nv">foo</span><span class="p">))</span>
+<span class="nv">x:</span> <span class="mi">100</span>
+<span class="no">NIL</span>
+<span class="nv">CL-USER&gt;</span> <span class="p">(</span><span class="nv">foo</span><span class="p">)</span>
+<span class="nv">x:</span> <span class="mi">10</span>
+<span class="no">NIL</span>
+</pre></div>
+</div>
+
+        </section>
+    </section>
+</section>
+            </section>
+        </article>
+        <hr />
+        <footer class="row-fluid muted" id="footer">
+            <section class="span12" id="connect">
+                <ul>
+                    <li class="social-icon">
+                        <a href="./pages/about.html">About</a>
+                    </li> |
+                                        <li class="social-icon">
+                        <a href="http://www.twitter.com/yati_itay" title="twitter"><i class="icon-twitter icon-large"></i></a>
+                    </li> |                                         <li class="social-icon">
+                        <a href="http://www.github.com/yati-sagade" title="github"><i class="icon-github icon-large"></i></a>
+                    </li> |                                         <li class="social-icon">
+                        <a href="https://plus.google.com/102607933018279616737" title="google-plus"><i class="icon-google-plus icon-large"></i></a>
+                    </li>                     
+                    |<li class="social-icon">
+                        <a href="https://github.com/yati-sagade/explog-theme" title="get this theme">Get this theme</a>
+                    </li>
+                </ul>
+            </section>
+        </footer>
+                <script src="./theme/js/jquery-1.8.3.min.js"></script>
+        <script src="./theme/bootstrap/js/bootstrap.min.js"></script>
+    </body>
+</html>

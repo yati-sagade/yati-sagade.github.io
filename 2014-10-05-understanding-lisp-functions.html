@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Explog</title>
+        <link href="./theme/bootstrap/css/bootstrap.min.css" 
+              rel="stylesheet" media="screen"/>
+        <link href="./theme/css/explog.css" rel="stylesheet"
+              media="screen" />
+        <link href="./theme/css/font-awesome.min.css"
+              rel="stylesheet" media="screen" />
+        <link href="./theme/css/syntax.css" rel="stylesheet"
+              media="screen" />
+
+                    
+    <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type= "text/javascript">
+       MathJax.Hub.Config({
+           config: ["MMLorHTML.js"],
+           jax: ["input/TeX","input/MathML","output/HTML-CSS","output/NativeMML"],
+           TeX: { extensions: ["AMSmath.js","AMSsymbols.js","noErrors.js","noUndefined.js"], equationNumbers: { autoNumber: "AMS" } },
+           extensions: ["tex2jax.js","mml2jax.js","MathMenu.js","MathZoom.js"],
+           tex2jax: { 
+               inlineMath: [ ['$','$'] ],
+               displayMath: [ ['$$','$$'] ],
+               processEscapes: true },
+           "HTML-CSS": {
+               styles: { ".MathJax .mo, .MathJax .mi": {color: "black ! important"}}
+           }
+       });
+    </script>
+
+            </head>
+
+    <body>
+        <header class="row" id="main-page-heading">
+            <section class="row-fluid">
+                <section class="span12">
+                    <h1 class="muted">
+                        <a href=".">
+                            <span style="color:black;">exp</span><span style="color:rgb(0, 136, 204);">log</span>
+                        </a>
+                    </h1>
+                </section>
+            </section>
+        </header>
+        <hr />
+        <article class="container-fluid">
+            <section class="row-fluid">
+                <section class="span2">
+                    <section class="row-fluid">
+                        <section class="well sidebar-nav">
+                            <ul class="nav nav-list">
+                                <li class=""><a href=".">Home</a></li>
+                                <li class=" dropdown-submenu">
+                                    <a tabindex="-1" href="./categories.html">Categories</a>
+                                    <ul class="dropdown-menu">
+                                                                                <li>
+                                        <a tabindex="-1" href="./category/foss.html">FOSS</a>
+                                        </li>
+                                                                                <li>
+                                        <a tabindex="-1" href="./category/misc.html">misc</a>
+                                        </li>
+                                                                                <li>
+                                        <a tabindex="-1" href="./category/programming.html">programming</a>
+                                        </li>
+                                                                                <li>
+                                        <a tabindex="-1" href="./category/python.html">python</a>
+                                        </li>
+                                                                            </ul>
+                                </li>
+                            </ul>
+                            <ul class="nav nav-list">
+                                <li class="divider"></li>
+                                <li class=""><a href="./pages/about.html">About</a></li>
+                            </ul>
+                        </section>
+                    </section>
+                    <section class="row-fluid">
+                        <section class="span12">
+                            <span class="nav-header">Tag Cloud</span>
+                            <section class="well sidebar-nav" id="tag-cloud">
+                                <ul>
+                                                                        <li class="tag-1"><a href="./tag/lisp.html">lisp</a></li>
+                                                                        <li class="tag-4"><a href="./tag/decorators.html">decorators</a></li>
+                                                                        <li class="tag-4"><a href="./tag/gunicorn.html">gunicorn</a></li>
+                                                                        <li class="tag-4"><a href="./tag/django.html">django</a></li>
+                                                                        <li class="tag-4"><a href="./tag/nginx.html">nginx</a></li>
+                                                                        <li class="tag-4"><a href="./tag/scipy.html">scipy</a></li>
+                                                                        <li class="tag-2"><a href="./tag/algorithms.html">algorithms</a></li>
+                                                                        <li class="tag-2"><a href="./tag/math.html">math</a></li>
+                                                                        <li class="tag-4"><a href="./tag/Go.html">Go</a></li>
+                                                                        <li class="tag-4"><a href="./tag/functional-programming.html">functional-programming</a></li>
+                                                                        <li class="tag-4"><a href="./tag/scala.html">scala</a></li>
+                                                                        <li class="tag-1"><a href="./tag/programming.html">programming</a></li>
+                                                                        <li class="tag-4"><a href="./tag/Wikipedia.html">Wikipedia</a></li>
+                                                                        <li class="tag-4"><a href="./tag/MediaWiki.html">MediaWiki</a></li>
+                                                                        <li class="tag-4"><a href="./tag/FOSS.html">FOSS</a></li>
+                                                                        <li class="tag-4"><a href="./tag/machine-learning.html">machine-learning</a></li>
+                                                                        <li class="tag-1"><a href="./tag/python.html">python</a></li>
+                                                                        <li class="tag-4"><a href="./tag/C++.html">C++</a></li>
+                                                                        <li class="tag-4"><a href="./tag/OpenCV.html">OpenCV</a></li>
+                                                                    </ul>
+                            </section>
+                        </section>
+                    </section>
+                </section>
+                <section class="span9">
+    <section class="row-fluid">
+        <header class="span9 article-heading">
+            <h1><a href="understanding-lisp-functions.html" rel="bookmark"
+                   title="Permalink to Learning Common Lisp - Functions 1">
+                   Learning Common Lisp - Functions 1</a></h1>
+        </header>
+        <section class="span3">
+            Mon 18 February 2013 
+        </section>
+    </section>
+    <section class="row-fluid">
+        <section class="span11 article-content">
+            <p>I have finally started to learn Lisp, and I've chosen Common Lisp as my Lisp.
+I'm following the excellent <em>free</em> book <a class="reference external" href="http://www.gigamonkeys.com/book/">Practical Common Lisp</a> by Peter
+Seibel. Lisp syntax is very simple, and compared to other languages I've learnt,
+it is a welcome breeze of fresh air.</p>
+<p>A Lisp function is defined using the DEFUN macro, like so:</p>
+<div class="highlight"><pre><span class="p">(</span><span class="nb">defun</span> <span class="nv">name</span> <span class="p">(</span><span class="nv">parameter*</span><span class="p">)</span>
+  <span class="s">&quot;Optional docstring, a la Python.&quot;</span>
+  <span class="nv">body-form*</span><span class="p">)</span>
+</pre></div>
+<p>Any symbol can be used as a function name, and the convention is to use
+hyphenated-words instead of underscore_separated_words or CamelCase.</p>
+<p>The parameter list of a function defines the variables that will hold the
+arguments passed to the function when it is called. A function taking no args
+has an empty parameter list, written as ().</p>
+<p>A string literal can be present after the parameter list, which, if present,
+serves the purpose of documenting the function. This string is associated with
+the function's name and can be later retrieved using the DOCUMENTATION function.</p>
+<p>Finally, the body of a function consists of muliple forms, each of which is
+evaluated in order. The result of evaluation of the last form is returned as the
+return value of the function. One can also explicitly return from any point in
+the function body using the RETURN-FROM special operator.</p>
+<div class="section" id="optional-parameters">
+<h2>Optional parameters</h2>
+<p>A function taking optional parameters can be defined by first specifying all
+the required params and then placing the symbol &amp;optional followed by the names
+of the optional params.</p>
+<div class="highlight"><pre><span class="p">(</span><span class="nb">defun</span> <span class="nv">make-rect</span> <span class="p">(</span><span class="nv">width</span> <span class="k">&amp;optional</span> <span class="nv">height</span><span class="p">)</span>
+  <span class="p">(</span><span class="nb">list</span> <span class="nv">width</span> <span class="p">(</span><span class="k">if</span> <span class="nv">height</span> <span class="nv">height</span> <span class="nv">width</span><span class="p">))</span>
+
+<span class="p">(</span><span class="nv">make-rect</span> <span class="mi">10</span><span class="p">)</span> <span class="c1">;; -&gt; (10 10)</span>
+<span class="p">(</span><span class="nv">make-rect</span> <span class="mi">10</span> <span class="mi">20</span><span class="p">)</span> <span class="c1">;; -&gt; (10 20)</span>
+</pre></div>
+<p>When an argument is absent for an optional param, it is bound to NIL.
+Default values can be provided with a parameter as arbitrary expressions.</p>
+<div class="highlight"><pre><span class="p">(</span><span class="nb">defun</span> <span class="nv">make-rect</span> <span class="p">(</span><span class="nv">width</span> <span class="k">&amp;optional</span> <span class="p">(</span><span class="nv">height</span> <span class="nv">width</span><span class="p">))</span>
+  <span class="p">(</span><span class="nb">list</span> <span class="nv">width</span> <span class="nv">height</span><span class="p">))</span>
+</pre></div>
+<p>It is possible to check if the argument for a parameter was passed or not by
+placing another variable, following the default value expression, which is
+set to T when an argument is passed, else to NIL.</p>
+<div class="highlight"><pre><span class="p">(</span><span class="nb">defun</span> <span class="nv">make-rect</span> <span class="p">(</span><span class="nv">width</span> <span class="k">&amp;optional</span> <span class="p">(</span><span class="nv">height</span> <span class="nv">width</span> <span class="nv">height-supplied-p</span><span class="p">))</span>
+  <span class="p">(</span><span class="nb">list</span> <span class="nv">width</span> <span class="nv">height</span><span class="p">))</span>
+</pre></div>
+</div>
+<div class="section" id="rest-params">
+<h2>Rest params</h2>
+<p>Rest params allow us to write functions accepting a variable number of
+arguments. A catch-all parameter can be specified after the &amp;rest symbol, which
+captures all the arguments remaining after binding with required parameters.</p>
+<div class="highlight"><pre><span class="p">(</span><span class="nb">defun</span> <span class="nv">sum-of-squares</span> <span class="p">(</span><span class="k">&amp;rest</span> <span class="nv">args</span><span class="p">)</span>
+  <span class="p">(</span><span class="nb">apply</span> <span class="ss">&#39;+</span> <span class="p">(</span><span class="nb">loop</span> <span class="nv">while</span> <span class="nv">args</span>
+                  <span class="nv">collecting</span> <span class="p">(</span><span class="k">let</span> <span class="p">((</span><span class="nv">x</span> <span class="p">(</span><span class="nb">pop</span> <span class="nv">args</span><span class="p">)))</span> <span class="p">(</span><span class="nb">*</span> <span class="nv">x</span> <span class="nv">x</span><span class="p">)))))</span>
+</pre></div>
+<div class="highlight"><pre><span class="p">(</span><span class="nv">sum-of-squares</span> <span class="mi">1</span> <span class="mi">2</span> <span class="mi">3</span><span class="p">)</span> <span class="c1">;; 14</span>
+</pre></div>
+</div>
+<div class="section" id="keyword-params">
+<h2>Keyword params</h2>
+<p>After any required, optional and rest params in that order, we can specify
+keyword parameters, which are optional and can be passed in independent of
+their position in the param list. To specify keyword params, we must include the
+symbol &amp;key and any number of keyword argument specifiers after that.</p>
+<div class="highlight"><pre><span class="p">(</span><span class="nb">defun</span> <span class="nv">greet</span> <span class="p">(</span><span class="k">&amp;key</span> <span class="nv">message</span> <span class="nv">name</span><span class="p">)</span>
+   <span class="p">(</span><span class="nb">format</span> <span class="no">t</span> <span class="s">&quot;~a, ~a~%&quot;</span> <span class="p">(</span><span class="k">if</span> <span class="nv">message</span> <span class="nv">message</span> <span class="s">&quot;Hello&quot;</span><span class="p">)</span> <span class="p">(</span><span class="k">if</span> <span class="nv">name</span> <span class="nv">name</span> <span class="s">&quot;Lama&quot;</span><span class="p">)))</span>
+</pre></div>
+<p>Now, GREET can be called like so:</p>
+<div class="highlight"><pre><span class="p">(</span><span class="nv">greet</span><span class="p">)</span> <span class="c1">;; Hello, Lama</span>
+<span class="p">(</span><span class="nv">greet</span> <span class="ss">:name</span> <span class="s">&quot;Yati&quot;</span><span class="p">)</span> <span class="c1">;; Hello, Yati</span>
+<span class="p">(</span><span class="nv">greet</span> <span class="ss">:name</span> <span class="s">&quot;Yati&quot;</span> <span class="ss">:message</span> <span class="s">&quot;Good morning&quot;</span><span class="p">)</span> <span class="c1">;; Good morning, Yati</span>
+</pre></div>
+<p>We can use default values and supplied-p params with keyword params as well:</p>
+<div class="highlight"><pre><span class="p">(</span><span class="nb">defun</span> <span class="nv">greet</span> <span class="p">(</span><span class="k">&amp;key</span> <span class="p">(</span><span class="nv">message</span> <span class="s">&quot;Hello&quot;</span><span class="p">)</span> <span class="p">(</span><span class="nv">name</span> <span class="s">&quot;Lama&quot;</span> <span class="nv">name-supplied-p</span><span class="p">))</span>
+  <span class="p">(</span><span class="nb">format</span> <span class="no">t</span> <span class="s">&quot;~a, ~a~%&quot;</span> <span class="nv">message</span> <span class="nv">name</span><span class="p">)</span>
+  <span class="p">(</span><span class="k">if</span> <span class="p">(</span><span class="nb">not</span> <span class="nv">name-supplied-p</span><span class="p">)</span> <span class="p">(</span><span class="nb">format</span> <span class="no">t</span> <span class="s">&quot;I still don&#39;t know your real name&quot;</span><span class="p">)))</span>
+</pre></div>
+<p>This can now be called as</p>
+<div class="highlight"><pre><span class="p">(</span><span class="nv">greet</span><span class="p">)</span>
+<span class="c1">;; Hello, Lama</span>
+<span class="c1">;; I do not know your name</span>
+<span class="p">(</span><span class="nv">greet</span> <span class="ss">:name</span> <span class="s">&quot;Lama&quot;</span><span class="p">)</span>
+<span class="c1">;; Hello, Lama</span>
+</pre></div>
+<p>Note that in the second call, passing an explicit value for :name did not print
+the second &quot;I do not know your name&quot; message, even if the passed value was the
+same as the default value.</p>
+<p>In case we want to use a concise name for a param in the function, while at the
+same time providing a descriptive param name to the caller, we can replace the
+name of a keyword param by another list that contains a keyword to be used while
+calling the function and the name for the param:</p>
+<div class="highlight"><pre><span class="p">(</span><span class="nb">defun</span> <span class="nv">rgb</span> <span class="p">(</span><span class="k">&amp;key</span> <span class="p">((</span><span class="ss">:red</span> <span class="nv">r</span><span class="p">)</span> <span class="mi">0</span><span class="p">)</span> <span class="p">((</span><span class="ss">:green</span> <span class="nv">g</span><span class="p">)</span> <span class="mi">0</span><span class="p">)</span> <span class="p">((</span><span class="ss">:blue</span> <span class="nv">b</span><span class="p">)))</span>
+  <span class="p">(</span><span class="nb">list</span> <span class="nv">r</span> <span class="nv">g</span> <span class="nv">b</span><span class="p">))</span>
+</pre></div>
+<p>can be called as</p>
+<div class="highlight"><pre><span class="p">(</span><span class="nv">rgb</span> <span class="ss">:red</span> <span class="mh">#xfe</span> <span class="ss">:blue</span> <span class="mh">#xac</span><span class="p">)</span>
+<span class="c1">;; (254 0 172)</span>
+</pre></div>
+<p>When mixing the various types of parameters, the order should always be</p>
+<ul class="simple">
+<li>Required params</li>
+<li>&amp;optional params</li>
+<li>&amp;rest params</li>
+<li>&amp;key params</li>
+</ul>
+<p>Combining optional and keyword params is not such a good idea</p>
+<div class="highlight"><pre><span class="p">(</span><span class="nb">defun</span> <span class="nv">foo</span> <span class="p">(</span><span class="nv">x</span> <span class="k">&amp;optional</span> <span class="nv">y</span> <span class="k">&amp;key</span> <span class="nv">z</span><span class="p">)</span> <span class="p">(</span><span class="nb">list</span> <span class="nv">x</span> <span class="nv">y</span> <span class="nv">z</span><span class="p">))</span>
+<span class="c1">;; (foo 1 2 :z 3)</span>
+<span class="c1">;; (1 2 3)</span>
+<span class="c1">;;</span>
+<span class="c1">;; (foo 1)</span>
+<span class="c1">;; (1 NIL NIL)</span>
+<span class="c1">;;</span>
+<span class="c1">;; (foo 1 :z 3)</span>
+<span class="c1">;; ERROR</span>
+</pre></div>
+<p>The reason why the last call resulted in an error is that even though we meant
+to pass the :z kwarg, Lisp would interpret the :z as the argument for the param
+<tt class="docutils literal">y</tt>, after which a keyword param or nothing is expected. But that leaves just 3
+which will not be parsed as a legal kwarg.</p>
+<p>Mixing rest and keyword params, is, however safe. When both &amp;rest and &amp;key
+params are present in a function's parameter list, the passed in arguments,
+after filling in any required and optional parameters, are ALL collected into
+the &amp;rest variable, along with the keywords and the appropriate &amp;key params are
+also bound to appropriate values.</p>
+<div class="highlight"><pre><span class="p">(</span><span class="nb">defun</span> <span class="nv">foo</span> <span class="p">(</span><span class="k">&amp;rest</span> <span class="nb">rest</span> <span class="k">&amp;key</span> <span class="nv">a</span> <span class="nv">b</span> <span class="nv">c</span><span class="p">)</span> <span class="p">(</span><span class="nb">list</span> <span class="nb">rest</span> <span class="nv">a</span> <span class="nv">b</span> <span class="nv">c</span><span class="p">))</span>
+<span class="c1">;; (foo :a 12 :b 10)</span>
+<span class="c1">;; ((:A 12 :B 10) 12 10 NIL)</span>
+</pre></div>
+<p>But when &amp;rest is followed by a &amp;key, all that can be collected into the rest
+parameter variable is the plist passed in to the function for the keyword
+parameters.</p>
+</div>
+<div class="section" id="returning">
+<h2>Returning</h2>
+<p>A function's return value is what the last form in the function's body
+evaluates to. To explicitly return control as a result of say, breaking out on
+a condition from nested control structures, the RETURN-FROM special operator is
+used. It is a general operator used to break out of any code block defined by
+the BLOCK special operator. DEFUN wraps the functions code in a code block using
+BLOCK and gives it the same name as the function. Hence, we can break out of a
+function using RETURN-FROM by passing it two arguments, the unquoted name of
+the function(unquoted because it is not eval'd) to return from and the value to
+return.</p>
+<div class="highlight"><pre><span class="p">(</span><span class="nb">defun</span> <span class="nv">foo</span> <span class="p">(</span><span class="nv">n</span><span class="p">)</span>
+  <span class="p">(</span><span class="nb">dotimes</span> <span class="p">(</span><span class="nv">i</span> <span class="mi">10</span><span class="p">)</span>
+    <span class="p">(</span><span class="nb">dotimes</span> <span class="p">(</span><span class="nv">j</span> <span class="mi">10</span><span class="p">)</span>
+      <span class="p">(</span><span class="nb">when</span> <span class="p">(</span><span class="nb">&gt;</span> <span class="p">(</span><span class="nb">*</span> <span class="nv">i</span> <span class="nv">j</span><span class="p">)</span> <span class="nv">n</span><span class="p">)</span>
+        <span class="p">(</span><span class="k">return-from</span> <span class="nv">foo</span> <span class="p">(</span><span class="nb">list</span> <span class="nv">i</span> <span class="nv">j</span><span class="p">))))))</span>
+</pre></div>
+<p>This finds the first pair of numbers, both less than 10, whose product is less
+than the argument n.</p>
+</div>
+
+        </section>
+    </section>
+</section>
+            </section>
+        </article>
+        <hr />
+        <footer class="row-fluid muted" id="footer">
+            <section class="span12" id="connect">
+                <ul>
+                    <li class="social-icon">
+                        <a href="./pages/about.html">About</a>
+                    </li> |
+                                        <li class="social-icon">
+                        <a href="http://www.twitter.com/yati_itay" title="twitter"><i class="icon-twitter icon-large"></i></a>
+                    </li> |                                         <li class="social-icon">
+                        <a href="http://www.github.com/yati-sagade" title="github"><i class="icon-github icon-large"></i></a>
+                    </li> |                                         <li class="social-icon">
+                        <a href="https://plus.google.com/102607933018279616737" title="google-plus"><i class="icon-google-plus icon-large"></i></a>
+                    </li>                     
+                    |<li class="social-icon">
+                        <a href="https://github.com/yati-sagade/explog-theme" title="get this theme">Get this theme</a>
+                    </li>
+                </ul>
+            </section>
+        </footer>
+                <script src="./theme/js/jquery-1.8.3.min.js"></script>
+        <script src="./theme/bootstrap/js/bootstrap.min.js"></script>
+    </body>
+</html>

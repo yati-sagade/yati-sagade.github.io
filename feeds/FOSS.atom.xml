@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>explog</title><link href="/" rel="alternate"></link><link href="/feeds/FOSS.atom.xml" rel="self"></link><id>/</id><updated>2012-11-15T00:00:00+01:00</updated><entry><title>Installing MediaWiki locally</title><link href="/installing-mediawiki.html" rel="alternate"></link><updated>2012-11-15T00:00:00+01:00</updated><author><name>Yati Sagade</name></author><id>tag:,2012-11-15:installing-mediawiki.html</id><summary type="html">&lt;p&gt;I am a complete newbie to Wikimedia-land. The first thing that evidently
+tripped me was the names. They seemed to be random permutations of the words
+&amp;quot;Wiki&amp;quot;, &amp;quot;Media&amp;quot; and &amp;quot;Pedia&amp;quot;. &lt;a class="reference external" href="http://www.mediawiki.org/wiki/Wikipmediawiki"&gt;This page&lt;/a&gt; cleared all the confusion.&lt;/p&gt;
+&lt;p&gt;The installation of MediaWiki is pretty straightforward. I am using Apache and
+MySQL to power my wiki, but there are options to use other webservers and
+databases.&lt;/p&gt;
+&lt;p&gt;MediaWiki is available for &lt;a class="reference external" href="http://www.mediawiki.org/wiki/Download"&gt;download here&lt;/a&gt;. It is also possible to clone the git
+repository(more info &lt;a class="reference external" href="http://www.mediawiki.org/wiki/Download_from_Git"&gt;here&lt;/a&gt;).&lt;/p&gt;
+&lt;p&gt;Once downloaded, the simplest way to install MediaWiki is to extract the
+tarball into the httpd(Apache) public folder - commonly called the document
+root or the docroot. For me, this is &lt;tt class="docutils literal"&gt;/var/www/html&lt;/tt&gt;.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;# tar xzv &amp;lt;/home/yati/Downloads/mediawiki-*.tar.gz -C /var/www/html/
+# mv /var/www/html/mediawiki-* mediawiki
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;I run Fedora, and the PHP installation by default does not log any error
+information. I changed this because I was experiencing some problems with the
+MediaWiki installation. This can be done by editing the &lt;tt class="docutils literal"&gt;php.ini&lt;/tt&gt; file, which
+is &lt;tt class="docutils literal"&gt;/etc/php.ini&lt;/tt&gt; for me.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;error_reporting = E_ALL | E_STRICT
+
+error_log = syslog
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Apache should be restarted after editing &lt;tt class="docutils literal"&gt;php.ini&lt;/tt&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;# apachectl -k restart
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;This allowed me to troubleshoot the installation by just &lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;tail``ing&lt;/span&gt;
+&lt;span class="pre"&gt;``/var/log/messages&lt;/span&gt;&lt;/tt&gt;. Next, pointing the browser to
+&lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;http://localhost/mediawiki&lt;/span&gt;&lt;/tt&gt; brought up a nice picture of a flower and a link
+to start setting up the wiki. However, clicking on that link got me a blank
+page. Looking in the logs, I found the reason&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;# tail /var/log/messages
+...
+Nov 15 22:57:26 localhost httpd: PHP Fatal error:  Class &amp;#39;DOMDocument&amp;#39; not found in /var/www/html/mediawiki/includes/LocalisationCache.php on line 542
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Someone in #mediawiki on &lt;a class="reference external" href="irc://irc.freenode.net"&gt;Freenode&lt;/a&gt; pointed out that I am missing the PHP
+DOM extension that allows PHP developers to hack the Document Object Model(DOM)
+from within PHP. &lt;a class="reference external" href="http://ru2.php.net/manual/en/intro.dom.php"&gt;This&lt;/a&gt; is the extension page with detailed instructions on
+installation and configuration on different operating systems. On Fedora, this
+is how that extension is installed:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;# yum -y install php-xml
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;After this, to allow the automatic loading of this extension when PHP starts,
+the &lt;tt class="docutils literal"&gt;php.ini&lt;/tt&gt; file needs to be edited to include the following line:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;extension = dom.so
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;After restarting Apache&lt;/p&gt;
+</summary><category term="FOSS"></category><category term="MediaWiki"></category><category term="Wikipedia"></category></entry></feed>

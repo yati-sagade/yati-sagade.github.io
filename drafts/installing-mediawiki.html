@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Explog</title>
+        <link href="../theme/bootstrap/css/bootstrap.min.css" 
+              rel="stylesheet" media="screen"/>
+        <link href="../theme/css/explog.css" rel="stylesheet"
+              media="screen" />
+        <link href="../theme/css/font-awesome.min.css"
+              rel="stylesheet" media="screen" />
+        <link href="../theme/css/syntax.css" rel="stylesheet"
+              media="screen" />
+
+                    
+    <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type= "text/javascript">
+       MathJax.Hub.Config({
+           config: ["MMLorHTML.js"],
+           jax: ["input/TeX","input/MathML","output/HTML-CSS","output/NativeMML"],
+           TeX: { extensions: ["AMSmath.js","AMSsymbols.js","noErrors.js","noUndefined.js"], equationNumbers: { autoNumber: "AMS" } },
+           extensions: ["tex2jax.js","mml2jax.js","MathMenu.js","MathZoom.js"],
+           tex2jax: { 
+               inlineMath: [ ['$','$'] ],
+               displayMath: [ ['$$','$$'] ],
+               processEscapes: true },
+           "HTML-CSS": {
+               styles: { ".MathJax .mo, .MathJax .mi": {color: "black ! important"}}
+           }
+       });
+    </script>
+
+            </head>
+
+    <body>
+        <header class="row" id="main-page-heading">
+            <section class="row-fluid">
+                <section class="span12">
+                    <h1 class="muted">
+                        <a href="..">
+                            <span style="color:black;">exp</span><span style="color:rgb(0, 136, 204);">log</span>
+                        </a>
+                    </h1>
+                </section>
+            </section>
+        </header>
+        <hr />
+        <article class="container-fluid">
+            <section class="row-fluid">
+                <section class="span2">
+                    <section class="row-fluid">
+                        <section class="well sidebar-nav">
+                            <ul class="nav nav-list">
+                                <li class=""><a href="..">Home</a></li>
+                                <li class=" dropdown-submenu">
+                                    <a tabindex="-1" href="../categories.html">Categories</a>
+                                    <ul class="dropdown-menu">
+                                                                                <li>
+                                        <a tabindex="-1" href="../category/machine-learning.html">Machine Learning</a>
+                                        </li>
+                                                                                <li>
+                                        <a tabindex="-1" href="../category/misc.html">misc</a>
+                                        </li>
+                                                                                <li>
+                                        <a tabindex="-1" href="../category/python.html">python</a>
+                                        </li>
+                                                                            </ul>
+                                </li>
+                            </ul>
+                            <ul class="nav nav-list">
+                                <li class="divider"></li>
+                                <li class=""><a href="../pages/about.html">About</a></li>
+                            </ul>
+                        </section>
+                    </section>
+                    <section class="row-fluid">
+                        <section class="span12">
+                            <span class="nav-header">Tag Cloud</span>
+                            <section class="well sidebar-nav" id="tag-cloud">
+                                <ul>
+                                                                        <li class="tag-4"><a href="../tag/decorators.html">decorators</a></li>
+                                                                        <li class="tag-2"><a href="../tag/lisp.html">lisp</a></li>
+                                                                        <li class="tag-1"><a href="../tag/programming.html">programming</a></li>
+                                                                        <li class="tag-4"><a href="../tag/machine-learning.html">machine-learning</a></li>
+                                                                        <li class="tag-4"><a href="../tag/algorithms.html">algorithms</a></li>
+                                                                        <li class="tag-4"><a href="../tag/math.html">math</a></li>
+                                                                        <li class="tag-2"><a href="../tag/python.html">python</a></li>
+                                                                    </ul>
+                            </section>
+                        </section>
+                    </section>
+                </section>
+                <section class="span9">
+    <section class="row-fluid">
+        <header class="span9 article-heading">
+            <h1><a href="installing-mediawiki.html" rel="bookmark"
+                   title="Permalink to Installing MediaWiki locally">
+                   Installing MediaWiki locally</a></h1>
+        </header>
+        <section class="span3">
+            Thu 15 November 2012 
+        </section>
+    </section>
+    <section class="row-fluid">
+        <section class="span11 article-content">
+            <p>I am a complete newbie to Wikimedia-land. The first thing that evidently
+tripped me was the names. They seemed to be random permutations of the words
+&quot;Wiki&quot;, &quot;Media&quot; and &quot;Pedia&quot;. <a class="reference external" href="http://www.mediawiki.org/wiki/Wikipmediawiki">This page</a> cleared all the confusion.</p>
+<p>The installation of MediaWiki is pretty straightforward. I am using Apache and
+MySQL to power my wiki, but there are options to use other webservers and
+databases.</p>
+<p>MediaWiki is available for download <a href="#id2"><span class="problematic" id="id3">here_</span></a>. It is also possible to clone the git
+repository(more info <a href="#id4"><span class="problematic" id="id5">here_</span></a>).</p>
+<p>Once downloaded, the simplest way to install MediaWiki is to extract the
+tarball into the httpd(Apache) public folder - commonly called the document
+root or the docroot. For me, this is <cite>/var/www/html</cite>.</p>
+<div class="highlight"><pre># tar xzv &lt;/home/yati/Downloads/mediawiki-*.tar.gz -C /var/www/html/
+# mv /var/www/html/mediawiki-* mediawiki
+</pre></div>
+<p>I run Fedora, and the PHP installation by default does not log any error
+information. I changed this because I was experiencing some problems with the
+MediaWiki installation. This can be done by editing the <cite>php.ini</cite> file, which
+is <cite>/etc/php.ini</cite> for me.</p>
+<div class="highlight"><pre>error_reporting = E_ALL | E_STRICT
+
+error_log = syslog
+</pre></div>
+<p>Apache should be restarted after editing <cite>php.ini</cite></p>
+<div class="highlight"><pre># apachectl -k restart
+</pre></div>
+<p>This allowed me to troubleshoot the installation by just <cite>tail`ing
+`/var/log/messages</cite>. Next, pointing the browser to
+<cite>http://localhost/mediawiki</cite> brought up a pleasant flower picture and a link
+to start setting up the wiki. However, clicking on that link got me a blank
+page. Looking in the logs, I found the reason</p>
+<div class="highlight"><pre># tail /var/log/messages
+...
+Nov 15 22:57:26 localhost httpd: PHP Fatal error:  Class &#39;DOMDocument&#39; not found in /var/www/html/mediawiki/includes/LocalisationCache.php on line 542
+</pre></div>
+<p>Someone in #mediawiki on <a class="reference external" href="irc://irc.freenode.net">Freenode</a> pointed out that I am missing the PHP
+DOM extension that allows PHP developers to hack the Document Object Model(DOM)
+from within PHP. <a class="reference external" href="http://ru2.php.net/manual/en/intro.dom.php">This</a> is the extension page with detailed instructions on
+installation and configuration on different operating systems. On Fedora, this
+is how that extension is installed:</p>
+<div class="highlight"><pre># yum -y install php-xml
+</pre></div>
+<p>After this, to allow the automatic loading of this extension when PHP starts,
+the <cite>php.ini</cite> file needs to be edited to include the following line:</p>
+<div class="highlight"><pre>extension = dom.so
+</pre></div>
+<p>After restarting Apache</p>
+<div class="system-message">
+<p class="system-message-title">System Message: WARNING/2 (<tt class="docutils">/home/yati/Projects/BlogPosts/yati-sagade.github.com/content/installing-mediawiki.rst</tt>, line 82); <em><a href="#id1">backlink</a></em></p>
+Duplicate explicit target name: &quot;here&quot;.</div>
+<div class="system-messages section">
+<h2>Docutils System Messages</h2>
+<div class="system-message" id="id2">
+<p class="system-message-title">System Message: ERROR/3 (<tt class="docutils">/home/yati/Projects/BlogPosts/yati-sagade.github.com/content/installing-mediawiki.rst</tt>, line 20); <em><a href="#id3">backlink</a></em></p>
+Duplicate target name, cannot be used as a unique reference: &quot;here&quot;.</div>
+<div class="system-message" id="id4">
+<p class="system-message-title">System Message: ERROR/3 (<tt class="docutils">/home/yati/Projects/BlogPosts/yati-sagade.github.com/content/installing-mediawiki.rst</tt>, line 20); <em><a href="#id5">backlink</a></em></p>
+Duplicate target name, cannot be used as a unique reference: &quot;here&quot;.</div>
+</div>
+
+        </section>
+    </section>
+</section>
+            </section>
+        </article>
+        <hr />
+        <footer class="row-fluid muted" id="footer">
+            <section class="span12" id="connect">
+                <ul>
+                    <li class="social-icon">
+                        <a href="../pages/about.html">About</a>
+                    </li> |
+                                        <li class="social-icon">
+                        <a href="http://www.twitter.com/yati_itay" title="twitter"><i class="icon-twitter icon-large"></i></a>
+                    </li> |                                         <li class="social-icon">
+                        <a href="http://www.github.com/yati-sagade" title="github"><i class="icon-github icon-large"></i></a>
+                    </li> |                                         <li class="social-icon">
+                        <a href="https://plus.google.com/102607933018279616737" title="google-plus"><i class="icon-google-plus icon-large"></i></a>
+                    </li>                     
+                    |<li class="social-icon">
+                        <a href="https://github.com/yati-sagade/explog-theme" title="get this theme">Get this theme</a>
+                    </li>
+                </ul>
+            </section>
+        </footer>
+                <script src="../theme/js/jquery-1.8.3.min.js"></script>
+        <script src="../theme/bootstrap/js/bootstrap.min.js"></script>
+    </body>
+</html>

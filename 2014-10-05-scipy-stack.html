@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Explog</title>
+        <link href="./theme/bootstrap/css/bootstrap.min.css" 
+              rel="stylesheet" media="screen"/>
+        <link href="./theme/css/explog.css" rel="stylesheet"
+              media="screen" />
+        <link href="./theme/css/font-awesome.min.css"
+              rel="stylesheet" media="screen" />
+        <link href="./theme/css/syntax.css" rel="stylesheet"
+              media="screen" />
+
+                    
+    <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type= "text/javascript">
+       MathJax.Hub.Config({
+           config: ["MMLorHTML.js"],
+           jax: ["input/TeX","input/MathML","output/HTML-CSS","output/NativeMML"],
+           TeX: { extensions: ["AMSmath.js","AMSsymbols.js","noErrors.js","noUndefined.js"], equationNumbers: { autoNumber: "AMS" } },
+           extensions: ["tex2jax.js","mml2jax.js","MathMenu.js","MathZoom.js"],
+           tex2jax: { 
+               inlineMath: [ ['$','$'] ],
+               displayMath: [ ['$$','$$'] ],
+               processEscapes: true },
+           "HTML-CSS": {
+               styles: { ".MathJax .mo, .MathJax .mi": {color: "black ! important"}}
+           }
+       });
+    </script>
+
+            </head>
+
+    <body>
+        <header class="row" id="main-page-heading">
+            <section class="row-fluid">
+                <section class="span12">
+                    <h1 class="muted">
+                        <a href=".">
+                            <span style="color:black;">exp</span><span style="color:rgb(0, 136, 204);">log</span>
+                        </a>
+                    </h1>
+                </section>
+            </section>
+        </header>
+        <hr />
+        <article class="container-fluid">
+            <section class="row-fluid">
+                <section class="span2">
+                    <section class="row-fluid">
+                        <section class="well sidebar-nav">
+                            <ul class="nav nav-list">
+                                <li class=""><a href=".">Home</a></li>
+                                <li class=" dropdown-submenu">
+                                    <a tabindex="-1" href="./categories.html">Categories</a>
+                                    <ul class="dropdown-menu">
+                                                                                <li>
+                                        <a tabindex="-1" href="./category/foss.html">FOSS</a>
+                                        </li>
+                                                                                <li>
+                                        <a tabindex="-1" href="./category/misc.html">misc</a>
+                                        </li>
+                                                                                <li>
+                                        <a tabindex="-1" href="./category/programming.html">programming</a>
+                                        </li>
+                                                                                <li>
+                                        <a tabindex="-1" href="./category/python.html">python</a>
+                                        </li>
+                                                                            </ul>
+                                </li>
+                            </ul>
+                            <ul class="nav nav-list">
+                                <li class="divider"></li>
+                                <li class=""><a href="./pages/about.html">About</a></li>
+                            </ul>
+                        </section>
+                    </section>
+                    <section class="row-fluid">
+                        <section class="span12">
+                            <span class="nav-header">Tag Cloud</span>
+                            <section class="well sidebar-nav" id="tag-cloud">
+                                <ul>
+                                                                        <li class="tag-1"><a href="./tag/lisp.html">lisp</a></li>
+                                                                        <li class="tag-4"><a href="./tag/decorators.html">decorators</a></li>
+                                                                        <li class="tag-4"><a href="./tag/gunicorn.html">gunicorn</a></li>
+                                                                        <li class="tag-4"><a href="./tag/django.html">django</a></li>
+                                                                        <li class="tag-4"><a href="./tag/nginx.html">nginx</a></li>
+                                                                        <li class="tag-4"><a href="./tag/scipy.html">scipy</a></li>
+                                                                        <li class="tag-2"><a href="./tag/algorithms.html">algorithms</a></li>
+                                                                        <li class="tag-2"><a href="./tag/math.html">math</a></li>
+                                                                        <li class="tag-4"><a href="./tag/Go.html">Go</a></li>
+                                                                        <li class="tag-4"><a href="./tag/functional-programming.html">functional-programming</a></li>
+                                                                        <li class="tag-4"><a href="./tag/scala.html">scala</a></li>
+                                                                        <li class="tag-1"><a href="./tag/programming.html">programming</a></li>
+                                                                        <li class="tag-4"><a href="./tag/Wikipedia.html">Wikipedia</a></li>
+                                                                        <li class="tag-4"><a href="./tag/MediaWiki.html">MediaWiki</a></li>
+                                                                        <li class="tag-4"><a href="./tag/FOSS.html">FOSS</a></li>
+                                                                        <li class="tag-4"><a href="./tag/machine-learning.html">machine-learning</a></li>
+                                                                        <li class="tag-1"><a href="./tag/python.html">python</a></li>
+                                                                        <li class="tag-4"><a href="./tag/C++.html">C++</a></li>
+                                                                        <li class="tag-4"><a href="./tag/OpenCV.html">OpenCV</a></li>
+                                                                    </ul>
+                            </section>
+                        </section>
+                    </section>
+                </section>
+                <section class="span9">
+    <section class="row-fluid">
+        <header class="span9 article-heading">
+            <h1><a href="scipy-stack.html" rel="bookmark"
+                   title="Permalink to A Python stack for Scientific computing.">
+                   A Python stack for Scientific computing.</a></h1>
+        </header>
+        <section class="span3">
+            Sat 08 December 2012 
+        </section>
+    </section>
+    <section class="row-fluid">
+        <section class="span11 article-content">
+            <p>I have recently started doing quite a bit of numerical and scientific computing
+in Python. Since Python is a general purpose language, the numerical computing
+abilities are provided to it by some excellent mathematical packages. This post
+describes how I got my environment set up.</p>
+<p>It is needed to have Python installed, which is not a problem on most Linux
+distros nowadays anyway. The Windows installation is also pretty
+straightforward (check out the <a class="reference external" href="http://www.python.org">official Python website</a>).</p>
+<p>I am running 64-bit Debian Sid, but the library names should be easily
+obtainable for other (non-Debian based) distros as well.</p>
+<p>I assume a virtualenv installation(you <em>are</em> using virtualenvs, right?)</p>
+<p>We need some libraries to get us started. They can be installed like so:</p>
+<div class="highlight"><pre># aptitude install libamd2.2.0 libblas3gf libc6 libgcc1 libgfortran3 \
+  liblapack3gf libumfpack5.4.0 libstdc++6 build-essential gfortran \
+  libatlas-dev libatlas3-base python python-all-dev gcc g++ libblas-dev \
+  liblapack-dev
+</pre></div>
+<p>Next, we install <a class="reference external" href="http://numpy.org">NumPy</a></p>
+<div class="highlight"><pre>(scicomp)$ pip install numpy
+</pre></div>
+<p>After this, it is <a class="reference external" href="http://scipy.org">SciPy</a></p>
+<div class="highlight"><pre>(scicomp)$ pip install scipy
+</pre></div>
+<p>That is going to take a while, by the way.</p>
+<p>Now, we would like to install <a class="reference external" href="http://matplotlib.org">matplotlib</a>, which is a 2-D plotting library
+for Python. Now Matplotlib is not very friendly with pip/easy_install on many
+systems. So, we will install from source.</p>
+<p>First, clone the matplotlib repo:</p>
+<div class="highlight"><pre>$ git clone git://github.com/matplotlib/matplotlib.git
+</pre></div>
+<p>Then run <tt class="docutils literal">setup.py</tt> without any args to see if all is well</p>
+<div class="highlight"><pre>(scicomp)$ cd matplotlib
+(scicomp)$ python setup.py
+</pre></div>
+<p>This should show you a list of requirements and whether they were found on
+your system or not. The important section is the backends section. If none of
+the supported backends is installed on your system (e.g., Tk, PyGTK, PyQT etc),
+you will want to install one. We will go for the simplest, Tk for the TkAgg
+backend.</p>
+<div class="highlight"><pre># aptitude install tcl-dev tk-dev python-tk
+</pre></div>
+<p>After this, we can actually install matplotlib. Switch to the cloned repo
+directory and run</p>
+<div class="highlight"><pre>(scicomp)$ python setup.py install
+</pre></div>
+<p>This should install matplotlib in your virtualenv. Now, to play with all the
+goodies we have, we might optionally want to install <a class="reference external" href="http://ipython.org/">ipython</a>, a superior
+alternative to the standard Python shell.</p>
+<div class="highlight"><pre>(scicomp)$ pip install ipython
+</pre></div>
+<p>Now, fire up ipython and check if all went well</p>
+<div class="highlight"><pre>(scicomp)$ ipython
+Python 2.7.3 (default, Sep  9 2012, 17:41:34)
+Type &quot;copyright&quot;, &quot;credits&quot; or &quot;license&quot; for more information.
+
+IPython 0.13.1 -- An enhanced Interactive Python.
+?         -&gt; Introduction and overview of IPython&#39;s features.
+%quickref -&gt; Quick reference.
+help      -&gt; Python&#39;s own help system.
+object?   -&gt; Details about &#39;object&#39;, use &#39;object??&#39; for extra details.
+
+In [1]: from matplotlib import pyplot
+
+In [2]: pyplot.pie([1,2,3])
+Out[2]:
+([&lt;matplotlib.patches.Wedge at 0x44a9b50&gt;,
+  &lt;matplotlib.patches.Wedge at 0x44ad1d0&gt;,
+  &lt;matplotlib.patches.Wedge at 0x44ad810&gt;],
+ [&lt;matplotlib.text.Text at 0x44ad150&gt;,
+  &lt;matplotlib.text.Text at 0x44ad790&gt;,
+  &lt;matplotlib.text.Text at 0x44add90&gt;])
+
+In [3]: pyplot.show()
+</pre></div>
+<p>This should bring up a pie chart. If it does not, there is some problem with
+the installation of some package. Additionally, to do R like statistical
+analysis, you might also want to install the superb <cite>pandas</cite> library.</p>
+<div class="highlight"><pre>(scicomp)$ pip install pandas
+</pre></div>
+
+        </section>
+    </section>
+</section>
+            </section>
+        </article>
+        <hr />
+        <footer class="row-fluid muted" id="footer">
+            <section class="span12" id="connect">
+                <ul>
+                    <li class="social-icon">
+                        <a href="./pages/about.html">About</a>
+                    </li> |
+                                        <li class="social-icon">
+                        <a href="http://www.twitter.com/yati_itay" title="twitter"><i class="icon-twitter icon-large"></i></a>
+                    </li> |                                         <li class="social-icon">
+                        <a href="http://www.github.com/yati-sagade" title="github"><i class="icon-github icon-large"></i></a>
+                    </li> |                                         <li class="social-icon">
+                        <a href="https://plus.google.com/102607933018279616737" title="google-plus"><i class="icon-google-plus icon-large"></i></a>
+                    </li>                     
+                    |<li class="social-icon">
+                        <a href="https://github.com/yati-sagade/explog-theme" title="get this theme">Get this theme</a>
+                    </li>
+                </ul>
+            </section>
+        </footer>
+                <script src="./theme/js/jquery-1.8.3.min.js"></script>
+        <script src="./theme/bootstrap/js/bootstrap.min.js"></script>
+    </body>
+</html>

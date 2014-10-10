@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Explog</title>
+        <link href="./theme/bootstrap/css/bootstrap.min.css" 
+              rel="stylesheet" media="screen"/>
+        <link href="./theme/css/explog.css" rel="stylesheet"
+              media="screen" />
+        <link href="./theme/css/font-awesome.min.css"
+              rel="stylesheet" media="screen" />
+        <link href="./theme/css/syntax.css" rel="stylesheet"
+              media="screen" />
+
+                    
+    <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type= "text/javascript">
+       MathJax.Hub.Config({
+           config: ["MMLorHTML.js"],
+           jax: ["input/TeX","input/MathML","output/HTML-CSS","output/NativeMML"],
+           TeX: { extensions: ["AMSmath.js","AMSsymbols.js","noErrors.js","noUndefined.js"], equationNumbers: { autoNumber: "AMS" } },
+           extensions: ["tex2jax.js","mml2jax.js","MathMenu.js","MathZoom.js"],
+           tex2jax: { 
+               inlineMath: [ ['$','$'] ],
+               displayMath: [ ['$$','$$'] ],
+               processEscapes: true },
+           "HTML-CSS": {
+               styles: { ".MathJax .mo, .MathJax .mi": {color: "black ! important"}}
+           }
+       });
+    </script>
+
+            </head>
+
+    <body>
+        <header class="row" id="main-page-heading">
+            <section class="row-fluid">
+                <section class="span12">
+                    <h1 class="muted">
+                        <a href=".">
+                            <span style="color:black;">exp</span><span style="color:rgb(0, 136, 204);">log</span>
+                        </a>
+                    </h1>
+                </section>
+            </section>
+        </header>
+        <hr />
+        <article class="container-fluid">
+            <section class="row-fluid">
+                <section class="span2">
+                    <section class="row-fluid">
+                        <section class="well sidebar-nav">
+                            <ul class="nav nav-list">
+                                <li class=""><a href=".">Home</a></li>
+                                <li class=" dropdown-submenu">
+                                    <a tabindex="-1" href="./categories.html">Categories</a>
+                                    <ul class="dropdown-menu">
+                                                                                <li>
+                                        <a tabindex="-1" href="./category/foss.html">FOSS</a>
+                                        </li>
+                                                                                <li>
+                                        <a tabindex="-1" href="./category/misc.html">misc</a>
+                                        </li>
+                                                                                <li>
+                                        <a tabindex="-1" href="./category/programming.html">programming</a>
+                                        </li>
+                                                                                <li>
+                                        <a tabindex="-1" href="./category/python.html">python</a>
+                                        </li>
+                                                                            </ul>
+                                </li>
+                            </ul>
+                            <ul class="nav nav-list">
+                                <li class="divider"></li>
+                                <li class=""><a href="./pages/about.html">About</a></li>
+                            </ul>
+                        </section>
+                    </section>
+                    <section class="row-fluid">
+                        <section class="span12">
+                            <span class="nav-header">Tag Cloud</span>
+                            <section class="well sidebar-nav" id="tag-cloud">
+                                <ul>
+                                                                        <li class="tag-1"><a href="./tag/lisp.html">lisp</a></li>
+                                                                        <li class="tag-4"><a href="./tag/decorators.html">decorators</a></li>
+                                                                        <li class="tag-4"><a href="./tag/gunicorn.html">gunicorn</a></li>
+                                                                        <li class="tag-4"><a href="./tag/django.html">django</a></li>
+                                                                        <li class="tag-4"><a href="./tag/nginx.html">nginx</a></li>
+                                                                        <li class="tag-4"><a href="./tag/scipy.html">scipy</a></li>
+                                                                        <li class="tag-2"><a href="./tag/algorithms.html">algorithms</a></li>
+                                                                        <li class="tag-2"><a href="./tag/math.html">math</a></li>
+                                                                        <li class="tag-4"><a href="./tag/Go.html">Go</a></li>
+                                                                        <li class="tag-4"><a href="./tag/functional-programming.html">functional-programming</a></li>
+                                                                        <li class="tag-4"><a href="./tag/scala.html">scala</a></li>
+                                                                        <li class="tag-1"><a href="./tag/programming.html">programming</a></li>
+                                                                        <li class="tag-4"><a href="./tag/Wikipedia.html">Wikipedia</a></li>
+                                                                        <li class="tag-4"><a href="./tag/MediaWiki.html">MediaWiki</a></li>
+                                                                        <li class="tag-4"><a href="./tag/FOSS.html">FOSS</a></li>
+                                                                        <li class="tag-4"><a href="./tag/machine-learning.html">machine-learning</a></li>
+                                                                        <li class="tag-1"><a href="./tag/python.html">python</a></li>
+                                                                        <li class="tag-4"><a href="./tag/C++.html">C++</a></li>
+                                                                        <li class="tag-4"><a href="./tag/OpenCV.html">OpenCV</a></li>
+                                                                    </ul>
+                            </section>
+                        </section>
+                    </section>
+                </section>
+                <section class="span9">
+    <section class="row-fluid">
+        <header class="span9 article-heading">
+            <h1><a href="numpy-boost-python-opencv.html" rel="bookmark"
+                   title="Permalink to Wrapping OpenCV functions with Boost Python">
+                   Wrapping OpenCV functions with Boost Python</a></h1>
+        </header>
+        <section class="span3">
+            Sat 11 May 2013 
+        </section>
+    </section>
+    <section class="row-fluid">
+        <section class="span11 article-content">
+            <p>Both C++ and Python are excellent languages that complement each other in many
+ways. I have been working on interesting Computer Vision and Document Analysis
+problem and I have had the need of offloading some performance critical code to
+C++ and expose it neatly to the other pieces, which in turn are in Python.</p>
+<p>Here, I will take a simpler problem as a running example - matrix
+multiplication. We want to write a super-efficient C++ function that multiplies
+two matrices and expose that function to be callable from Python. The Python
+code should be able to pass in two <tt class="docutils literal">numpy.ndarray</tt> objects to be multiplied
+and get back the result in a <tt class="docutils literal">numpy.ndarray</tt>.</p>
+<p>We will call our module <tt class="docutils literal">matrmul</tt> and the function <tt class="docutils literal">mul</tt>. Let us see how
+the calls to this function should look like from Python:</p>
+<div class="highlight"><pre><span class="kn">import</span> <span class="nn">numpy</span>
+<span class="kn">import</span> <span class="nn">matrmul</span> <span class="c"># our module</span>
+
+
+<span class="n">a</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mf">1.</span><span class="p">,</span> <span class="mf">2.</span><span class="p">,</span> <span class="mf">3.</span><span class="p">]])</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mf">1.</span><span class="p">],</span>
+                 <span class="p">[</span><span class="mf">2.</span><span class="p">],</span>
+                 <span class="p">[</span><span class="mf">3.</span><span class="p">]])</span>
+<span class="k">print</span><span class="p">(</span><span class="n">matrmul</span><span class="o">.</span><span class="n">mul</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">))</span> <span class="c"># should print [[14.]]</span>
+</pre></div>
+<p>With the interface in place, we now begin by starting a Boost Python module
+with the <tt class="docutils literal">mul</tt> function. In <a class="reference external" href="https://github.com/yati-sagade/opencv-ndarray-conversion/blob/master/matrmul.cpp">matrmul.cpp</a>, there is code</p>
+<div class="highlight"><pre><span class="cp">#include &lt;iostream&gt;</span>
+<span class="cp">#include &lt;opencv2/imgproc/imgproc.hpp&gt;</span>
+<span class="cp">#include &lt;boost/python.hpp&gt;</span>
+<span class="cp">#include &quot;conversion.h&quot;</span>
+
+<span class="k">namespace</span> <span class="n">py</span> <span class="o">=</span> <span class="n">boost</span><span class="o">::</span><span class="n">python</span><span class="p">;</span>
+
+<span class="n">PyObject</span><span class="o">*</span>
+<span class="n">mul</span><span class="p">(</span><span class="n">PyObject</span> <span class="o">*</span><span class="n">left</span><span class="p">,</span> <span class="n">PyObject</span> <span class="o">*</span><span class="n">right</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">NDArrayConverter</span> <span class="n">cvt</span><span class="p">;</span>
+    <span class="n">cv</span><span class="o">::</span><span class="n">Mat</span> <span class="n">leftMat</span><span class="p">,</span> <span class="n">rightMat</span><span class="p">;</span>
+    <span class="n">leftMat</span> <span class="o">=</span> <span class="n">cvt</span><span class="p">.</span><span class="n">toMat</span><span class="p">(</span><span class="n">left</span><span class="p">);</span>
+    <span class="n">rightMat</span> <span class="o">=</span> <span class="n">cvt</span><span class="p">.</span><span class="n">toMat</span><span class="p">(</span><span class="n">right</span><span class="p">);</span>
+    <span class="k">auto</span> <span class="n">c1</span> <span class="o">=</span> <span class="n">leftMat</span><span class="p">.</span><span class="n">cols</span><span class="p">,</span> <span class="n">r2</span> <span class="o">=</span> <span class="n">rightMat</span><span class="p">.</span><span class="n">rows</span><span class="p">;</span>
+    <span class="c1">// Work only with 2-D matrices that can be legally multiplied.</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">c1</span> <span class="o">!=</span> <span class="n">r2</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">PyErr_SetString</span><span class="p">(</span><span class="n">PyExc_TypeError</span><span class="p">,</span>
+                        <span class="s">&quot;Incompatible sizes for matrix multiplication.&quot;</span><span class="p">);</span>
+        <span class="n">py</span><span class="o">::</span><span class="n">throw_error_already_set</span><span class="p">();</span>
+    <span class="p">}</span>
+    <span class="n">cv</span><span class="o">::</span><span class="n">Mat</span> <span class="n">result</span> <span class="o">=</span> <span class="n">leftMat</span> <span class="o">*</span> <span class="n">rightMat</span><span class="p">;</span>
+
+    <span class="n">PyObject</span><span class="o">*</span> <span class="n">ret</span> <span class="o">=</span> <span class="n">cvt</span><span class="p">.</span><span class="n">toNDArray</span><span class="p">(</span><span class="n">result</span><span class="p">);</span>
+
+    <span class="k">return</span> <span class="n">ret</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="k">static</span> <span class="kt">void</span> <span class="n">init</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="n">Py_Initialize</span><span class="p">();</span>
+    <span class="n">import_array</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="n">BOOST_PYTHON_MODULE</span><span class="p">(</span><span class="n">matrmul</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">init</span><span class="p">();</span>
+    <span class="n">py</span><span class="o">::</span><span class="n">def</span><span class="p">(</span><span class="s">&quot;mul&quot;</span><span class="p">,</span> <span class="n">mul</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+<p>As a quick tour of that code, the main multiplication <tt class="docutils literal">mul</tt> takes two
+parameters of the type <tt class="docutils literal">PyObject*</tt>. The <tt class="docutils literal">PyObject*</tt> type represents the
+Python <tt class="docutils literal">object</tt> type in the C API. Since Python is dynamically typed, the
+function has to figure out what is the actual type of the objects being passed.
+First we use the <tt class="docutils literal">NDArrayConverter</tt> class to convert the two arguments(which
+we believe will NumPy arrays) to the OpenCV <tt class="docutils literal"><span class="pre">cv::Mat</span></tt> type. Then we check if
+the two matrices are multiplication-compatible. If not, a <tt class="docutils literal">TypeError</tt> is
+thrown using the code</p>
+<div class="highlight"><pre><span class="n">PyErr_SetString</span><span class="p">(</span><span class="n">PyExc_TypeError</span><span class="p">,</span>
+                <span class="s">&quot;Incompatible sizes for matrix multiplication.&quot;</span><span class="p">);</span>
+<span class="n">py</span><span class="o">::</span><span class="n">throw_error_already_set</span><span class="p">();</span>
+</pre></div>
+<p><tt class="docutils literal">py</tt> refers to the namespace <tt class="docutils literal"><span class="pre">boost::python</span></tt>, which provides many helpful,
+idiomatic C++ wrappers around the C/Python API. Then we multiply the two
+<tt class="docutils literal">Mat</tt> objects and convert the result back to an ndarray using the
+<tt class="docutils literal"><span class="pre">NDArrayConverter::toNDArray()</span></tt> function the definition of which we shall
+see in a moment.</p>
+<p>The part that exports this function <tt class="docutils literal">mul</tt> as a function in Python is</p>
+<div class="highlight"><pre><span class="n">BOOST_PYTHON_MODULE</span><span class="p">(</span><span class="n">matrmul</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">init</span><span class="p">();</span>
+    <span class="n">py</span><span class="o">::</span><span class="n">def</span><span class="p">(</span><span class="s">&quot;mul&quot;</span><span class="p">,</span> <span class="n">mul</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+<p>So we use a macro defined by the Boost Python library that declares a Python
+module called <tt class="docutils literal">matrmul</tt>. Within that declaration, we call <tt class="docutils literal">init()</tt> that
+in turn initializes the Python runtime and the numpy C library. The latter is
+absolutely necessary, as without it, any calls to the numpy C API will cause
+a segmentation fault. Then, we use <tt class="docutils literal"><span class="pre">py::def()</span></tt> to define a module level
+function called <tt class="docutils literal">mul</tt> (we could give any other name here - this is the name
+seen by Python code). The second argument to <tt class="docutils literal">py:def</tt> is of course, our
+function.</p>
+<p>Now, we need to define the actual conversion functions for</p>
+<ul class="simple">
+<li>Numpy ndarray to <tt class="docutils literal"><span class="pre">cv::Mat</span></tt> conversion</li>
+<li><tt class="docutils literal"><span class="pre">cv::Mat</span></tt> to Numpy ndarray conversion</li>
+</ul>
+<p>The code for doing these conversions has been copied(and modified slightly)
+from the OpenCV sources, and resides in <a class="reference external" href="https://github.com/yati-sagade/opencv-ndarray-conversion/blob/master/conversion.h">conversion.h</a> and <a class="reference external" href="https://github.com/yati-sagade/opencv-ndarray-conversion/blob/master/conversion.cpp">conversion.cpp</a>.
+The high level class exposing functions to do the conversions is called
+<tt class="docutils literal">NDArrayConverter</tt></p>
+<div class="highlight"><pre><span class="k">class</span> <span class="nc">NDArrayConverter</span>
+<span class="p">{</span>
+<span class="k">private</span><span class="o">:</span>
+    <span class="kt">void</span> <span class="n">init</span><span class="p">();</span>
+<span class="k">public</span><span class="o">:</span>
+    <span class="n">NDArrayConverter</span><span class="p">();</span>
+    <span class="n">cv</span><span class="o">::</span><span class="n">Mat</span> <span class="n">toMat</span><span class="p">(</span><span class="k">const</span> <span class="n">PyObject</span><span class="o">*</span> <span class="n">o</span><span class="p">);</span>
+    <span class="n">PyObject</span><span class="o">*</span> <span class="n">toNDArray</span><span class="p">(</span><span class="k">const</span> <span class="n">cv</span><span class="o">::</span><span class="n">Mat</span><span class="o">&amp;</span> <span class="n">mat</span><span class="p">);</span>
+<span class="p">};</span>
+</pre></div>
+<p>So, <tt class="docutils literal"><span class="pre">NDArrayConverter::toMat()</span></tt> takes a numpy ndarray, again as
+a <tt class="docutils literal">PyObject*</tt>, tests whether it is a valid numpy array(needed, as
+a <tt class="docutils literal">PyObject*</tt> can point to any Python object) and returns the equivalent
+<tt class="docutils literal"><span class="pre">cv::Mat</span></tt>.</p>
+<p><tt class="docutils literal"><span class="pre">NDArrayConverter::toNDArray()</span></tt> does the reverse - takes a reference to
+a <tt class="docutils literal"><span class="pre">cv::Mat</span></tt> and returns a <tt class="docutils literal">PyObject*</tt> that represents the numpy array which
+can be returned to the Python runtime via Boost. All this code, including a few
+tests in Python is present <a class="reference external" href="https://github.com/yati-sagade/opencv-ndarray-conversion">here</a>.</p>
+<p>Boost Python can automatically convert native types (like <tt class="docutils literal">str</tt>
+⇋ <tt class="docutils literal"><span class="pre">std::string</span></tt>, Python <tt class="docutils literal">long</tt> ⇋ C++ <tt class="docutils literal">long</tt>, <tt class="docutils literal">int</tt>, etc.), but we need
+to do the conversion ourselves when we have stuff like ndarrays that Boost
+Python does not know about. So the process of wrapping a function can be
+summed up as:</p>
+<ul class="simple">
+<li>Write the C++ function to take normal native types if native types is all
+you expect to be passed to it from Python. Boost takes care of the
+plumbing and type checking.</li>
+<li>If the function(in Python) takes anything other than native types, write
+the C++ function to take <tt class="docutils literal">PyObject*</tt> - the generic Python <tt class="docutils literal">object</tt>.</li>
+<li>If using <tt class="docutils literal">PyObject*</tt>, convert to whatever format is expected(or throw
+a <tt class="docutils literal">TypeError</tt> if a malformed object was passed) and produce the result.</li>
+<li>If the result is a standard C++ type that can be handled by Boost, no
+conversion is needed. Otherwise, convert that result to a <tt class="docutils literal">PyObject*</tt>
+and return this.</li>
+<li>Use <tt class="docutils literal">BOOST_PYTHON_MODULE</tt> to expose your function to Python.</li>
+</ul>
+<p>After the code is ready, we need to compile the code to a shared object file.
+The easiest way to do that would be to use GNU make. The Makefile should
+compile the conversion code(<tt class="docutils literal">conversion.cpp</tt>), the module wrapper
+code(<tt class="docutils literal">matrmul.cpp</tt>) and link them together. We also need to pass the Boost
+and OpenCV headers while compiling and must link against the Boost, Python and
+OpenCV libs. A working Makefile can be cloned <a class="reference external" href="https://github.com/yati-sagade/opencv-ndarray-conversion/blob/master/Makefile">from here</a> and tweaked to
+specific needs. After compiling, one can start the python shell from the same
+directory as <tt class="docutils literal">matrmul.so</tt> and test the multiplication routine:</p>
+<div class="highlight"><pre><span class="go">In [1]: import numpy as np</span>
+
+<span class="go">In [2]: import matrmul</span>
+
+<span class="go">In [3]: a = np.array([[1., 2., 3.]])</span>
+
+<span class="go">In [4]: b = a.reshape(3, 1)</span>
+
+<span class="go">In [5]: b</span>
+<span class="go">Out[5]:</span>
+<span class="go">array([[ 1.],</span>
+<span class="go">       [ 2.],</span>
+<span class="go">       [ 3.]])</span>
+
+<span class="go">In [6]: a.dot(b)</span>
+<span class="go">Out[6]: array([[ 14.]])</span>
+
+<span class="go">In [7]: matrmul.mul(a, b)</span>
+<span class="go">Out[7]: array([[ 14.]])</span>
+</pre></div>
+<p>Using the Makefile provided, you can also type <tt class="docutils literal">make test</tt> to run the tests
+in <tt class="docutils literal">test.py</tt>, which verifies that our code is correct.</p>
+<p>Once again, all the code, including the Makefile and the Python tests can be
+found <a class="reference external" href="https://github.com/yati-sagade/opencv-ndarray-conversion">here</a>.</p>
+
+        </section>
+    </section>
+</section>
+            </section>
+        </article>
+        <hr />
+        <footer class="row-fluid muted" id="footer">
+            <section class="span12" id="connect">
+                <ul>
+                    <li class="social-icon">
+                        <a href="./pages/about.html">About</a>
+                    </li> |
+                                        <li class="social-icon">
+                        <a href="http://www.twitter.com/yati_itay" title="twitter"><i class="icon-twitter icon-large"></i></a>
+                    </li> |                                         <li class="social-icon">
+                        <a href="http://www.github.com/yati-sagade" title="github"><i class="icon-github icon-large"></i></a>
+                    </li> |                                         <li class="social-icon">
+                        <a href="https://plus.google.com/102607933018279616737" title="google-plus"><i class="icon-google-plus icon-large"></i></a>
+                    </li>                     
+                    |<li class="social-icon">
+                        <a href="https://github.com/yati-sagade/explog-theme" title="get this theme">Get this theme</a>
+                    </li>
+                </ul>
+            </section>
+        </footer>
+                <script src="./theme/js/jquery-1.8.3.min.js"></script>
+        <script src="./theme/bootstrap/js/bootstrap.min.js"></script>
+    </body>
+</html>

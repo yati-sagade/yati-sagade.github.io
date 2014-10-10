@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Explog</title>
+        <link href="./theme/bootstrap/css/bootstrap.min.css" 
+              rel="stylesheet" media="screen"/>
+        <link href="./theme/css/explog.css" rel="stylesheet"
+              media="screen" />
+        <link href="./theme/css/font-awesome.min.css"
+              rel="stylesheet" media="screen" />
+        <link href="./theme/css/syntax.css" rel="stylesheet"
+              media="screen" />
+
+                    
+    <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type= "text/javascript">
+       MathJax.Hub.Config({
+           config: ["MMLorHTML.js"],
+           jax: ["input/TeX","input/MathML","output/HTML-CSS","output/NativeMML"],
+           TeX: { extensions: ["AMSmath.js","AMSsymbols.js","noErrors.js","noUndefined.js"], equationNumbers: { autoNumber: "AMS" } },
+           extensions: ["tex2jax.js","mml2jax.js","MathMenu.js","MathZoom.js"],
+           tex2jax: { 
+               inlineMath: [ ['$','$'] ],
+               displayMath: [ ['$$','$$'] ],
+               processEscapes: true },
+           "HTML-CSS": {
+               styles: { ".MathJax .mo, .MathJax .mi": {color: "black ! important"}}
+           }
+       });
+    </script>
+
+            </head>
+
+    <body>
+        <header class="row" id="main-page-heading">
+            <section class="row-fluid">
+                <section class="span12">
+                    <h1 class="muted">
+                        <a href=".">
+                            <span style="color:black;">exp</span><span style="color:rgb(0, 136, 204);">log</span>
+                        </a>
+                    </h1>
+                </section>
+            </section>
+        </header>
+        <hr />
+        <article class="container-fluid">
+            <section class="row-fluid">
+                <section class="span2">
+                    <section class="row-fluid">
+                        <section class="well sidebar-nav">
+                            <ul class="nav nav-list">
+                                <li class=""><a href=".">Home</a></li>
+                                <li class=" dropdown-submenu">
+                                    <a tabindex="-1" href="./categories.html">Categories</a>
+                                    <ul class="dropdown-menu">
+                                                                                <li>
+                                        <a tabindex="-1" href="./category/foss.html">FOSS</a>
+                                        </li>
+                                                                                <li>
+                                        <a tabindex="-1" href="./category/misc.html">misc</a>
+                                        </li>
+                                                                                <li>
+                                        <a tabindex="-1" href="./category/programming.html">programming</a>
+                                        </li>
+                                                                                <li>
+                                        <a tabindex="-1" href="./category/python.html">python</a>
+                                        </li>
+                                                                            </ul>
+                                </li>
+                            </ul>
+                            <ul class="nav nav-list">
+                                <li class="divider"></li>
+                                <li class=""><a href="./pages/about.html">About</a></li>
+                            </ul>
+                        </section>
+                    </section>
+                    <section class="row-fluid">
+                        <section class="span12">
+                            <span class="nav-header">Tag Cloud</span>
+                            <section class="well sidebar-nav" id="tag-cloud">
+                                <ul>
+                                                                        <li class="tag-1"><a href="./tag/lisp.html">lisp</a></li>
+                                                                        <li class="tag-4"><a href="./tag/decorators.html">decorators</a></li>
+                                                                        <li class="tag-4"><a href="./tag/gunicorn.html">gunicorn</a></li>
+                                                                        <li class="tag-4"><a href="./tag/django.html">django</a></li>
+                                                                        <li class="tag-4"><a href="./tag/nginx.html">nginx</a></li>
+                                                                        <li class="tag-4"><a href="./tag/scipy.html">scipy</a></li>
+                                                                        <li class="tag-2"><a href="./tag/algorithms.html">algorithms</a></li>
+                                                                        <li class="tag-2"><a href="./tag/math.html">math</a></li>
+                                                                        <li class="tag-4"><a href="./tag/Go.html">Go</a></li>
+                                                                        <li class="tag-4"><a href="./tag/functional-programming.html">functional-programming</a></li>
+                                                                        <li class="tag-4"><a href="./tag/scala.html">scala</a></li>
+                                                                        <li class="tag-1"><a href="./tag/programming.html">programming</a></li>
+                                                                        <li class="tag-4"><a href="./tag/Wikipedia.html">Wikipedia</a></li>
+                                                                        <li class="tag-4"><a href="./tag/MediaWiki.html">MediaWiki</a></li>
+                                                                        <li class="tag-4"><a href="./tag/FOSS.html">FOSS</a></li>
+                                                                        <li class="tag-4"><a href="./tag/machine-learning.html">machine-learning</a></li>
+                                                                        <li class="tag-1"><a href="./tag/python.html">python</a></li>
+                                                                        <li class="tag-4"><a href="./tag/C++.html">C++</a></li>
+                                                                        <li class="tag-4"><a href="./tag/OpenCV.html">OpenCV</a></li>
+                                                                    </ul>
+                            </section>
+                        </section>
+                    </section>
+                </section>
+                <section class="span9">
+    <section class="row-fluid">
+        <header class="span9 article-heading">
+            <h1><a href="tanimoto-coefficient.html" rel="bookmark"
+                   title="Permalink to The Tanimoto Coefficient">
+                   The Tanimoto Coefficient</a></h1>
+        </header>
+        <section class="span3">
+            Sun 25 November 2012 
+        </section>
+    </section>
+    <section class="row-fluid">
+        <section class="span11 article-content">
+            <p>There exist a number of metrics to measure similarity between two items, like
+the <a class="reference external" href="http://en.wikipedia.org/wiki/Euclidean_distance">Euclidean distance metric</a>, the <a class="reference external" href="http://en.wikipedia.org/wiki/Pearson_product-moment_correlation_coefficient">Pearson correlation coefficient</a> and
+the Tanimoto score, and its special case, the <a class="reference external" href="http://en.wikipedia.org/wiki/Jaccard_index">Jaccard coefficient/index</a>.</p>
+<p>Whenever evaluating similarity between two entities, say, people or items, it is
+convenient to encode each entity as an $N$-dimensional vector, with each dimension
+representing some feature. For example, if we have $N$ customers and $M$ products in
+the catalog, we may, for finding similar items, encode each item as an
+$N$-dimensional vector with each dimension being the rating given to that item by
+the $i$-th user, using the value $0$ for no rating at all.</p>
+<p>But sometimes, the values of the features are two valued, i.e., for any vector
+$ \mathbf{X_{i}} $ = $ (x_{i1}, x_{i2}, x_{i3}, ..., x_{iN}) $, where $ x_{ik} $ is either <tt class="docutils literal">0</tt> or some positive weight
+<tt class="docutils literal">Wk</tt> assigned to the k-th entry . This weight does <strong>not</strong> depend on i and hence, is
+the same for all vectors. The Tanimoto coefficient for such a pair of vectors
+$ \mathbf{X_{m}} $ and $ \mathbf{X_{n}} $ is given by</p>
+<p>$$ \begin{equation} \label{bg:intmod} T(X_{m}, X_{n}) = \frac {X_{mn}}{X_{mm} + X_{nn} - X_{mn}} \end{equation} $$</p>
+<p>where $ X_{ij} $ is $ \mathbf{X_{i}}.\mathbf{X_{j}} $ (the vector inner product).
+Note that the Jaccard index is a special case of the Tanimoto score where $ W_{k} $ = $ 1 $
+for all $ k $, i.e., the two vectors $ \mathbf{X_{m}} $ and $ \mathbf{X_{n}} $ are binary/bit vectors.</p>
+<div class="section" id="implementation-in-python">
+<h2>Implementation in Python</h2>
+<div class="highlight"><pre><span class="k">def</span> <span class="nf">tanimoto_score</span><span class="p">(</span><span class="n">vec1</span><span class="p">,</span> <span class="n">vec2</span><span class="p">,</span> <span class="n">weights</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Return the Tanimoto score between vec1 and vec2.</span>
+<span class="sd">    Args:</span>
+<span class="sd">            vec1, vec2: The two vectors to find the Tanimoto coefficient for. MUST be</span>
+<span class="sd">                                    of the same length</span>
+<span class="sd">    Kwargs:</span>
+<span class="sd">            weights: If given, this must be an iterable of the same length as vec1 and</span>
+<span class="sd">                             vec2. If kth element of weights, weights[k] = wk, it means that</span>
+<span class="sd">                             vec1[k] and vec2[k] can take up values of either 0 or wk. If not</span>
+<span class="sd">                             given, or when None, a value of (1, 1, ... upto len(vec1) elements)</span>
+<span class="sd">                             is assumed(i.e., the Jaccard index of the binary vectors vec1 and</span>
+<span class="sd">                             vec2 is returned in this case).</span>
+
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="n">N</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">vec1</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">weights</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+        <span class="n">valid_ranges</span> <span class="o">=</span> <span class="p">[(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">vec1</span><span class="p">]</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">valid_ranges</span> <span class="o">=</span> <span class="p">[(</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">w</span><span class="p">)</span> <span class="k">for</span> <span class="n">w</span> <span class="ow">in</span> <span class="n">weights</span><span class="p">]</span>
+
+    <span class="k">assert</span> <span class="n">N</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="n">vec2</span><span class="p">)</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="n">valid_ranges</span><span class="p">)</span>
+
+    <span class="n">v1v2</span><span class="p">,</span> <span class="n">v1v1</span><span class="p">,</span> <span class="n">v2v2</span> <span class="o">=</span> <span class="mf">0.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span> <span class="mf">0.</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">vec1</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">valid_ranges</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="ow">or</span> <span class="n">vec2</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">valid_ranges</span><span class="p">[</span><span class="n">i</span><span class="p">]:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s">&#39;Encountered invalid values. Expected one of {}, &#39;</span>
+                             <span class="s">&#39;got {} and {}&#39;</span>
+                             <span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">valid_ranges</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">vec1</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">vec2</span><span class="p">[</span><span class="n">i</span><span class="p">]))</span>
+        <span class="n">v1v2</span> <span class="o">+=</span> <span class="n">vec1</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">*</span> <span class="n">vec2</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+        <span class="n">v1v1</span> <span class="o">+=</span> <span class="n">vec1</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">*</span> <span class="n">vec1</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+        <span class="n">v2v2</span> <span class="o">+=</span> <span class="n">vec2</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">*</span> <span class="n">vec2</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+
+    <span class="k">return</span> <span class="n">v1v2</span> <span class="o">/</span> <span class="p">(</span><span class="n">v1v1</span> <span class="o">+</span> <span class="n">v2v2</span> <span class="o">-</span> <span class="n">v1v2</span><span class="p">)</span>
+</pre></div>
+<p>If the overhead of the validation is not needed(the common case, maybe), the
+implementation gets simpler:</p>
+<div class="highlight"><pre><span class="k">def</span> <span class="nf">tanimoto_score</span><span class="p">(</span><span class="n">vec1</span><span class="p">,</span> <span class="n">vec2</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Return the Tanimoto score between vec1 and vec2.</span>
+<span class="sd">    Args:</span>
+<span class="sd">        vec1, vec2: The two vectors to find the Tanimoto coefficient for. MUST be</span>
+<span class="sd">                    of the same length</span>
+
+<span class="sd">    No validation is performed except same length checks. It is assumed that</span>
+<span class="sd">    the caller passes properly weighted data.</span>
+
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="n">N</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">vec1</span><span class="p">)</span>
+
+    <span class="k">assert</span> <span class="n">N</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="n">vec2</span><span class="p">)</span>
+
+    <span class="n">v1v2</span><span class="p">,</span> <span class="n">v1v1</span><span class="p">,</span> <span class="n">v2v2</span> <span class="o">=</span> <span class="mf">0.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span> <span class="mf">0.</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
+        <span class="n">v1v2</span> <span class="o">+=</span> <span class="n">vec1</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">*</span> <span class="n">vec2</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+        <span class="n">v1v1</span> <span class="o">+=</span> <span class="n">vec1</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">*</span> <span class="n">vec1</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+        <span class="n">v2v2</span> <span class="o">+=</span> <span class="n">vec2</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">*</span> <span class="n">vec2</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+
+    <span class="k">return</span> <span class="n">v1v2</span> <span class="o">/</span> <span class="p">(</span><span class="n">v1v1</span> <span class="o">+</span> <span class="n">v2v2</span> <span class="o">-</span> <span class="n">v1v2</span><span class="p">)</span>
+</pre></div>
+<p>Both these implementations return a value between 0 and 1, with a higher value
+indicating more similarity.</p>
+</div>
+
+        </section>
+    </section>
+</section>
+            </section>
+        </article>
+        <hr />
+        <footer class="row-fluid muted" id="footer">
+            <section class="span12" id="connect">
+                <ul>
+                    <li class="social-icon">
+                        <a href="./pages/about.html">About</a>
+                    </li> |
+                                        <li class="social-icon">
+                        <a href="http://www.twitter.com/yati_itay" title="twitter"><i class="icon-twitter icon-large"></i></a>
+                    </li> |                                         <li class="social-icon">
+                        <a href="http://www.github.com/yati-sagade" title="github"><i class="icon-github icon-large"></i></a>
+                    </li> |                                         <li class="social-icon">
+                        <a href="https://plus.google.com/102607933018279616737" title="google-plus"><i class="icon-google-plus icon-large"></i></a>
+                    </li>                     
+                    |<li class="social-icon">
+                        <a href="https://github.com/yati-sagade/explog-theme" title="get this theme">Get this theme</a>
+                    </li>
+                </ul>
+            </section>
+        </footer>
+                <script src="./theme/js/jquery-1.8.3.min.js"></script>
+        <script src="./theme/bootstrap/js/bootstrap.min.js"></script>
+    </body>
+</html>

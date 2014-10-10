@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Explog</title>
+        <link href="./theme/bootstrap/css/bootstrap.min.css" 
+              rel="stylesheet" media="screen"/>
+        <link href="./theme/css/explog.css" rel="stylesheet"
+              media="screen" />
+        <link href="./theme/css/font-awesome.min.css"
+              rel="stylesheet" media="screen" />
+        <link href="./theme/css/syntax.css" rel="stylesheet"
+              media="screen" />
+
+                    
+    <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type= "text/javascript">
+       MathJax.Hub.Config({
+           config: ["MMLorHTML.js"],
+           jax: ["input/TeX","input/MathML","output/HTML-CSS","output/NativeMML"],
+           TeX: { extensions: ["AMSmath.js","AMSsymbols.js","noErrors.js","noUndefined.js"], equationNumbers: { autoNumber: "AMS" } },
+           extensions: ["tex2jax.js","mml2jax.js","MathMenu.js","MathZoom.js"],
+           tex2jax: { 
+               inlineMath: [ ['$','$'] ],
+               displayMath: [ ['$$','$$'] ],
+               processEscapes: true },
+           "HTML-CSS": {
+               styles: { ".MathJax .mo, .MathJax .mi": {color: "black ! important"}}
+           }
+       });
+    </script>
+
+            </head>
+
+    <body>
+        <header class="row" id="main-page-heading">
+            <section class="row-fluid">
+                <section class="span12">
+                    <h1 class="muted">
+                        <a href=".">
+                            <span style="color:black;">exp</span><span style="color:rgb(0, 136, 204);">log</span>
+                        </a>
+                    </h1>
+                </section>
+            </section>
+        </header>
+        <hr />
+        <article class="container-fluid">
+            <section class="row-fluid">
+                <section class="span2">
+                    <section class="row-fluid">
+                        <section class="well sidebar-nav">
+                            <ul class="nav nav-list">
+                                <li class=""><a href=".">Home</a></li>
+                                <li class=" dropdown-submenu">
+                                    <a tabindex="-1" href="./categories.html">Categories</a>
+                                    <ul class="dropdown-menu">
+                                                                                <li>
+                                        <a tabindex="-1" href="./category/foss.html">FOSS</a>
+                                        </li>
+                                                                                <li>
+                                        <a tabindex="-1" href="./category/misc.html">misc</a>
+                                        </li>
+                                                                                <li>
+                                        <a tabindex="-1" href="./category/programming.html">programming</a>
+                                        </li>
+                                                                                <li>
+                                        <a tabindex="-1" href="./category/python.html">python</a>
+                                        </li>
+                                                                            </ul>
+                                </li>
+                            </ul>
+                            <ul class="nav nav-list">
+                                <li class="divider"></li>
+                                <li class=""><a href="./pages/about.html">About</a></li>
+                            </ul>
+                        </section>
+                    </section>
+                    <section class="row-fluid">
+                        <section class="span12">
+                            <span class="nav-header">Tag Cloud</span>
+                            <section class="well sidebar-nav" id="tag-cloud">
+                                <ul>
+                                                                        <li class="tag-1"><a href="./tag/lisp.html">lisp</a></li>
+                                                                        <li class="tag-4"><a href="./tag/decorators.html">decorators</a></li>
+                                                                        <li class="tag-4"><a href="./tag/gunicorn.html">gunicorn</a></li>
+                                                                        <li class="tag-4"><a href="./tag/django.html">django</a></li>
+                                                                        <li class="tag-4"><a href="./tag/nginx.html">nginx</a></li>
+                                                                        <li class="tag-4"><a href="./tag/scipy.html">scipy</a></li>
+                                                                        <li class="tag-2"><a href="./tag/algorithms.html">algorithms</a></li>
+                                                                        <li class="tag-2"><a href="./tag/math.html">math</a></li>
+                                                                        <li class="tag-4"><a href="./tag/Go.html">Go</a></li>
+                                                                        <li class="tag-4"><a href="./tag/functional-programming.html">functional-programming</a></li>
+                                                                        <li class="tag-4"><a href="./tag/scala.html">scala</a></li>
+                                                                        <li class="tag-1"><a href="./tag/programming.html">programming</a></li>
+                                                                        <li class="tag-4"><a href="./tag/Wikipedia.html">Wikipedia</a></li>
+                                                                        <li class="tag-4"><a href="./tag/MediaWiki.html">MediaWiki</a></li>
+                                                                        <li class="tag-4"><a href="./tag/FOSS.html">FOSS</a></li>
+                                                                        <li class="tag-4"><a href="./tag/machine-learning.html">machine-learning</a></li>
+                                                                        <li class="tag-1"><a href="./tag/python.html">python</a></li>
+                                                                        <li class="tag-4"><a href="./tag/C++.html">C++</a></li>
+                                                                        <li class="tag-4"><a href="./tag/OpenCV.html">OpenCV</a></li>
+                                                                    </ul>
+                            </section>
+                        </section>
+                    </section>
+                </section>
+                <section class="span9">
+    <section class="row-fluid">
+        <header class="span9 article-heading">
+            <h1><a href="common-lisp-lexical-variables.html" rel="bookmark"
+                   title="Permalink to Lexical variables in Common Lisp">
+                   Lexical variables in Common Lisp</a></h1>
+        </header>
+        <section class="span3">
+            Wed 27 March 2013 
+        </section>
+    </section>
+    <section class="row-fluid">
+        <section class="span11 article-content">
+            <p>Common Lisp is a dynamically, but strongly typed language. The variables
+carry the type information that can be fetched at runtime, and hence, the type
+errors are detected dynamically. In this way, it is most similar to Python,
+which, too, is a dynamically but strongly typed language.</p>
+<p>All values in Common Lisp conceptually are references objects. Assigning a
+new value to a variable only makes it refer to the new object. It does not
+change the referrent. This is very much like how Python names and bindings work
+and unlike C++ references, which themselves are always const. Of course, if a
+variable holds a reference to a mutable object, it is always possible to modify
+it via the reference, and the changes will be visible via all other references
+to that object.</p>
+<p>A binding is the runtime manifestation of a variable. For example, when a
+function is called, the variables in the parameter list of the function
+definition are bound by Lisp to the objects that are the actual arguments of
+that particular call. A single variable can end up having many different
+bindings during the run of a program - it can even have multiple bindings at the
+same time, e.g., for a function parameter variable during a recursive function
+calls.</p>
+<div class="section" id="the-let-special-operator">
+<h2>The LET special operator</h2>
+<p>Apart from DEFUN, another way of introducing variables is the LET special
+operator. The general form of a LET command is this:</p>
+<div class="highlight"><pre><span class="p">(</span><span class="k">let</span> <span class="p">(</span><span class="nv">variable*</span><span class="p">)</span>
+  <span class="nv">body-form*</span><span class="p">)</span>
+</pre></div>
+<p>Here, each <cite>variable</cite> is a variable initialization form, which is either a list
+containing a variable name and an initial value or just a variable name, which
+gets an initial value of NIL.</p>
+<div class="highlight"><pre><span class="p">(</span><span class="k">let</span> <span class="p">((</span><span class="nv">x</span> <span class="mi">10</span><span class="p">)</span> <span class="p">(</span><span class="nv">y</span> <span class="mi">20</span><span class="p">)</span> <span class="nv">z</span><span class="p">)</span>
+  <span class="p">(</span><span class="nb">list</span> <span class="nv">x</span> <span class="nv">y</span> <span class="nv">z</span><span class="p">))</span>
+
+<span class="c1">;; (10 20 NIL)</span>
+</pre></div>
+<p>That code binds the variables x, y and z to values 10, 20 and NIL, respectively.</p>
+<p>When a LET form is encountered, all the initialization forms are evaluated first
+and then new bindings are created for the variables to the initial values
+before any of the body forms are executed. Within the body of LET, the variable
+names refer to the newly created bindings. After the LET, the names refer to
+whatever they were referring to before the LET. Everytime a LET is entered, the
+variables are rebound. The return value of a LET form is the value of the last
+expression evaluated in its body.</p>
+</div>
+<div class="section" id="scope">
+<h2>Scope</h2>
+<p>The scope of both LET variables and function parameters is delimited by the form
+they were introduced in, which in turn is called the binding form. Nesting
+binding forms that introduce variables with the same name causes the binding of
+the innermost variable shadows all outer bindings.</p>
+<div class="highlight"><pre><span class="nv">CL-USER&gt;</span> <span class="p">(</span><span class="nb">defun</span> <span class="nv">foo</span> <span class="p">(</span><span class="nv">x</span><span class="p">)</span>
+           <span class="p">(</span><span class="nb">format</span> <span class="no">t</span> <span class="s">&quot;Parameter: ~a~%&quot;</span> <span class="nv">x</span><span class="p">)</span>
+           <span class="p">(</span><span class="k">let</span> <span class="p">((</span><span class="nv">x</span> <span class="mi">2</span><span class="p">))</span>
+             <span class="p">(</span><span class="nb">format</span> <span class="no">t</span> <span class="s">&quot;Outer LET: ~a~%&quot;</span> <span class="nv">x</span><span class="p">)</span>
+             <span class="p">(</span><span class="k">let</span> <span class="p">((</span><span class="nv">x</span> <span class="mi">3</span><span class="p">))</span>
+               <span class="p">(</span><span class="nb">format</span> <span class="no">t</span> <span class="s">&quot;Inner LET: ~a~%&quot;</span> <span class="nv">x</span><span class="p">))</span>
+             <span class="p">(</span><span class="nb">format</span> <span class="no">t</span> <span class="s">&quot;Outer LET: ~a~%&quot;</span> <span class="nv">x</span><span class="p">))</span>
+           <span class="p">(</span><span class="nb">format</span> <span class="no">t</span> <span class="s">&quot;Parameter: ~a~%&quot;</span> <span class="nv">x</span><span class="p">))</span>
+
+<span class="nv">FOO</span>
+<span class="nv">CL-USER&gt;</span> <span class="p">(</span><span class="nv">foo</span> <span class="mi">4</span><span class="p">)</span>
+<span class="nv">Parameter:</span> <span class="mi">4</span>
+<span class="nv">Outer</span> <span class="nv">LET:</span> <span class="mi">2</span>
+<span class="nv">Inner</span> <span class="nv">LET:</span> <span class="mi">3</span>
+<span class="nv">Outer</span> <span class="nv">LET:</span> <span class="mi">2</span>
+<span class="nv">Parameter:</span> <span class="mi">4</span>
+<span class="no">NIL</span>
+</pre></div>
+<p>In general, any construct that introduces a new variable name that is usable
+only within that construct is a binding form. For example, the DOTIMES macro,
+which is a basic counting loop, introduces a counter variable that is
+incremented at every iteration, upto a certain count.</p>
+<div class="highlight"><pre><span class="p">(</span><span class="nb">dotimes</span> <span class="p">(</span><span class="nv">x</span> <span class="mi">10</span><span class="p">)</span> <span class="p">(</span><span class="nb">format</span> <span class="no">t</span> <span class="s">&quot;~a &quot;</span> <span class="nv">x</span><span class="p">))</span>
+<span class="c1">;; 0 1 2 3 4 5 6 7 8 9</span>
+</pre></div>
+<p>Another binding form, called LET* allows one to use previously defined
+variables in the variable list to initialize a variable. e.g., this is possible:</p>
+<div class="highlight"><pre><span class="p">(</span><span class="k">let*</span> <span class="p">((</span><span class="nv">x</span> <span class="mi">10</span><span class="p">)</span>
+       <span class="p">(</span><span class="nv">y</span> <span class="p">(</span><span class="nb">*</span> <span class="nv">x</span> <span class="nv">x</span><span class="p">))</span> <span class="c1">; note that x was used to initialize y.</span>
+  <span class="p">(</span><span class="nb">list</span> <span class="nv">x</span> <span class="nv">y</span><span class="p">))</span>
+</pre></div>
+</div>
+<div class="section" id="lexical-variables-and-closures">
+<h2>Lexical variables and closures</h2>
+<p>Lexical variables in Lisp are like the lexically scoped local variables of
+other languages like Python, C++. A lexical variable binding can be accessed by
+all code that lies textually within the binding form of that variable. But there
+is a twist, when nested functions come into the play.</p>
+<div class="highlight"><pre><span class="p">(</span><span class="k">let</span> <span class="p">((</span><span class="nb">count</span> <span class="mi">0</span><span class="p">))</span> <span class="nf">#&#39;</span><span class="p">(</span><span class="k">lambda</span> <span class="p">()</span> <span class="p">(</span><span class="nb">setf</span> <span class="nb">count</span> <span class="p">(</span><span class="nb">1+</span> <span class="nb">count</span><span class="p">))))</span>
+</pre></div>
+<p>Here, as we enter the LET, a binding for <cite>count</cite> gets created, and the value
+returned from the LET is a function that accesses the count binding from its
+enclosing scope. All fine so far, since the lambda itself lies textually within
+the binding form of the count variable. But, when this lambda is returned to
+the caller of the LET, and invoked from there, that code is not textually
+within the LET. But as it turns out, this works perfectly fine.</p>
+<div class="highlight"><pre><span class="p">(</span><span class="nb">defparameter</span> <span class="vg">*fn*</span> <span class="p">(</span><span class="k">let</span> <span class="p">((</span><span class="nb">count</span> <span class="mi">0</span><span class="p">))</span> <span class="nf">#&#39;</span><span class="p">(</span><span class="k">lambda</span> <span class="p">()</span> <span class="p">(</span><span class="nb">setf</span> <span class="nb">count</span> <span class="p">(</span><span class="nb">1+</span> <span class="nb">count</span><span class="p">)))))</span>
+<span class="p">(</span><span class="nb">funcall</span> <span class="vg">*fn*</span><span class="p">)</span> <span class="c1">;; 1</span>
+<span class="p">(</span><span class="nb">funcall</span> <span class="vg">*fn*</span><span class="p">)</span> <span class="c1">;; 2</span>
+<span class="p">(</span><span class="nb">funcall</span> <span class="vg">*fn*</span><span class="p">)</span> <span class="c1">;; 3</span>
+<span class="o">...</span>
+</pre></div>
+<p>As we can see, if count is a lexical variable, any bindings created for it are
+retained for as long as needed, in this case, for as long as someone holds a
+reference to the returned lambda. The inner lambda is a full closure.</p>
+<p>The key point to note is that it is the bindings that are captured in an inner
+function, and not just the value, which means that not only can the inner
+function access the value of the captured variable, it can also assign new
+values to it and they will persist between calls.</p>
+<p>A single closure can close over multiple variable bindings by simply referring
+to them. Similarly, multiple closures can also capture the same binding.</p>
+<div class="section" id="common-lisp-dynamic-variables">
+<h3>Common Lisp - Dynamic variables</h3>
+<p>Many a time, global variables are needed to store stuff like standard I/O
+stream handles. In lisp, global variables are nicer to manage than their
+counterparts in other languages. These variables are called dynamic variables
+in Lisp, and as a convention, their names start and end with a *. There are two
+ways to define dynamic variables, DEFVAR and DEFPARAMETER. DEFVAR assigns to
+the variable only if it is undefined, while DEFPARAMETER works regardless. Both
+DEFVAR and DEFPARAMETER take a variable name, an initial value and an optional
+documentation string. One can leave out the initial value in a DEFVAR, which
+results in an unbound dynamic variable.</p>
+<div class="highlight"><pre><span class="p">(</span><span class="nb">defvar</span> <span class="vg">*count*</span> <span class="mi">0</span>
+  <span class="s">&quot;Count of widgets made so far.&quot;</span><span class="p">)</span>
+
+<span class="p">(</span><span class="nb">defparameter</span> <span class="vg">*gap-tolerance*</span> <span class="mf">0.001</span>
+  <span class="s">&quot;Tolerance to be allowed in widget gaps.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="rebinding-dynamic-variables">
+<h2>Rebinding dynamic variables</h2>
+<p>Sometimes, we need to be able to change the value of a global variable just for
+a part of our code. For example, the *standard-output* global variable is
+bound to the standard output stream. One might want a part of the code calling
+functions that write to *standard-output* to actually write to a file instead
+of writing it to stdout. We can do this by assigning to *standard-output*
+a handle to our file, executing our code and resetting *standard-output* to
+stdout. But a neater a way is provided by Lisp. Whenever a form introduces a
+variable having the same name as a dynamic variable, all code within the
+binding form and all code called by this code see the new binding. So for
+example, we can do this:</p>
+<div class="highlight"><pre><span class="p">(</span><span class="nb">format</span> <span class="no">t</span> <span class="s">&quot;This will be printed to stdout.~%&quot;</span><span class="p">)</span>
+<span class="p">(</span><span class="k">let</span> <span class="p">((</span><span class="vg">*standard-output*</span> <span class="vg">*some-other-stream*</span><span class="p">))</span>
+  <span class="p">(</span><span class="nb">format</span> <span class="no">t</span> <span class="s">&quot;This will be printed to a file.~%&quot;</span><span class="p">))</span>
+<span class="p">(</span><span class="nb">format</span> <span class="no">t</span> <span class="s">&quot;This will again be printed to stdout.~%&quot;</span><span class="p">)</span>
+</pre></div>
+<p>What is important to note is that while lexical variable bindings are seen only
+by code textually within the binding form of the variables(and closures, of
+course), all code CALLED from a binding form of a dynamic variable also sees the
+new binding. The binding is restored as soon as the binding form is done
+executing.</p>
+<p>An example:</p>
+<div class="highlight"><pre><span class="nv">CL-USER&gt;</span> <span class="p">(</span><span class="nb">defvar</span> <span class="vg">*x*</span> <span class="mi">10</span><span class="p">)</span>
+<span class="vg">*X*</span>
+<span class="nv">CL-USER&gt;</span> <span class="p">(</span><span class="nb">defun</span> <span class="nv">foo</span> <span class="p">()</span> <span class="p">(</span><span class="nb">format</span> <span class="no">t</span> <span class="s">&quot;x: ~d~%&quot;</span> <span class="vg">*x*</span><span class="p">))</span>
+<span class="nv">STYLE-WARNING:</span> <span class="nv">redefining</span> <span class="nv">COMMON-LISP-USER::FOO</span> <span class="nv">in</span> <span class="nv">DEFUN</span>
+<span class="nv">FOO</span>
+<span class="nv">CL-USER&gt;</span> <span class="p">(</span><span class="nv">foo</span><span class="p">)</span>
+<span class="nv">x:</span> <span class="mi">10</span>
+<span class="no">NIL</span>
+<span class="nv">CL-USER&gt;</span> <span class="p">(</span><span class="k">let</span> <span class="p">((</span><span class="vg">*x*</span> <span class="mi">100</span><span class="p">))</span> <span class="p">(</span><span class="nv">foo</span><span class="p">))</span>
+<span class="nv">x:</span> <span class="mi">100</span>
+<span class="no">NIL</span>
+<span class="nv">CL-USER&gt;</span> <span class="p">(</span><span class="nv">foo</span><span class="p">)</span>
+<span class="nv">x:</span> <span class="mi">10</span>
+<span class="no">NIL</span>
+</pre></div>
+<p>All variables defined using DEFVAR and DEFPARAMETER are declared globally
+special. This means that whenever a binding form tries to create a binding
+for a variable that has been declared special, a dynamic binding is created
+instead of a normal, lexical binding.</p>
+<p>These examples I got from folks in #lisp on Freenode made the difference
+between lexical bindings and dynamic bindings even clearer to me:</p>
+<div class="highlight"><pre><span class="p">(</span><span class="nb">defun</span> <span class="nv">foo</span> <span class="p">(</span><span class="nv">x</span><span class="p">)</span>
+  <span class="p">(</span><span class="k">let</span> <span class="p">((</span><span class="nv">l</span> <span class="p">(</span><span class="k">lambda</span> <span class="p">()</span> <span class="nv">x</span><span class="p">))</span>
+        <span class="p">(</span><span class="nv">x</span> <span class="mi">3</span><span class="p">))</span>
+    <span class="p">(</span><span class="nb">funcall</span> <span class="nv">l</span><span class="p">)))</span>
+
+<span class="p">(</span><span class="nv">foo</span> <span class="mi">1</span><span class="p">)</span> <span class="c1">;; returns 1</span>
+
+<span class="p">(</span><span class="k">let</span> <span class="p">((</span><span class="nv">l</span> <span class="k">lambda</span> <span class="p">()</span> <span class="vg">*x*</span><span class="p">)</span>
+      <span class="p">(</span><span class="vg">*x*</span> <span class="mi">3</span><span class="p">))</span>
+  <span class="p">(</span><span class="nb">funcall</span> <span class="nv">l</span><span class="p">))</span> <span class="c1">;; returns 3</span>
+</pre></div>
+</div>
+<div class="section" id="constants">
+<h2>Constants</h2>
+<p>Constants can be defined using DEFCONSTANT, which has the same form as
+DEFPARAMETER,</p>
+<div class="highlight"><pre><span class="p">(</span><span class="nb">defconstant</span> <span class="nv">name</span> <span class="nv">initial-value-form</span> <span class="nv">[documentation-string]</span><span class="p">)</span>
+</pre></div>
+<p>Constants declared in this way are always global. They can't be rebound in
+any way. The convention while naming a constant is to have the name start and
+end with +plus-signs+.</p>
+</div>
+<div class="section" id="assignment">
+<h2>Assignment</h2>
+<p>Since all symbols evaluate to the value of the variable they name, getting the
+value of a variable is as easy as referring to it. The workhorse for assignment
+in Common Lisp is the SETF macro, which by virtue of being a macro, can examine
+its arguments, and hence be a generic assignment operator. The general form is</p>
+<div class="highlight"><pre><span class="p">(</span><span class="nb">setf</span> <span class="nv">place</span> <span class="nv">value</span><span class="p">)</span>
+</pre></div>
+<p>e.g.,</p>
+<div class="highlight"><pre><span class="p">(</span><span class="nb">setf</span> <span class="nv">x</span> <span class="mi">10</span><span class="p">)</span>
+</pre></div>
+<p>assigns the value 10 to the variable x. Assigning a new value to a
+binding has no effect on any other bindings of that variable or on the actual
+value stored in the binding prior to the assignment. Thus calling <cite>foo</cite>:</p>
+<div class="highlight"><pre><span class="p">(</span><span class="nb">defun</span> <span class="nv">foo</span> <span class="p">(</span><span class="nv">x</span><span class="p">)</span>
+  <span class="p">(</span><span class="nb">setf</span> <span class="nv">x</span> <span class="mi">10</span><span class="p">))</span>
+</pre></div>
+<p>will not have any effect on any value outside <cite>foo</cite>. Concretely, a form like:</p>
+<div class="highlight"><pre><span class="p">(</span><span class="k">let</span> <span class="p">((</span><span class="nv">y</span> <span class="mi">20</span><span class="p">))</span>
+  <span class="p">(</span><span class="nv">foo</span> <span class="nv">y</span><span class="p">)</span>
+  <span class="p">(</span><span class="nb">print</span> <span class="nv">y</span><span class="p">))</span>
+</pre></div>
+<p>prints 20, not 10.</p>
+<p>Multiple assignments can be done with one SETF:</p>
+<div class="highlight"><pre><span class="p">(</span><span class="nb">setf</span> <span class="nv">x</span> <span class="mi">1</span> <span class="nv">y</span> <span class="mi">2</span><span class="p">)</span>
+</pre></div>
+<p>will assign 1 to x and 2 to y. Also, since setf(like assignment operators in
+most other languages) returns the assigned value, assignments can be chained:</p>
+<div class="highlight"><pre><span class="p">(</span><span class="nb">setf</span> <span class="nv">x</span> <span class="p">(</span><span class="nb">setf</span> <span class="nv">y</span> <span class="p">(</span><span class="nb">random</span> <span class="mi">10</span><span class="p">)))</span>
+</pre></div>
+<p>will set both x and y to the same random number. Note that this is similar to
+<cite>x = y = random.randint(0, 10)</cite> in Python.</p>
+<p>SETF can be used to assign not only to variables, but to any place that can hold
+a value. Examples include, an array element, a field slot of a user-defined
+object, an entry in a hashtable, etc. This is intuitive, as the assignment
+operator <cite>=</cite> works in exactly the same way in most other languages - it can be
+used to assign to object members, array elements, hashtable entries, regular
+variables, etc.</p>
+<p>SETFing a place which is a part of a larger object has the same semantics as
+regular SETF on a variable - it does not affect the value that was stored
+previously in that place. This is just like how Python/Java do it.</p>
+</div>
+<div class="section" id="other-ways-to-modify-places">
+<h2>Other ways to modify places</h2>
+<p>While SETF is a very general assignment tool that is the go to place for almost
+all assignment needs, certain assignment patterns are common enough to justify
+the inclusion of their own operators. e.g., the increment operation, which is
+used to increment a value by 1, can be written using SETF as</p>
+<div class="highlight"><pre><span class="p">(</span><span class="nb">setf</span> <span class="nv">x</span> <span class="p">(</span><span class="nb">+</span> <span class="nv">x</span> <span class="mi">1</span><span class="p">))</span>
+</pre></div>
+<p>But increments and decrements are very commonplace and having more concise
+ways of performing them makes sense.</p>
+<div class="highlight"><pre><span class="p">(</span><span class="nb">incf</span> <span class="nv">x</span><span class="p">)</span> <span class="c1">;; Equivalent to (setf x (+ x 1))</span>
+
+<span class="p">(</span><span class="nb">decf</span> <span class="nv">x</span><span class="p">)</span> <span class="c1">;; Equivalent to (setf x (- x 1))</span>
+</pre></div>
+<p>INCF and DECF belong to a class of macros called modifier macros. Modifier
+macros are built on top of SETF to modify the value at a place. When the place
+argument to a modifier macro is an expression that needs to be evaluated once
+(which typically is the case when evaluation of the place form results in some
+side-effects), modify macros do the right thing. Generally, they are guaranteed
+to evaluate both their arguments and the subforms of the place form exactly
+once. For example, let us consider the following INCF:</p>
+<div class="highlight"><pre><span class="c1">;; Increment a random element in *array*</span>
+<span class="p">(</span><span class="nb">incf</span> <span class="p">(</span><span class="nb">aref</span> <span class="vg">*array*</span> <span class="p">(</span><span class="nb">random</span> <span class="p">(</span><span class="nb">length</span>  <span class="nv">*array</span><span class="p">))))</span>
+</pre></div>
+<p>A naive translation to SETF might look like this:</p>
+<div class="highlight"><pre><span class="p">(</span><span class="nb">setf</span> <span class="p">(</span><span class="nb">aref</span> <span class="vg">*array*</span> <span class="p">(</span><span class="nb">random</span> <span class="p">(</span><span class="nb">length</span> <span class="vg">*array*</span><span class="p">)))</span>
+      <span class="p">(</span><span class="nb">1+</span> <span class="p">(</span><span class="nb">aref</span> <span class="vg">*array*</span> <span class="p">(</span><span class="nb">random</span> <span class="p">(</span><span class="nb">length</span> <span class="vg">*array*</span><span class="p">)))))</span>
+</pre></div>
+<p>But that call to RANDOM is not deterministic, the second AREF might not give the
+same element of the array as the first call. A more sane approach here would be
+to use a temporary variable to hold the random number in a LET and then use
+that in both the AREFs. INCF takes care of all this.</p>
+<p>Two other useful modifier macros are ROTATEF and SHIFTF. ROTATEF rotates the
+values between the places it takes as arguments.</p>
+<div class="highlight"><pre><span class="p">(</span><span class="nb">rotatef</span> <span class="nv">a</span> <span class="nv">b</span><span class="p">)</span> <span class="c1">;; swap the values in a and b</span>
+</pre></div>
+<div class="highlight"><pre><span class="nv">CL-USER&gt;</span> <span class="p">(</span><span class="k">let</span> <span class="p">((</span><span class="nv">a</span> <span class="mi">0</span><span class="p">)</span> <span class="p">(</span><span class="nv">b</span> <span class="mi">1</span><span class="p">)</span> <span class="p">(</span><span class="nv">c</span> <span class="mi">2</span><span class="p">))</span>
+           <span class="p">(</span><span class="nb">format</span> <span class="no">t</span> <span class="s">&quot;~a~%&quot;</span> <span class="p">(</span><span class="nb">list</span> <span class="nv">a</span> <span class="nv">b</span> <span class="nv">c</span><span class="p">))</span>
+           <span class="p">(</span><span class="nb">rotatef</span> <span class="nv">a</span> <span class="nv">b</span> <span class="nv">c</span><span class="p">)</span>
+           <span class="p">(</span><span class="nb">format</span> <span class="no">t</span> <span class="s">&quot;~a~%&quot;</span> <span class="p">(</span><span class="nb">list</span> <span class="nv">a</span> <span class="nv">b</span> <span class="nv">c</span><span class="p">)))</span>
+<span class="p">(</span><span class="mi">0</span> <span class="mi">1</span> <span class="mi">2</span><span class="p">)</span>
+<span class="p">(</span><span class="mi">1</span> <span class="mi">2</span> <span class="mi">0</span><span class="p">)</span>
+<span class="no">NIL</span>
+</pre></div>
+<p>SHIFTF shifts the values in the places in its argument list, till the second
+last argument, one place to the left. The second last place itself is given
+the last argument's value.</p>
+<div class="highlight"><pre><span class="nv">CL-USER&gt;</span> <span class="p">(</span><span class="k">let</span> <span class="p">((</span><span class="nv">a</span> <span class="mi">0</span><span class="p">)</span> <span class="p">(</span><span class="nv">b</span> <span class="mi">1</span><span class="p">)</span> <span class="p">(</span><span class="nv">c</span> <span class="mi">2</span><span class="p">))</span>
+       <span class="p">(</span><span class="nb">format</span> <span class="no">t</span> <span class="s">&quot;~a~%&quot;</span> <span class="p">(</span><span class="nb">list</span> <span class="nv">a</span> <span class="nv">b</span> <span class="nv">c</span><span class="p">))</span>
+       <span class="p">(</span><span class="nb">shiftf</span> <span class="nv">a</span> <span class="nv">b</span> <span class="nv">c</span><span class="p">)</span>
+       <span class="p">(</span><span class="nb">format</span> <span class="no">t</span> <span class="s">&quot;~a~%&quot;</span> <span class="p">(</span><span class="nb">list</span> <span class="nv">a</span> <span class="nv">b</span> <span class="nv">c</span><span class="p">)))</span>
+<span class="p">(</span><span class="mi">0</span> <span class="mi">1</span> <span class="mi">2</span><span class="p">)</span>
+<span class="p">(</span><span class="mi">1</span> <span class="mi">2</span> <span class="mi">2</span><span class="p">)</span>
+<span class="no">NIL</span>
+</pre></div>
+<p>So here, a gets b's value, b gets c's. But c being the last argument, it is
+treated as a filler value for the second last argument, b, and is not itself
+modified. The value of the first argument is the return value of SHIFTF.</p>
+<p>All in all, variables in Lisp are pretty easy to grok, especially if one
+understands how names/bindings work in Python(as was the case with me). It is
+fascinating how one of the earliest programming languages just gets variables
+right, complete with dynamic typing.</p>
+</div>
+
+        </section>
+    </section>
+</section>
+            </section>
+        </article>
+        <hr />
+        <footer class="row-fluid muted" id="footer">
+            <section class="span12" id="connect">
+                <ul>
+                    <li class="social-icon">
+                        <a href="./pages/about.html">About</a>
+                    </li> |
+                                        <li class="social-icon">
+                        <a href="http://www.twitter.com/yati_itay" title="twitter"><i class="icon-twitter icon-large"></i></a>
+                    </li> |                                         <li class="social-icon">
+                        <a href="http://www.github.com/yati-sagade" title="github"><i class="icon-github icon-large"></i></a>
+                    </li> |                                         <li class="social-icon">
+                        <a href="https://plus.google.com/102607933018279616737" title="google-plus"><i class="icon-google-plus icon-large"></i></a>
+                    </li>                     
+                    |<li class="social-icon">
+                        <a href="https://github.com/yati-sagade/explog-theme" title="get this theme">Get this theme</a>
+                    </li>
+                </ul>
+            </section>
+        </footer>
+                <script src="./theme/js/jquery-1.8.3.min.js"></script>
+        <script src="./theme/bootstrap/js/bootstrap.min.js"></script>
+    </body>
+</html>

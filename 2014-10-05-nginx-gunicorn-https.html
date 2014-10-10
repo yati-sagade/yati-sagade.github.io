@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Explog</title>
+        <link href="./theme/bootstrap/css/bootstrap.min.css" 
+              rel="stylesheet" media="screen"/>
+        <link href="./theme/css/explog.css" rel="stylesheet"
+              media="screen" />
+        <link href="./theme/css/font-awesome.min.css"
+              rel="stylesheet" media="screen" />
+        <link href="./theme/css/syntax.css" rel="stylesheet"
+              media="screen" />
+
+                    
+    <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type= "text/javascript">
+       MathJax.Hub.Config({
+           config: ["MMLorHTML.js"],
+           jax: ["input/TeX","input/MathML","output/HTML-CSS","output/NativeMML"],
+           TeX: { extensions: ["AMSmath.js","AMSsymbols.js","noErrors.js","noUndefined.js"], equationNumbers: { autoNumber: "AMS" } },
+           extensions: ["tex2jax.js","mml2jax.js","MathMenu.js","MathZoom.js"],
+           tex2jax: { 
+               inlineMath: [ ['$','$'] ],
+               displayMath: [ ['$$','$$'] ],
+               processEscapes: true },
+           "HTML-CSS": {
+               styles: { ".MathJax .mo, .MathJax .mi": {color: "black ! important"}}
+           }
+       });
+    </script>
+
+            </head>
+
+    <body>
+        <header class="row" id="main-page-heading">
+            <section class="row-fluid">
+                <section class="span12">
+                    <h1 class="muted">
+                        <a href=".">
+                            <span style="color:black;">exp</span><span style="color:rgb(0, 136, 204);">log</span>
+                        </a>
+                    </h1>
+                </section>
+            </section>
+        </header>
+        <hr />
+        <article class="container-fluid">
+            <section class="row-fluid">
+                <section class="span2">
+                    <section class="row-fluid">
+                        <section class="well sidebar-nav">
+                            <ul class="nav nav-list">
+                                <li class=""><a href=".">Home</a></li>
+                                <li class=" dropdown-submenu">
+                                    <a tabindex="-1" href="./categories.html">Categories</a>
+                                    <ul class="dropdown-menu">
+                                                                                <li>
+                                        <a tabindex="-1" href="./category/foss.html">FOSS</a>
+                                        </li>
+                                                                                <li>
+                                        <a tabindex="-1" href="./category/misc.html">misc</a>
+                                        </li>
+                                                                                <li>
+                                        <a tabindex="-1" href="./category/programming.html">programming</a>
+                                        </li>
+                                                                                <li>
+                                        <a tabindex="-1" href="./category/python.html">python</a>
+                                        </li>
+                                                                            </ul>
+                                </li>
+                            </ul>
+                            <ul class="nav nav-list">
+                                <li class="divider"></li>
+                                <li class=""><a href="./pages/about.html">About</a></li>
+                            </ul>
+                        </section>
+                    </section>
+                    <section class="row-fluid">
+                        <section class="span12">
+                            <span class="nav-header">Tag Cloud</span>
+                            <section class="well sidebar-nav" id="tag-cloud">
+                                <ul>
+                                                                        <li class="tag-1"><a href="./tag/lisp.html">lisp</a></li>
+                                                                        <li class="tag-4"><a href="./tag/decorators.html">decorators</a></li>
+                                                                        <li class="tag-4"><a href="./tag/gunicorn.html">gunicorn</a></li>
+                                                                        <li class="tag-4"><a href="./tag/django.html">django</a></li>
+                                                                        <li class="tag-4"><a href="./tag/nginx.html">nginx</a></li>
+                                                                        <li class="tag-4"><a href="./tag/scipy.html">scipy</a></li>
+                                                                        <li class="tag-2"><a href="./tag/algorithms.html">algorithms</a></li>
+                                                                        <li class="tag-2"><a href="./tag/math.html">math</a></li>
+                                                                        <li class="tag-4"><a href="./tag/Go.html">Go</a></li>
+                                                                        <li class="tag-4"><a href="./tag/functional-programming.html">functional-programming</a></li>
+                                                                        <li class="tag-4"><a href="./tag/scala.html">scala</a></li>
+                                                                        <li class="tag-1"><a href="./tag/programming.html">programming</a></li>
+                                                                        <li class="tag-4"><a href="./tag/Wikipedia.html">Wikipedia</a></li>
+                                                                        <li class="tag-4"><a href="./tag/MediaWiki.html">MediaWiki</a></li>
+                                                                        <li class="tag-4"><a href="./tag/FOSS.html">FOSS</a></li>
+                                                                        <li class="tag-4"><a href="./tag/machine-learning.html">machine-learning</a></li>
+                                                                        <li class="tag-1"><a href="./tag/python.html">python</a></li>
+                                                                        <li class="tag-4"><a href="./tag/C++.html">C++</a></li>
+                                                                        <li class="tag-4"><a href="./tag/OpenCV.html">OpenCV</a></li>
+                                                                    </ul>
+                            </section>
+                        </section>
+                    </section>
+                </section>
+                <section class="span9">
+    <section class="row-fluid">
+        <header class="span9 article-heading">
+            <h1><a href="nginx-gunicorn-https.html" rel="bookmark"
+                   title="Permalink to Configuring an HTTPS site with Django on Nginx + Gunicorn">
+                   Configuring an HTTPS site with Django on Nginx + Gunicorn</a></h1>
+        </header>
+        <section class="span3">
+            Fri 11 May 2012 
+        </section>
+    </section>
+    <section class="row-fluid">
+        <section class="span11 article-content">
+            <p>I have deployed quite a few Django powered sites(or projects, if you will) on PaaS like <a class="reference external" href="https://openshift.redhat.com/app/">OpenShift</a>, <a class="reference external" href="https://developers.google.com/appengine/">Google AppEngine</a> and most of the time, personal projects are best hosted on a PaaS (I'm a big PaaS fan). But I was required to deploy my final semester project on our college server. Admittedly, deployment is the single most diffcult task for newcomers. I scoured the Web, spoke to guys on IRC and finally was able to deploy Django on <a class="reference external" href="http://wiki.nginx.org/Main">Nginx</a> and <a class="reference external" href="http://gunicorn.org/">Gunicorn</a> over HTTPS (my site uses HTTPS throughout).</p>
+<div class="section" id="step-0x00-the-dummy-project">
+<h2>Step 0x00: The dummy project</h2>
+<p>Create the virtualenv for our project:</p>
+<div class="highlight"><pre>$ mkdir dummy
+$ virtualenv --no-site-packages dummy
+New python executable in dummy/bin/python
+Installing setuptools............done.
+Installing pip...............done.
+$ source ./dummy/bin/activate
+(dummy)$ pip install django
+</pre></div>
+<p>So now we're working in the virtualenv and have the latest stable Django installed. Switch to your projects directory and start a new Django project.</p>
+<div class="highlight"><pre>(dummy)$ django-admin.py startproject dummy_project
+(dummy)$ cd dummy_project
+(dummy)$ ls
+manage.py dummy_project
+</pre></div>
+<p>Now test if this is working fine in Django's development server:</p>
+<div class="highlight"><pre>(dummy)$ python manage.py runserver
+</pre></div>
+<p>and go to <tt class="docutils literal"><span class="pre">http://localhost:8000/</span></tt> in your browser. You should see the Django welcome page.
+Stop the development server for now and let's move on to the next step.</p>
+</div>
+<div class="section" id="step-0x01-installing-gunicorn">
+<h2>Step 0x01: Installing Gunicorn</h2>
+<p>Gunicorn 'Green Unicorn' is a Python WSGI HTTP Server for UNIX. It is lightweight and supports Django out-of-the-box. To install, simply do</p>
+<div class="highlight"><pre>(dummy)$ pip install gunicorn
+</pre></div>
+<p>This will install Gunicorn in the current virtualenv (dummy here). To test if Gunicorn runs fine,</p>
+<div class="highlight"><pre>(dummy)$ cd /path/to/project/dir
+(dummy)$ gunicorn_django
+</pre></div>
+<p>You should see some output on the terminal. Point your browser to <tt class="docutils literal"><span class="pre">http://localhost:8000/</span></tt> again to see if it works. (You did shut down the previously started development server, right?)</p>
+<p>Now for deployment on a real production system, we'll need to pass a couple more options to gunicorn. Let's create a file called deploy.sh that contains the appropriate invocation for gunicorn</p>
+<div class="highlight"><pre><span class="c">#!/bin/bash</span>
+<span class="nb">set</span> -e
+<span class="nv">LOGFILE</span><span class="o">=</span>/path/to/logdir/dummy.log
+<span class="nv">LOGDIR</span><span class="o">=</span><span class="k">$(</span>dirname <span class="nv">$LOGFILE</span><span class="k">)</span>
+<span class="c"># Number of worker processes.</span>
+<span class="c"># Should be no less than the number of cores available and a popular formula</span>
+<span class="c"># is 1 + 2 * number of cores.</span>
+<span class="nv">NUM_WORKERS</span><span class="o">=</span>3
+
+<span class="nv">USER</span><span class="o">=</span>youruser
+
+<span class="nv">GROUP</span><span class="o">=</span>youruser
+
+<span class="nb">cd</span> /path/to/project/dir
+
+<span class="c"># Activate the virtualenv - replace the path with the path to wherever your venv lives.</span>
+<span class="nb">source</span> /path/to/virtualenv/dummy/bin/activate
+
+<span class="nb">test</span> -d <span class="nv">$LOGDIR</span> <span class="o">||</span> mkdir -p <span class="nv">$LOGDIR</span>
+
+<span class="c"># Finally, the invocation</span>
+gunicorn_django -w <span class="nv">$NUM_WORKERS</span> <span class="se">\</span>
+    --user<span class="o">=</span><span class="nv">$USER</span> --group<span class="o">=</span><span class="nv">$GROUP</span> --log-level<span class="o">=</span>debug <span class="se">\</span>
+    --log-file<span class="o">=</span><span class="nv">$LOGFILE</span> 2&amp;gt;&amp;gt;<span class="nv">$LOGFILE</span>
+</pre></div>
+<p>Now make this file executable by doing</p>
+<div class="highlight"><pre>(dummy)$ chmod a+x deploy.sh
+</pre></div>
+<p>At this point, simply executing deploy.sh should bring up gunicorn and allow us to view the welcome page on <tt class="docutils literal"><span class="pre">http://localhost:8000/</span></tt></p>
+</div>
+<div class="section" id="step-0x02-installing-and-configuring-supervisor">
+<h2>Step 0x02: Installing and configuring Supervisor</h2>
+<p><a class="reference external" href="http://supervisord.org/">Supervisor</a> is a client/server system that allows its users to monitor and control a number of processes on UNIX-like operating systems. Why are we using it? Because it gives us control over our processes and we're able to configure things like log file paths in a central place - the supervisor configuration file. Also, adding a new project is as easy as a new block in the configuration file. Installing is super-easy</p>
+<div class="highlight"><pre>(dummy)$ pip install supervisor
+</pre></div>
+<p>Supervisor has two components - the server(called <tt class="docutils literal">supervisord</tt>), which daemonizes when run and the client tool(called <tt class="docutils literal">supervisorctl</tt>), which is used to start/stop our programs. Let's write the configuration file for supervisord.</p>
+<p>Place the following in the <tt class="docutils literal">etc</tt> directory in your virtualenv - e.g., <tt class="docutils literal">/path/to/venv/dummy/etc/</tt> as <tt class="docutils literal">supervisord.conf</tt></p>
+<div class="highlight"><pre>[program:dummy]
+directory = /path/to/project/dir
+user = youruser
+command = /path/to/deploy.sh
+stdout_logfile = /path/to/dummy.log
+stderr_logfile = /path/to/dummy.log
+
+[unix_http_server]
+file=/tmp/supervisor.sock   ; (the path to the socket file)
+
+[supervisord]
+logfile=/tmp/supervisord.log ; (main log file;default $CWD/supervisord.log)
+logfile_maxbytes=50MB        ; (max main logfile bytes b4 rotation;default 50MB)
+logfile_backups=10           ; (num of main logfile rotation backups;default 10)
+loglevel=info                ; (log level;default info; others: debug,warn,trace)
+pidfile=/tmp/supervisord.pid ; (supervisord pidfile;default supervisord.pid)
+nodaemon=false               ; (start in foreground if true;default false)
+minfds=1024                  ; (min. avail startup file descriptors;default 1024)
+minprocs=200                 ; (min. avail process descriptors;default 200)
+
+[rpcinterface:supervisor]
+supervisor.rpcinterface_factory = supervisor.rpcinterface:make_main_rpcinterface
+
+[supervisorctl]
+serverurl=unix:///tmp/supervisor.sock ; use a unix:// URL  for a unix socket
+</pre></div>
+<p>Be very sure to change the parameters according to your settings. Once the conf file is written, we can start <tt class="docutils literal">supervisord</tt> as root (remember, it needs to daemonize). You will need to <tt class="docutils literal">su</tt> to root and then activate the <tt class="docutils literal">dummy</tt> virtualenv. Then do</p>
+<div class="highlight"><pre>(dummy)# supervisord
+</pre></div>
+<p>At this point, you may want to read up on the official <a class="reference external" href="http://supervisord.org/">Supervisor</a> docs.</p>
+<p>Okay so let us test Supervisor. As root (and in the <tt class="docutils literal">dummy</tt> virtualenv), do</p>
+<div class="highlight"><pre>(dummy)# supervisorctl start dummy
+</pre></div>
+<p>Then check with your browser. To stop,</p>
+<div class="highlight"><pre>(dummy)# supervisorctl stop dummy
+</pre></div>
+<p>Note that running this as root does not expose any security threats, as supervisorctl runs the actual process as the user indicated in the config file. So unless <em>that</em> is set to root, you're okay.
+After ensuring supervisor is running fine, move on to the next step:</p>
+</div>
+<div class="section" id="step-0x03-installing-and-configuring-nginx">
+<h2>Step 0x03: Installing and configuring Nginx</h2>
+<p>nginx [engine x] is an HTTP and reverse proxy server, as well as a mail proxy server, written by Igor Sysoev. It is used widely to serve static files, but we'll also use it as a reverse proxy for our upstream gunicorn server. Basically, nginx will handle all real requests from the outside world, and delegate these to the gunicorn server running on port 8000 (or whichever port you decide to run it on). Requests for static files will be directly served by nginx.</p>
+<p>To install nginx on Fedora or RedHat,</p>
+<div class="highlight"><pre># yum install nginx
+</pre></div>
+<p>On Debian/Ubuntu, just use <tt class="docutils literal"><span class="pre">apt-get</span></tt> instead of <tt class="docutils literal">yum</tt></p>
+<p>Once installed, let's configure Nginx. You should read up on the official Nginx docs to know how to configure vhosts, but to keep it simple here, let's modify the default config file which, on my Fedora box, sits at <tt class="docutils literal">/etc/nginx/conf.d/default.conf</tt>.  I wanted all areas of my site SSL protected. If you have an area in your site that does not <em>need</em> to have SSL/TLS, please do not use it - it is unnecessary hard work for the server. But if you need it, do not shy away.</p>
+<p>To configure SSL, we first need to have our SSL certificate - which can be later signed by a renowned certificate authority(CA) like Verisign. First install OpenSSL on your system</p>
+<div class="highlight"><pre># yum install openssl
+</pre></div>
+<p>Then, change to a directory where you want to store your certificate - note that while this directory must be readable by Nginx, it must not be readable by all users, as it will contain the server's private key. Once you're in the directory, say  <tt class="docutils literal">/path/to/cert/</tt></p>
+<p>Create the private key:</p>
+<div class="highlight"><pre>$ openssl genrsa -out dummy-key.pem 1024
+</pre></div>
+<p>Create the CSR - Certificate Signing Request file(sent to CAs to sign our certificate)</p>
+<div class="highlight"><pre>$ openssl req -new -key dummy-key.pem -out dummy-csr.pem
+</pre></div>
+<p>We're not sending this CSR over to a CA now. Instead, we'll &quot;self-sign&quot; it:</p>
+<div class="highlight"><pre>$ openssl x509 -req -in dummy-csr.pem -signkey dummy-key.pem -out dummy-cert.pem
+</pre></div>
+<p>This generates the certificate in <tt class="docutils literal"><span class="pre">dummy-cert.pem</span></tt></p>
+<p>Now to configure Nginx.
+Open up <tt class="docutils literal">/etc/nginx/conf.d/default.conf</tt> (on Fedora) and edit it as follows:</p>
+<div class="highlight"><pre>#
+# The default server
+#
+server {
+    listen 80;
+    # If you want certain Non-SSL areas on your site, add a location block here
+    # read up on the nginx docs.
+    # Be sure to replace localhost in the following rule to the server name/IP address.
+    return 301 https://localhost/;
+}
+server {
+    listen  443 ssl;
+    # server_name  _;
+    # start mine
+    ssl on;
+    ssl_certificate /path/to/cert/dummy-cert.pem;
+    ssl_certificate_key /path/to/cert/dummy-key.pem;
+    ssl_protocols        SSLv3 TLSv1 TLSv1.1 TLSv1.2;
+    ssl_ciphers          HIGH:!aNULL:!MD5;
+    server_name localhost;
+    # full path to the project dir - the dir that contains the urls.py file
+    root /path/to/project/dir/dummy;
+    access_log /path/to/logdir/nginx_access.log;
+    error_log /path/to/logdir/nginx_error.log;
+
+    location /static/{
+        autoindex on;
+        # The path to the actual project directory here - the one which contains the static/
+        # dir holding the static files for this project
+        root /path/to/project/dir/dummy;
+    }
+
+    location / {
+        proxy_pass_header Server;
+        proxy_set_header Host $http_host;
+        proxy_redirect off;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Scheme $scheme;
+        proxy_connect_timeout 10;
+        proxy_read_timeout 10;
+        proxy_pass http://localhost:8000/;
+    }
+
+    error_page  404              /404.html;
+    location = /404.html {
+        root   /usr/share/nginx/html;
+    }
+
+    # redirect server error pages to the static page /50x.html
+    #
+    error_page   500 502 503 504  /50x.html;
+    location = /50x.html {
+        root   /usr/share/nginx/html;
+    }
+}
+</pre></div>
+<p>The first <tt class="docutils literal">server</tt> block is for HTTP(port 80). Since I want all HTTP requests to be redirected to use HTTPS, we return a HTTP 301(permanent redirect) to our HTTPS server (BTW, HTTPS standard port is 443).</p>
+<p>The next <tt class="docutils literal">server</tt> block configures SSL by pointing Nginx to the private key and certificate we created. Now in the settings module of your Django project, do these settings:</p>
+<div class="highlight"><pre><span class="kn">import</span> <span class="nn">os</span>
+<span class="n">SESSION_COOKIE_SECURE</span> <span class="o">=</span> <span class="bp">True</span>
+<span class="n">STATIC_ROOT</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">__file__</span><span class="p">)),</span> <span class="s">&#39;static&#39;</span><span class="p">)</span>
+
+<span class="c"># URL prefix for static files.</span>
+<span class="c"># Example: &quot;http://media.lawrence.com/static/&quot;</span>
+<span class="n">STATIC_URL</span> <span class="o">=</span> <span class="s">&#39;/static/&#39;</span>
+</pre></div>
+<p>Once that is done, start up Nginx as root(on Fedora):</p>
+<div class="highlight"><pre># service nginx start
+</pre></div>
+<p>If that does not work, simply start nginx:</p>
+<div class="highlight"><pre># nginx
+</pre></div>
+<p>Now, from the virtualenv, start our &quot;program&quot; using <tt class="docutils literal">supervisorctl</tt>:</p>
+<div class="highlight"><pre>(dummy)# supervisorctl start dummy
+</pre></div>
+<p>Point your browser to <tt class="docutils literal"><span class="pre">https://localhost/</span></tt> to see your app working. Note that since the digital certificate we created is self-signed, browsers will typically show a warning when using HTTPS. This is normal. On <em>real</em> production systems using HTTPS, you should get your certificate signed by a CA. It costs some money to get the CA issue a signed certifcate to you, but it is worth it.</p>
+<p>That is all there is to deploying a Django app on Nginx + Gunicorn over HTTPS.</p>
+</div>
+
+        </section>
+    </section>
+</section>
+            </section>
+        </article>
+        <hr />
+        <footer class="row-fluid muted" id="footer">
+            <section class="span12" id="connect">
+                <ul>
+                    <li class="social-icon">
+                        <a href="./pages/about.html">About</a>
+                    </li> |
+                                        <li class="social-icon">
+                        <a href="http://www.twitter.com/yati_itay" title="twitter"><i class="icon-twitter icon-large"></i></a>
+                    </li> |                                         <li class="social-icon">
+                        <a href="http://www.github.com/yati-sagade" title="github"><i class="icon-github icon-large"></i></a>
+                    </li> |                                         <li class="social-icon">
+                        <a href="https://plus.google.com/102607933018279616737" title="google-plus"><i class="icon-google-plus icon-large"></i></a>
+                    </li>                     
+                    |<li class="social-icon">
+                        <a href="https://github.com/yati-sagade/explog-theme" title="get this theme">Get this theme</a>
+                    </li>
+                </ul>
+            </section>
+        </footer>
+                <script src="./theme/js/jquery-1.8.3.min.js"></script>
+        <script src="./theme/bootstrap/js/bootstrap.min.js"></script>
+    </body>
+</html>

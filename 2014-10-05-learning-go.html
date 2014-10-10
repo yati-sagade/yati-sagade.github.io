@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Explog</title>
+        <link href="./theme/bootstrap/css/bootstrap.min.css" 
+              rel="stylesheet" media="screen"/>
+        <link href="./theme/css/explog.css" rel="stylesheet"
+              media="screen" />
+        <link href="./theme/css/font-awesome.min.css"
+              rel="stylesheet" media="screen" />
+        <link href="./theme/css/syntax.css" rel="stylesheet"
+              media="screen" />
+
+                    
+    <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type= "text/javascript">
+       MathJax.Hub.Config({
+           config: ["MMLorHTML.js"],
+           jax: ["input/TeX","input/MathML","output/HTML-CSS","output/NativeMML"],
+           TeX: { extensions: ["AMSmath.js","AMSsymbols.js","noErrors.js","noUndefined.js"], equationNumbers: { autoNumber: "AMS" } },
+           extensions: ["tex2jax.js","mml2jax.js","MathMenu.js","MathZoom.js"],
+           tex2jax: { 
+               inlineMath: [ ['$','$'] ],
+               displayMath: [ ['$$','$$'] ],
+               processEscapes: true },
+           "HTML-CSS": {
+               styles: { ".MathJax .mo, .MathJax .mi": {color: "black ! important"}}
+           }
+       });
+    </script>
+
+            </head>
+
+    <body>
+        <header class="row" id="main-page-heading">
+            <section class="row-fluid">
+                <section class="span12">
+                    <h1 class="muted">
+                        <a href=".">
+                            <span style="color:black;">exp</span><span style="color:rgb(0, 136, 204);">log</span>
+                        </a>
+                    </h1>
+                </section>
+            </section>
+        </header>
+        <hr />
+        <article class="container-fluid">
+            <section class="row-fluid">
+                <section class="span2">
+                    <section class="row-fluid">
+                        <section class="well sidebar-nav">
+                            <ul class="nav nav-list">
+                                <li class=""><a href=".">Home</a></li>
+                                <li class=" dropdown-submenu">
+                                    <a tabindex="-1" href="./categories.html">Categories</a>
+                                    <ul class="dropdown-menu">
+                                                                                <li>
+                                        <a tabindex="-1" href="./category/foss.html">FOSS</a>
+                                        </li>
+                                                                                <li>
+                                        <a tabindex="-1" href="./category/misc.html">misc</a>
+                                        </li>
+                                                                                <li>
+                                        <a tabindex="-1" href="./category/programming.html">programming</a>
+                                        </li>
+                                                                                <li>
+                                        <a tabindex="-1" href="./category/python.html">python</a>
+                                        </li>
+                                                                            </ul>
+                                </li>
+                            </ul>
+                            <ul class="nav nav-list">
+                                <li class="divider"></li>
+                                <li class=""><a href="./pages/about.html">About</a></li>
+                            </ul>
+                        </section>
+                    </section>
+                    <section class="row-fluid">
+                        <section class="span12">
+                            <span class="nav-header">Tag Cloud</span>
+                            <section class="well sidebar-nav" id="tag-cloud">
+                                <ul>
+                                                                        <li class="tag-1"><a href="./tag/lisp.html">lisp</a></li>
+                                                                        <li class="tag-4"><a href="./tag/decorators.html">decorators</a></li>
+                                                                        <li class="tag-4"><a href="./tag/gunicorn.html">gunicorn</a></li>
+                                                                        <li class="tag-4"><a href="./tag/django.html">django</a></li>
+                                                                        <li class="tag-4"><a href="./tag/nginx.html">nginx</a></li>
+                                                                        <li class="tag-4"><a href="./tag/scipy.html">scipy</a></li>
+                                                                        <li class="tag-2"><a href="./tag/algorithms.html">algorithms</a></li>
+                                                                        <li class="tag-2"><a href="./tag/math.html">math</a></li>
+                                                                        <li class="tag-4"><a href="./tag/Go.html">Go</a></li>
+                                                                        <li class="tag-4"><a href="./tag/functional-programming.html">functional-programming</a></li>
+                                                                        <li class="tag-4"><a href="./tag/scala.html">scala</a></li>
+                                                                        <li class="tag-1"><a href="./tag/programming.html">programming</a></li>
+                                                                        <li class="tag-4"><a href="./tag/Wikipedia.html">Wikipedia</a></li>
+                                                                        <li class="tag-4"><a href="./tag/MediaWiki.html">MediaWiki</a></li>
+                                                                        <li class="tag-4"><a href="./tag/FOSS.html">FOSS</a></li>
+                                                                        <li class="tag-4"><a href="./tag/machine-learning.html">machine-learning</a></li>
+                                                                        <li class="tag-1"><a href="./tag/python.html">python</a></li>
+                                                                        <li class="tag-4"><a href="./tag/C++.html">C++</a></li>
+                                                                        <li class="tag-4"><a href="./tag/OpenCV.html">OpenCV</a></li>
+                                                                    </ul>
+                            </section>
+                        </section>
+                    </section>
+                </section>
+                <section class="span9">
+    <section class="row-fluid">
+        <header class="span9 article-heading">
+            <h1><a href="learning-go.html" rel="bookmark"
+                   title="Permalink to Learning Go">
+                   Learning Go</a></h1>
+        </header>
+        <section class="span3">
+            Thu 20 September 2012 
+        </section>
+    </section>
+    <section class="row-fluid">
+        <section class="span11 article-content">
+            <p>I decided to start learning Go when I started seeing too many posts on HN about
+it. <a class="reference external" href="http://dave.cheney.net/2012/09/03/another-go-at-the-next-big-language">This post</a> particularly got me curious about the language and so I
+installed Go, started <a class="reference external" href="http://tour.golang.org/#1">gotour</a> and am loving every bit of it now.</p>
+<p>The customary Hello World program looks like this in Go:</p>
+<div class="highlight"><pre><span class="k">package</span> <span class="n">main</span>
+
+<span class="k">import</span> <span class="s">&quot;fmt&quot;</span>
+
+<span class="k">func</span> <span class="n">main</span><span class="p">()</span> <span class="p">{</span>
+        <span class="n">fmt</span><span class="p">.</span><span class="n">Println</span><span class="p">(</span><span class="s">&quot;Hello, World!!&quot;</span><span class="p">)</span>
+<span class="p">}</span>
+</pre></div>
+<p>Functions are declared using the <tt class="docutils literal">func</tt> keyword.</p>
+<div class="highlight"><pre><span class="k">package</span> <span class="n">main</span>
+
+<span class="k">import</span> <span class="p">(</span>
+        <span class="s">&quot;fmt&quot;</span>
+<span class="p">)</span>
+
+<span class="k">func</span> <span class="n">add</span><span class="p">(</span><span class="n">x</span> <span class="nb">int</span><span class="p">,</span> <span class="n">y</span> <span class="nb">int</span><span class="p">)</span> <span class="nb">int</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="n">x</span> <span class="p">+</span> <span class="n">y</span>
+<span class="p">}</span>
+
+<span class="k">func</span> <span class="n">main</span><span class="p">()</span> <span class="p">{</span>
+        <span class="n">fmt</span><span class="p">.</span><span class="n">Println</span><span class="p">(</span><span class="n">add</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
+<span class="p">}</span>
+</pre></div>
+<p>A function can, like in Python, return multiple results like so:</p>
+<div class="highlight"><pre><span class="c1">// A function that takes two strings and returns two strings</span>
+<span class="k">func</span> <span class="n">swap</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="nb">string</span><span class="p">)</span> <span class="p">(</span><span class="nb">string</span><span class="p">,</span> <span class="nb">string</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="n">y</span><span class="p">,</span> <span class="n">x</span>
+<span class="p">}</span>
+</pre></div>
+<p>Go functions can have result parameters that can be used to return values.</p>
+<div class="highlight"><pre><span class="k">func</span> <span class="n">divide</span><span class="p">(</span><span class="n">dividend</span><span class="p">,</span> <span class="n">divisor</span> <span class="nb">int</span><span class="p">)</span> <span class="p">(</span><span class="n">quotient</span><span class="p">,</span> <span class="n">remainder</span> <span class="nb">int</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">quotient</span><span class="p">,</span> <span class="n">remainder</span> <span class="p">=</span> <span class="n">dividend</span> <span class="p">/</span> <span class="n">divisor</span><span class="p">,</span> <span class="n">dividend</span> <span class="p">%</span> <span class="n">divisor</span>
+        <span class="k">return</span>
+<span class="p">}</span>
+</pre></div>
+<p>So, the return statement by itself returns the current values of the result
+parameters.</p>
+<p>The <tt class="docutils literal">var</tt> keyword declares variables like so:</p>
+<div class="highlight"><pre><span class="k">var</span> <span class="n">y</span> <span class="nb">int</span>
+<span class="k">var</span> <span class="n">x</span> <span class="nb">int</span> <span class="p">=</span> <span class="mi">1</span>
+<span class="c1">// vars can take types implied by the assigned values</span>
+<span class="k">var</span> <span class="n">i</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">s</span> <span class="p">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">true</span><span class="p">,</span> <span class="s">&quot;hello&quot;</span>
+<span class="c1">// so i is an int, b is a bool and s is a string</span>
+</pre></div>
+<p>Within a function, we may use this shorthand:</p>
+<div class="highlight"><pre><span class="k">func</span> <span class="n">foo</span><span class="p">()</span> <span class="p">{</span>
+        <span class="n">x</span> <span class="p">:=</span> <span class="mi">1</span> <span class="c1">// same as var x int = 1</span>
+<span class="p">}</span>
+</pre></div>
+<p>But all statements outside a function must start with a keyword and hence, this
+shorthand is not valid in a global scope.</p>
+<p>Constants are also declared like vars, but using the keyword const.</p>
+<div class="section" id="looping">
+<h2>Looping</h2>
+<p>There is only one looping construct in Go, the <tt class="docutils literal">for</tt> loop.</p>
+<p>There are various usages for this versatile loop in Go. The very basic one is:</p>
+<div class="highlight"><pre><span class="k">for</span> <span class="n">i</span> <span class="p">:=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="p">&lt;</span> <span class="mi">10</span><span class="p">;</span> <span class="n">i</span><span class="p">++</span> <span class="p">{</span>
+        <span class="n">fmt</span><span class="p">.</span><span class="n">Println</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+<span class="p">}</span>
+</pre></div>
+<p>So this is just like the for loops we are used to in other C like languages,
+but without the parens around the for expressions. Also, the counter i is in
+scope only within the for loop.</p>
+<p>The pre and the post expressions can be left out:</p>
+<div class="highlight"><pre><span class="k">for</span> <span class="p">;</span> <span class="n">i</span> <span class="p">&lt;</span> <span class="mi">10</span><span class="p">;</span> <span class="p">{</span>
+        <span class="p">...</span>
+<span class="p">}</span>
+</pre></div>
+<p>In Go, this can be written as:</p>
+<div class="highlight"><pre><span class="k">for</span> <span class="n">i</span> <span class="p">&lt;</span> <span class="mi">10</span> <span class="p">{</span>
+        <span class="p">...</span>
+<span class="p">}</span>
+</pre></div>
+<p>which is exactly how one would use a while loop in other languages that have
+while.
+For an infinite loop, even the condition expression can be left out:</p>
+<div class="highlight"><pre><span class="k">for</span> <span class="p">{</span>
+        <span class="n">fmt</span><span class="p">.</span><span class="n">Println</span><span class="p">(</span><span class="s">&quot;infinity is greater that infinity&quot;</span><span class="p">)</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="section" id="conditionals">
+<h2>Conditionals</h2>
+<p>We have <tt class="docutils literal">if</tt> statements in Go</p>
+<div class="highlight"><pre><span class="k">import</span> <span class="p">(</span>
+        <span class="s">&quot;fmt&quot;</span>
+        <span class="s">&quot;math&quot;</span>
+<span class="p">)</span>
+
+<span class="k">func</span> <span class="n">Sqrt</span><span class="p">(</span><span class="n">x</span> <span class="nb">float64</span><span class="p">)</span> <span class="nb">string</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="n">x</span> <span class="p">&lt;</span> <span class="mi">0</span> <span class="p">{</span>
+                <span class="k">return</span> <span class="n">sqrt</span><span class="p">(-</span><span class="n">x</span><span class="p">)</span> <span class="p">+</span> <span class="s">&quot;i&quot;</span>
+        <span class="p">}</span>
+        <span class="k">return</span> <span class="n">fmt</span><span class="p">.</span><span class="n">Sprint</span><span class="p">(</span><span class="n">math</span><span class="p">.</span><span class="n">Sqrt</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+<span class="p">}</span>
+</pre></div>
+<p>The parens around the if condition are not even optional in Go. They are gone.
+But the braces are required after the if statement.</p>
+<p>Like <tt class="docutils literal">for</tt>, the <tt class="docutils literal">if</tt> statement can include a short statement to execute before
+checking the condition.</p>
+<div class="highlight"><pre><span class="k">func</span> <span class="n">IsPerfectSquare</span><span class="p">(</span><span class="n">x</span> <span class="nb">int</span><span class="p">)</span> <span class="n">bool</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="n">root</span> <span class="p">:=</span> <span class="nb">int</span><span class="p">(</span><span class="n">math</span><span class="p">.</span><span class="n">Sqrt</span><span class="p">(</span><span class="n">x</span><span class="p">));</span> <span class="n">root</span> <span class="p">*</span> <span class="n">root</span> <span class="p">==</span> <span class="n">x</span> <span class="p">{</span>
+                <span class="k">return</span> <span class="n">true</span>
+        <span class="p">}</span>
+        <span class="k">return</span> <span class="n">false</span>
+<span class="p">}</span>
+</pre></div>
+<p>This calculates the integral part of the square root of x into root and checks
+if root squared gives back x. The var <tt class="docutils literal">root</tt> lives in the scope of the if
+statement only, and is not accessible from outside it.
+However, the variables declared in an <tt class="docutils literal">if</tt>'s short statement are all available
+in all the <tt class="docutils literal">else</tt> clauses for that <tt class="docutils literal">if</tt> statement.</p>
+<p>We also have <tt class="docutils literal">switch</tt> in Go, which is similar to what we are used to, with some
+differences.</p>
+<div class="highlight"><pre><span class="k">func</span> <span class="n">NaiveFactorial</span><span class="p">(</span><span class="n">x</span> <span class="nb">int</span><span class="p">)</span> <span class="n">bool</span> <span class="p">{</span>
+    <span class="k">var</span> <span class="n">ret</span> <span class="nb">int</span>
+    <span class="k">switch</span> <span class="n">x</span> <span class="p">{</span>
+    <span class="k">case</span> <span class="mi">0</span><span class="p">:</span> <span class="k">fallthrough</span>
+    <span class="k">case</span> <span class="mi">1</span><span class="p">:</span> <span class="n">ret</span> <span class="p">=</span> <span class="mi">1</span>
+    <span class="k">default</span><span class="p">:</span> <span class="n">ret</span> <span class="p">=</span> <span class="n">x</span> <span class="p">*</span> <span class="n">NaiveFactorial</span><span class="p">(</span><span class="n">x</span> <span class="p">-</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="n">ret</span>
+<span class="p">}</span>
+</pre></div>
+<p>As we see, there is no <tt class="docutils literal">break</tt> statement required in each <tt class="docutils literal">case</tt> clause
+unlike in C/C++/Java. Instead, a <tt class="docutils literal">break</tt> is the default after the block of
+statements under a <tt class="docutils literal">case</tt> are done executing. To fall-through to the next
+<tt class="docutils literal">case</tt> clause(which is the default in C++/Java), we need to use the keyword
+<tt class="docutils literal">falthrough</tt>.</p>
+<p>The switch statement in Go can be used to replace if-else ladders like so:</p>
+<div class="highlight"><pre><span class="k">if</span> <span class="p">(</span><span class="n">c1</span><span class="p">)</span> <span class="p">{</span>
+    <span class="p">...</span>
+<span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">c2</span><span class="p">)</span> <span class="p">{</span>
+
+<span class="p">}</span>
+<span class="p">...</span>
+<span class="k">else</span> <span class="p">{</span>
+    <span class="p">...</span>
+<span class="p">}</span>
+</pre></div>
+<p>where c1, c2... are boolean expressions, can be written concisely as</p>
+<div class="highlight"><pre><span class="k">switch</span> <span class="p">{</span>
+<span class="k">case</span> <span class="n">c1</span><span class="p">:</span> <span class="p">...</span>
+<span class="k">case</span> <span class="n">c2</span><span class="p">:</span> <span class="p">...</span>
+<span class="p">...</span>
+<span class="k">default</span><span class="p">:</span> <span class="p">...</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="section" id="structs">
+<h2>structs</h2>
+<p>A <tt class="docutils literal">struct</tt> is a collection of fields. It is Go's answer to composite data types.
+A struct representing a 2-dimensional vertex can be implemented as:</p>
+<div class="highlight"><pre><span class="k">type</span> <span class="n">Vertex</span> <span class="k">struct</span> <span class="p">{</span>
+        <span class="n">x</span> <span class="nb">int</span>
+        <span class="n">y</span> <span class="nb">int</span>
+<span class="p">}</span>
+</pre></div>
+<p>We can create a struct value in two ways, by using struct literals or by using the
+<tt class="docutils literal">new</tt> function.</p>
+<div class="highlight"><pre><span class="k">func</span> <span class="n">main</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">var</span> <span class="n">v</span> <span class="n">Vertex</span> <span class="p">=</span> <span class="n">Vertex</span><span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">}</span> <span class="c1">// struct literal. v.x = 1 and v.y = 2</span>
+        <span class="n">v2</span> <span class="p">:=</span> <span class="n">Vertex</span><span class="p">{</span><span class="n">y</span><span class="p">:</span> <span class="mi">100</span><span class="p">,</span> <span class="n">x</span><span class="p">:</span> <span class="mi">400</span><span class="p">}</span>
+        <span class="k">var</span> <span class="n">w</span> <span class="p">*</span><span class="n">Vertex</span> <span class="p">=</span> <span class="nb">new</span><span class="p">(</span><span class="n">Vertex</span><span class="p">)</span>
+<span class="p">}</span>
+</pre></div>
+<p>Note that <tt class="docutils literal">new()</tt> returns a pointer to a newly allocated region of memory with
+zeroed out values for the fields.</p>
+<p>Fields can be accessed using the dot operator</p>
+<div class="highlight"><pre><span class="k">func</span> <span class="n">main</span><span class="p">()</span> <span class="p">{</span>
+        <span class="n">v</span> <span class="p">:=</span> <span class="n">Vertex</span><span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">}</span>
+        <span class="n">fmt</span><span class="p">.</span><span class="n">Println</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
+        <span class="n">v</span><span class="p">.</span><span class="n">x</span> <span class="p">=</span> <span class="mi">2</span> <span class="p">*</span> <span class="n">v</span><span class="p">.</span><span class="n">y</span>
+        <span class="n">fmt</span><span class="p">.</span><span class="n">Println</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
+<span class="p">}</span>
+</pre></div>
+<p>will print</p>
+<div class="highlight"><pre><span class="p">{</span><span class="mi">1</span> <span class="mi">2</span><span class="p">}</span>
+<span class="p">{</span><span class="mi">4</span> <span class="mi">2</span><span class="p">}</span>
+</pre></div>
+</div>
+<div class="section" id="pointers">
+<h2>pointers</h2>
+<p>Go has pointers, but no pointer arithmetic. Struct fields can be referenced
+through a struct pointer. But the indirection is transparent.</p>
+<div class="highlight"><pre><span class="k">func</span> <span class="n">main</span><span class="p">()</span> <span class="p">{</span>
+        <span class="n">p</span> <span class="p">:=</span> <span class="n">Vertex</span><span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">}</span>
+        <span class="n">q</span> <span class="p">:=</span> <span class="p">&amp;</span><span class="n">p</span>
+        <span class="n">q</span><span class="p">.</span><span class="n">x</span> <span class="p">=</span> <span class="mi">100</span>
+        <span class="n">fmt</span><span class="p">.</span><span class="n">Println</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
+        <span class="n">fmt</span><span class="p">.</span><span class="n">Println</span><span class="p">(</span><span class="n">q</span><span class="p">)</span>
+<span class="p">}</span>
+</pre></div>
+<p>will print</p>
+<div class="highlight"><pre><span class="p">{</span><span class="mi">100</span> <span class="mi">2</span><span class="p">}</span>
+<span class="p">&amp;{</span><span class="mi">100</span> <span class="mi">2</span><span class="p">}</span>
+</pre></div>
+<p>Equivalent C code, on the other hand, would look like:</p>
+<div class="highlight"><pre><span class="k">struct</span> <span class="n">vertex</span> <span class="p">{</span>
+        <span class="kt">int</span> <span class="n">x</span><span class="p">;</span>
+        <span class="kt">int</span> <span class="n">y</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="n">main</span><span class="p">()</span>
+<span class="p">{</span>
+        <span class="k">struct</span> <span class="n">vertex</span> <span class="n">p</span> <span class="o">=</span> <span class="p">{.</span><span class="n">x</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="p">.</span><span class="n">y</span> <span class="o">=</span> <span class="mi">2</span><span class="p">};</span>
+        <span class="k">struct</span> <span class="n">vertex</span> <span class="o">*</span><span class="n">q</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">p</span><span class="p">;</span>
+        <span class="n">q</span><span class="o">-&gt;</span><span class="n">x</span> <span class="o">=</span> <span class="mi">100</span><span class="p">;</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;{%d %d}&quot;</span><span class="p">,</span> <span class="n">p</span><span class="p">.</span><span class="n">x</span><span class="p">,</span> <span class="n">p</span><span class="p">.</span><span class="n">y</span><span class="p">);</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;%p: &amp;{%d %d}&quot;</span><span class="p">,</span> <span class="n">q</span><span class="p">,</span> <span class="n">q</span><span class="o">-&gt;</span><span class="n">x</span><span class="p">,</span> <span class="n">q</span><span class="o">-&gt;</span><span class="n">y</span><span class="p">);</span>
+        <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+<p>So, to access a field through a pointer in C/C++, we use the <cite>-&gt;</cite> operator.
+But in Go, there is no need to do that, as the indirection is implicit.
+(i.e., we can say q.x instead of <tt class="docutils literal"><span class="pre">(*q).x</span></tt>, which is equivalent to q-&gt;x).</p>
+<p>Pointers can also be declared by taking the address of a struct literal</p>
+<div class="highlight"><pre><span class="c1">// p is a *Vertex pointing to a Vertex instance with x, y = 1, 2</span>
+<span class="n">p</span> <span class="p">:=</span> <span class="p">&amp;</span><span class="n">Vertex</span><span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">}</span>
+</pre></div>
+<p>The new function is used to allocate memory for a variable of a particular type.
+It returns a pointer to the new instance, which is zeroed out. It's invocation
+is of the form</p>
+<div class="highlight"><pre><span class="k">var</span> <span class="n">ptr</span> <span class="p">*</span><span class="n">T</span> <span class="p">:=</span> <span class="nb">new</span><span class="p">(</span><span class="n">T</span><span class="p">)</span>
+</pre></div>
+<p>where T is some type.</p>
+<div class="highlight"><pre><span class="k">var</span> <span class="n">ptr</span> <span class="p">*</span><span class="n">Vertex</span> <span class="p">=</span> <span class="nb">new</span><span class="p">(</span><span class="n">Vertex</span><span class="p">)</span>
+</pre></div>
+<p>will allocate space for a new Vertex instance and will return a pointer to that
+instance, which now has x = y = 0.</p>
+</div>
+<div class="section" id="maps">
+<h2>maps</h2>
+<p>maps are the Go versions of Python dicts. The difference is that maps are
+statically typed. A type <cite>map[T]S</cite> means a map that has keys of type <cite>T</cite> and
+values of type <cite>S</cite>.</p>
+<p>maps are created using the <cite>make()</cite> allocation primitive in Go.</p>
+<div class="highlight"><pre><span class="k">func</span> <span class="n">main</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">var</span> <span class="n">m</span> <span class="k">map</span><span class="p">[</span><span class="nb">string</span><span class="p">]</span><span class="n">Vertex</span> <span class="p">=</span> <span class="nb">make</span><span class="p">(</span><span class="k">map</span><span class="p">[</span><span class="nb">string</span><span class="p">]</span><span class="n">Vertex</span><span class="p">)</span>
+        <span class="n">m</span><span class="p">[</span><span class="s">&quot;Origin&quot;</span><span class="p">]</span> <span class="p">=</span> <span class="n">Vertex</span><span class="p">{</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">}</span>
+        <span class="n">fmt</span><span class="p">.</span><span class="n">Println</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
+<span class="p">}</span>
+</pre></div>
+<p>will print</p>
+<div class="highlight"><pre><span class="k">map</span><span class="p">[</span><span class="n">Origin</span><span class="p">:</span> <span class="p">{</span><span class="mi">0</span> <span class="mi">0</span><span class="p">}]</span>
+</pre></div>
+<p>maps can also be created using map literals</p>
+<div class="highlight"><pre><span class="k">var</span> <span class="n">m</span> <span class="p">=</span> <span class="k">map</span><span class="p">[</span><span class="nb">string</span><span class="p">]</span><span class="n">Vertex</span><span class="p">{</span>
+        <span class="s">&quot;Origin&quot;</span><span class="p">:</span> <span class="n">Vertex</span><span class="p">{</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">},</span>
+        <span class="s">&quot;Limit&quot;</span><span class="p">:</span> <span class="n">Vertex</span><span class="p">{</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">},</span>
+<span class="p">}</span>
+
+<span class="k">func</span> <span class="n">main</span><span class="p">()</span> <span class="p">{</span>
+        <span class="n">fmt</span><span class="p">.</span><span class="n">Println</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
+<span class="p">}</span>
+</pre></div>
+<p>will print</p>
+<div class="highlight"><pre><span class="k">map</span><span class="p">[</span><span class="n">Origin</span><span class="p">:</span> <span class="p">{</span><span class="mi">0</span> <span class="mi">0</span><span class="p">}</span> <span class="n">Limit</span><span class="p">:</span> <span class="p">{</span><span class="mi">0</span> <span class="mi">10</span><span class="p">}]</span>
+</pre></div>
+<p>### map operations ###
+insertion/updation</p>
+<div class="highlight"><pre><span class="n">m</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="p">=</span> <span class="n">value</span>
+</pre></div>
+<p>retrieval</p>
+<div class="highlight"><pre><span class="n">elem</span> <span class="p">=</span> <span class="n">m</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>
+</pre></div>
+<p>deletion</p>
+<div class="highlight"><pre><span class="n">delete</span><span class="p">(</span><span class="n">m</span><span class="p">[</span><span class="n">key</span><span class="p">])</span>
+</pre></div>
+<p>membership check</p>
+<div class="highlight"><pre><span class="n">elem</span><span class="p">,</span> <span class="n">ok</span> <span class="p">=</span> <span class="n">m</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>
+</pre></div>
+<p>if <cite>key</cite> is there in <cite>m</cite>, <cite>ok</cite> will be <cite>true</cite>, else, it will be <cite>false</cite>.
+If <cite>key</cite> is not there in <cite>m</cite>, the value of elem will be zero value of the
+type of the values in that map.</p>
+</div>
+<div class="section" id="slices">
+<h2>Slices</h2>
+<p>A slice is a sequence of elements of the same type. A slice is an abstraction
+on top of Go arrays. A slice of type T has the type []T. Slices are created
+using the make function or using slice literals.</p>
+<div class="highlight"><pre><span class="k">func</span> <span class="n">main</span><span class="p">()</span> <span class="p">{</span>
+        <span class="n">p</span> <span class="p">:=</span> <span class="p">[]</span><span class="nb">int</span><span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">}</span> <span class="c1">// A slice of ints, initialized using slice</span>
+                                                          <span class="c1">// literals</span>
+        <span class="c1">// create a slice using make. The second arg to make is the length</span>
+        <span class="c1">// and the third one is the capacity</span>
+        <span class="n">q</span> <span class="p">:=</span> <span class="nb">make</span><span class="p">([]</span><span class="nb">int</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+<span class="p">}</span>
+</pre></div>
+<p>A slice has two measures of size, the length and the capacity. The length of a
+slice is the number of elements in it. The capacity is the maximum number of
+elements the slice can hold.
+A slice can be resliced to return slices. But unlike in Python, slices of a slice
+refer to the same memory as the parent slice and copies are not created.</p>
+<div class="highlight"><pre><span class="k">func</span> <span class="n">main</span><span class="p">()</span> <span class="p">{</span>
+        <span class="n">sl</span> <span class="p">:=</span> <span class="nb">make</span><span class="p">([]</span><span class="nb">int</span> <span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+        <span class="n">fmt</span><span class="p">.</span><span class="n">Println</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">sl</span><span class="p">))</span> <span class="c1">// 0</span>
+        <span class="n">fmt</span><span class="p">.</span><span class="n">Println</span><span class="p">(</span><span class="nb">cap</span><span class="p">(</span><span class="n">sl</span><span class="p">))</span> <span class="c1">// 5</span>
+        <span class="n">sl</span> <span class="p">=</span> <span class="n">sl</span><span class="p">[:</span><span class="nb">cap</span><span class="p">(</span><span class="n">sl</span><span class="p">)]</span> <span class="c1">// reslicing and assignment to grow the slice upto its</span>
+                                          <span class="c1">// capacity.</span>
+        <span class="n">fmt</span><span class="p">.</span><span class="n">Println</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">sl</span><span class="p">))</span> <span class="c1">// 5</span>
+        <span class="n">fmt</span><span class="p">.</span><span class="n">Println</span><span class="p">(</span><span class="nb">cap</span><span class="p">(</span><span class="n">sl</span><span class="p">))</span> <span class="c1">// 5</span>
+<span class="p">}</span>
+</pre></div>
+<p>Accessing slice elements is the same as in Python.</p>
+<p>### Iteration ###
+One can iterate over a slice/array using the familiar</p>
+<div class="highlight"><pre><span class="n">sl</span> <span class="p">=</span> <span class="p">[]</span><span class="nb">int</span><span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">}</span>
+<span class="k">for</span> <span class="n">i</span> <span class="p">:=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="p">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">sl</span><span class="p">);</span> <span class="n">i</span><span class="p">++</span> <span class="p">{</span>
+        <span class="n">fmt</span><span class="p">.</span><span class="n">Println</span><span class="p">(</span><span class="n">sl</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+<span class="p">}</span>
+</pre></div>
+<p>Or, more succinctly, this can be done in a more Python like way using <cite>range</cite></p>
+<div class="highlight"><pre><span class="n">sl</span> <span class="p">=</span> <span class="p">[]</span><span class="nb">int</span><span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">}</span>
+<span class="k">for</span> <span class="n">e</span> <span class="p">:=</span> <span class="k">range</span> <span class="n">sl</span> <span class="p">{</span>
+        <span class="n">fmt</span><span class="p">.</span><span class="n">Println</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+<span class="p">}</span>
+</pre></div>
+<p>Or if both the index and the element are needed during iteration, we can do</p>
+<div class="highlight"><pre><span class="n">sl</span> <span class="p">=</span> <span class="p">[]</span><span class="nb">int</span><span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">}</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">e</span> <span class="p">:=</span> <span class="k">range</span> <span class="n">sl</span> <span class="p">{</span>
+        <span class="n">fmt</span><span class="p">.</span><span class="n">Println</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="s">&quot;: &quot;</span><span class="p">,</span> <span class="n">e</span><span class="p">)</span>
+<span class="p">}</span>
+</pre></div>
+<p>Here, i holds the looop counter and e contains the value, sl[i].</p>
+</div>
+<div class="section" id="functions">
+<h2>functions</h2>
+<p>Functions are defined using the <cite>func</cite> keyword. And functions are first class
+values. Functions in Go are also full closures.</p>
+<p>A function PowOf that returns a function that calculates some integer raised to
+some other can be written as</p>
+<div class="highlight"><pre><span class="k">func</span> <span class="n">PowOf</span><span class="p">(</span><span class="n">seed</span> <span class="nb">int</span><span class="p">)</span> <span class="k">func</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span> <span class="nb">int</span> <span class="p">{</span>
+            <span class="n">inner</span> <span class="p">:=</span> <span class="k">func</span><span class="p">(</span><span class="n">power</span> <span class="nb">int</span><span class="p">)</span> <span class="p">{</span>
+                    <span class="k">var</span> <span class="n">ret</span> <span class="nb">int</span> <span class="p">=</span> <span class="mi">1</span>
+                    <span class="k">for</span> <span class="n">i</span> <span class="p">:=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="p">&lt;</span> <span class="n">power</span><span class="p">;</span> <span class="n">i</span><span class="p">++</span> <span class="p">{</span>
+            <span class="n">ret</span> <span class="p">*=</span> <span class="n">seed</span><span class="p">;</span>
+                    <span class="p">}</span>
+                    <span class="k">return</span> <span class="n">ret</span>
+            <span class="p">}</span>
+            <span class="k">return</span> <span class="n">inner</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+
+        </section>
+    </section>
+</section>
+            </section>
+        </article>
+        <hr />
+        <footer class="row-fluid muted" id="footer">
+            <section class="span12" id="connect">
+                <ul>
+                    <li class="social-icon">
+                        <a href="./pages/about.html">About</a>
+                    </li> |
+                                        <li class="social-icon">
+                        <a href="http://www.twitter.com/yati_itay" title="twitter"><i class="icon-twitter icon-large"></i></a>
+                    </li> |                                         <li class="social-icon">
+                        <a href="http://www.github.com/yati-sagade" title="github"><i class="icon-github icon-large"></i></a>
+                    </li> |                                         <li class="social-icon">
+                        <a href="https://plus.google.com/102607933018279616737" title="google-plus"><i class="icon-google-plus icon-large"></i></a>
+                    </li>                     
+                    |<li class="social-icon">
+                        <a href="https://github.com/yati-sagade/explog-theme" title="get this theme">Get this theme</a>
+                    </li>
+                </ul>
+            </section>
+        </footer>
+                <script src="./theme/js/jquery-1.8.3.min.js"></script>
+        <script src="./theme/bootstrap/js/bootstrap.min.js"></script>
+    </body>
+</html>
