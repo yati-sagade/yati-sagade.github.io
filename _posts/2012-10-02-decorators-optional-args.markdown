@@ -1,8 +1,10 @@
 ---
-layout: post
-title: Decorators with optional arguments in Python
----
 
+layout: post
+
+title: Decorators with optional arguments in Python
+
+---
 
 Python decorators are one of the best features of the language, and I think 
 that [this SO answer][1] describes them the best. I'll take an example similar 
