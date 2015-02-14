@@ -6,17 +6,20 @@ title: Calculating C(n,r) efficiently
 
 ---
 
-The number of ways of choosing $r$ items from a collection of $n$ identical
-items is referred to as $C(n,r)$,  ${}^{n}C_{r}$ or $ n \\choose r $ and is a
-fundamental counting operation. $ n \\choose r $ is given by
+The number of ways of choosing <span>$r$</span> items from a collection of $n$ identical
+items is referred to as <span>$C(n,r)$</span>,  <span>${}^{n}C_{r}$</span> or
+<span>$ n \\choose r $</span> and is a fundamental counting operation. <span>$ n \\choose r $</span> is given by
 
-
-$$ {n \\choose r} = \\frac{n(n-1)(n-2)...(n-r+1)}{r(r-1)...1} $$
+<div>
+$$ {n \choose r} = \frac {n(n-1)(n-2)...(n-r+1)} {r(r-1)...1} $$
+</div>
 
 
 or, equivalently, using factorials,
 
-$$ {n \\choose r} = \\frac{n!}{r!(n-r)!} $$
+<div>
+$$ {n \choose r} = \frac { n! }{ r! (n-r)! } $$
+</div>
 
 One implementation would be to compute the constituent factorials and the
 perform the multiplication and division on them. But this is bad for 2 reasons
@@ -25,19 +28,23 @@ perform the multiplication and division on them. But this is bad for 2 reasons
 - For even decent problems like C(100, 2), where the answer is 4950, the
   intermediate factorials are very large. 100! is approximately 9.33e57 and
   hence, languages that do not have numeric types to hold that kind of a
-  number will overflow, wrecking a havoc - all for a result that fits well
+  number will overflow, wrecking havoc - all for a result that fits well
   within 2 bytes!
 
 
 A better implementation should use this recurrence:
 
-$$ {n \\choose r} =  \\frac{n}{r} {{n-1} \\choose {r-1}} $$
+<div>
+$$ {n \choose r} =  \frac{n}{r} { {n-1} \choose {r-1} } $$
+</div>
 
 with
 
-$$ {n \\choose 1} = n $$
-$$ {n \\choose 0} = 1 $$
-$$ {0 \\choose r} = 0 $$
+<div>
+$$ {n \choose 1} = n $$
+$$ {n \choose 0} = 1 $$
+$$ {0 \choose r} = 0 $$
+</div>
 
 so, a recursive implementation in Python would look like
 
