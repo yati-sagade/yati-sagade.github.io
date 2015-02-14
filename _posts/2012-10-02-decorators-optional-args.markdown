@@ -1,7 +1,7 @@
---
+---
 layout: post
 title: Decorators with optional arguments in Python
---
+---
 
 
 Python decorators are one of the best features of the language, and I think 
