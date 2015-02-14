@@ -8,7 +8,8 @@ title: Reversing a list in functional style.
 
 Suppose we have a list implementation in which every element (or node) in the
 list contains a ``head``, which is the item at this node and a ``tail``, which is
-rest of the list.
+rest of the list. I've used Scala here, but most of the code looks almost like
+pseudocode.
 
     trait List {
       def isEmpty: Boolean
