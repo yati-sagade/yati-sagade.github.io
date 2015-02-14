@@ -8,12 +8,12 @@ title: Configuring an HTTPS site with Django on Nginx + Gunicorn
 
 
 I have deployed quite a few Django powered sites on PaaS like [OpenShift][2],
-[Google AppEngine][1] and most of the time. But I was required to deploy my final
-semester project on our college server, which turned out to be really difficult
-After a lot of work, I finally was able to deploy Django on [Nginx][4] and
-[Gunicorn][3] over HTTPS (my site uses HTTPS throughout).
+[Google AppEngine][1]. But I was required to deploy my final semester project
+on our college server, which turned out to be really difficult After a lot of
+work, I finally was able to deploy Django on [Nginx][4] and [Gunicorn][3] over
+HTTPS (my site uses HTTPS throughout).
 
-Step 0x00: The dummy project
+The dummy project
 --------------------------------
 
 Create the virtualenv for our project:
@@ -46,7 +46,7 @@ and go to ``http://localhost:8000/`` in your browser. You should see the Django
 welcome page.  Stop the development server for now and let's move on to the
 next step.
 
-Step 0x01: Installing Gunicorn
+Installing Gunicorn
 --------------------------------
 
 Gunicorn 'Green Unicorn' is a Python WSGI HTTP Server for UNIX. It is
@@ -99,7 +99,7 @@ Now make this file executable by doing
 At this point, simply executing deploy.sh should bring up gunicorn and allow us
 to view the welcome page on ``http://localhost:8000/``
 
-Step 0x02: Installing and configuring Supervisor
+Installing and configuring Supervisor
 ---------------------------------------------------
 
 [Supervisor][5] is a client/server system that allows its users to monitor and
@@ -167,7 +167,7 @@ supervisorctl runs the actual process as the user indicated in the config file.
 So unless *that* is set to root, you're okay.  After ensuring supervisor is
 running fine, move on to the next step:
 
-Step 0x03: Installing and configuring Nginx
+Installing and configuring Nginx
 -----------------------------------------------
 
 nginx [engine x] is an HTTP and reverse proxy server, as well as a mail proxy
