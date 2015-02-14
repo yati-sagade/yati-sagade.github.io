@@ -2,7 +2,7 @@
 
 layout: post
 
-title: A Python stack for scientific computing. 
+title: A Python stack for scientific computing
 
 ---
 

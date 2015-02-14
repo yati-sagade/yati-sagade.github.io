@@ -2,7 +2,7 @@
 
 layout: post
 
-title: Exposing C++ OpenCV code to Python using Boost.
+title: Exposing C++ OpenCV code to Python using Boost
 
 ---
 
