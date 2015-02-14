@@ -22,7 +22,7 @@ Note that the converter descibed here is [available on GitHub][1].
 
 We will call our module ``matrmul`` and the function ``mul``. Let us see how
 the calls to this function should look like from Python:
-
+    
     import numpy
     import matrmul # our module
 
