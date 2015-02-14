@@ -2,7 +2,7 @@
 
 layout: post
 
-title: Lexical variables in Common Lisp
+title: Variables in Common Lisp
 
 ---
 
