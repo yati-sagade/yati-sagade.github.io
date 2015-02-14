@@ -11,22 +11,21 @@ list contains a ``head``, which is the item at this node and a ``tail``, which i
 rest of the list.
 
 ```scala
+trait List {
+  def isEmpty: Boolean
+  def head: Int
+  def tail: List
+}
 
-    trait List {
-      def isEmpty: Boolean
-      def head: Int
-      def tail: List
-    }
+class Cons(val head: Int, val tail: List) extends List {
+  def isEmpty = false
+}
 
-    class Cons(val head: Int, val tail: List) extends List {
-      def isEmpty = false
-    }
-
-    object Nil extends List {
-      def isEmpty = true
-      def head = throw new NoSuchElementException("Nil.head")
-      def tail = throw new NoSuchElementException("Nil.tail")
-    }
+object Nil extends List {
+  def isEmpty = true
+  def head = throw new NoSuchElementException("Nil.head")
+  def tail = throw new NoSuchElementException("Nil.tail")
+}
 ```
 
 
