@@ -2,7 +2,7 @@
 
 layout: post
 
-title: Reversing a list in functional style.
+title: Reversing a list in functional style
 
 ---
 
