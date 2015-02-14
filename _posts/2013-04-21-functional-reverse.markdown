@@ -10,29 +10,24 @@ Suppose we have a list implementation in which every element (or node) in the
 list contains a ``head``, which is the item at this node and a ``tail``, which is
 rest of the list.
 
-```scala
-trait List {
-  def isEmpty: Boolean
-  def head: Int
-  def tail: List
-}
+    trait List {
+      def isEmpty: Boolean
+      def head: Int
+      def tail: List
+    }
 
-class Cons(val head: Int, val tail: List) extends List {
-  def isEmpty = false
-}
+    class Cons(val head: Int, val tail: List) extends List {
+      def isEmpty = false
+    }
 
-object Nil extends List {
-  def isEmpty = true
-  def head = throw new NoSuchElementException("Nil.head")
-  def tail = throw new NoSuchElementException("Nil.tail")
-}
-```
-
+    object Nil extends List {
+      def isEmpty = true
+      def head = throw new NoSuchElementException("Nil.head")
+      def tail = throw new NoSuchElementException("Nil.tail")
+    }
 
 One way to reverse this without any mutation is:
 
-.. code-block:: scala
-    
     def reversed(xs: List): List = {
       def aux(xs: List, acc: List) =
         if (xs.isEmpty) acc
@@ -42,8 +37,6 @@ One way to reverse this without any mutation is:
 
 Here is how this works. Suppose we have a list [1, 2, 3, 4, 5]. This is
 represented in our scheme as:
-
-.. code-block:: text
 
                     []
                    /  \ 
@@ -63,8 +56,6 @@ node and the right child is the tail, which can either be another ``Cons`` or
 
 The Scala code to create this list is:
 
-.. code-block:: scala
-
     val l = new Cons(1, new Cons(2, new Cons(3, new Cons(4, new Cons(5, Nil)))))
 
 Now, in the ``reversed`` function, all the work is done by the auxilliary inner
@@ -76,8 +67,6 @@ one element less than ``xs`` and eventually, a call to ``reversed(Nil, ...)`` wi
 be made, which just returns the second argument, breaking the recursion. Let
 us trace the execution of reversed:
 
-.. code-block:: text
-    
     val l = new Cons(1, new Cons(2, new Cons(3, new Cons(4, new Cons(5, Nil)))))
     reversed(l)
     \_ aux([1, 2, 3, 4, 5], Nil)
@@ -90,5 +79,3 @@ us trace the execution of reversed:
     <------------------[5, 4, 3, 2, 1]
 
 
-
-       
