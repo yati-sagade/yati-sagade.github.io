@@ -12,9 +12,9 @@ Eclipse is actually very simple. It is just underdocumented. So here it is.
 Installing the SDKs
 ---------------------
 
-If you haven't, install the [Android SDK][1] and make sure the '/tools'
-directory in the SDK directory is on the system path.Now download the [OpenCV
-Android SDK][2] and unpack it in your workspace.
+If you haven't already done so, install the [Android SDK][1] and make sure the
+'/tools' directory in the SDK directory is on the system path. Now download the
+[OpenCV Android SDK][2] and unpack it in your workspace.
 
     $ unzip OpenCV-2.4.x-android-sdk.zip
 
@@ -41,7 +41,7 @@ To create a new project using the `android` tool, do
       --activity MainActivity --path myproject --package com.myproject
 
 
-Note here the value taken by the `--target` option. It specifies API level
+Note here the value taken by the `--target` option. It specifies the API level
 to build your project against. To see a list of available targets on your
 system, do
     
@@ -115,7 +115,7 @@ Change your `AndroidManifest.xml` to look like this:
 
     </manifest>
 
-The only changes are the addition of the permission declarations near the
+The only change here is the addition of the permission declarations near the
 end and two attributes in the `<activity>` tag that are generally used in
 most camera applications.
 
@@ -151,7 +151,7 @@ Camera initialization
 
 OpenCV is a native library and has Java wrappers for Android. Because of this,
 we need to explicitly load the library before we attempt to use it. Note that
-failing to do so will make your app to crash with an `UnsatisfiedLinkError`.
+failing to do so will cause your app to crash with an `UnsatisfiedLinkError`.
 
 Here's the code for `src/com/myproject/MainActivity.java`. We'll walk through
 it in a while.
