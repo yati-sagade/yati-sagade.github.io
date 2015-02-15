@@ -28,7 +28,7 @@ all vectors.  The Tanimoto coefficient for such a pair of vectors
 <span>$ \mathbf{ X_{ m } } $</span> and <span>$ \mathbf{ X_{ n } } $</span> is given by
 
 <div>
-$$ \begin{equation} \label{ bg:intmod } T(X_{ m }, X_{ n }) = \frac { X_{ mn } } {X_{ mm } + X_{ nn } - X_{ mn } } \end { equation } $$
+$ \begin{equation} \label{ bg:intmod } T(X_{ m }, X_{ n }) = \frac { X_{ mn } } {X_{ mm } + X_{ nn } - X_{ mn } } \end { equation } $
 </div>
 
 where <span>$ X_{ij} $</span> is <span>$ \mathbf{X_{i}}.\\mathbf{X_{j}} $</span> (the vector inner
@@ -37,8 +37,6 @@ where <span> $ W_{ k } $ = $ 1 $ </span> for all <span> $ k $ </span>, i.e., the
 
 Implementation in Python
 --------------------------
-	
-.. code-block:: python
 
     def tanimoto_score(vec1, vec2, weights=None):
         '''
@@ -77,8 +75,6 @@ Implementation in Python
 
 If the overhead of the validation is not needed(the common case, maybe), the 
 implementation gets simpler:
-
-.. code-block:: python
 
     def tanimoto_score(vec1, vec2):
         '''
