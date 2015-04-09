@@ -21,15 +21,16 @@ rating given to that item by the $i$-th user, using the value $0$ for no rating
 at all. 
 
 But sometimes, the values of the features are two valued, i.e., for any vector
-<span>$ \mathbf{X_{i}} $ = $ (x_{i1}, x_{i2}, x_{i3}, ..., x_{iN}) $</span>,
-where <span>$ x_{ik}</span> $ is either ``0`` or some positive weight <span>$ W_{ k } $</span> assigned to the
-k-th entry . This weight does **not** depend on i and hence, is the same for
+<span>$$ \mathbf { X_{ i } }  =  (x_{ i1 }, x_{ i2 }, x_{ i3 }, ..., x_{ iN }) $$</span>,
+where <span>$ x_{ik} $</span> is either ``0`` or some positive weight <span>$ W_{ k } $</span> assigned to the
+k-th entry . This weight does **not** depend on $i$ and hence, is the same for
 all vectors.  The Tanimoto coefficient for such a pair of vectors
 <span>$ \mathbf{ X_{ m } } $</span> and <span>$ \mathbf{ X_{ n } } $</span> is given by
 
 <div>
-$ \begin{equation} \label{ bg:intmod } T(X_{ m }, X_{ n }) = \frac { X_{ mn } } {X_{ mm } + X_{ nn } - X_{ mn } } \end { equation } $
+$ \begin{ equation } \label{ bg:intmod } T(X_{ m }, X_{ n }) = \frac { X_{ mn } } {X_{ mm } + X_{ nn } - X_{ mn } } \end { equation } $
 </div>
+
 
 where <span>$ X_{ij} $</span> is <span>$ \mathbf{X_{i}}.\\mathbf{X_{j}} $</span> (the vector inner
 product).  Note that the Jaccard index is a special case of the Tanimoto score
