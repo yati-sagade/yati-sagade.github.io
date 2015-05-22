@@ -2,7 +2,7 @@
 
 layout: post
 
-title: Deriving the laws of reflection and refraction of light from Fermat's principle.
+title: Deriving the laws of reflection and refraction of light from Fermat's principle
 
 ---
 
