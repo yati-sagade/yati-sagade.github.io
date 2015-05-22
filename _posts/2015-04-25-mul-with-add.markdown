@@ -2,7 +2,7 @@
 
 layout: post
 
-title: SICP excerices 1.17 and 1.18
+title: SICP excercises 1.17 and 1.18 - Multiplication using addition, doubling and halving.
 
 ---
 
