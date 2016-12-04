@@ -4,7 +4,7 @@ title: About
 permalink: /about/
 ---
 
-I'm Yati Sagade and this is my log of explorations. I am a software engineer at
+I'm Yati Sagade and this a log of my explorations. I am a software engineer at
 [Booking.com][3].  [Follow me on Twitter][1] or [drop me a mail][2]. Here's my
 [résumé][4].
 
