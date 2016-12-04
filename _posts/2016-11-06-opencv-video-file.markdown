@@ -2,7 +2,7 @@
 
 layout: post
 
-title: Writing video captured using OpenCV to a file in Python
+title: Writing video captured using OpenCV to a file
 
 ---
 This approach requires [ffmpeg][1] (forked to [avconv][2] on Debian), and is not
