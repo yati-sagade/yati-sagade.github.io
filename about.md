@@ -5,8 +5,7 @@ permalink: /about/
 ---
 
 I'm Yati Sagade and this a log of my explorations. I am a software engineer at
-[Booking.com][3].  [Follow me on Twitter][1] or [drop me a mail][2]. Here's my
-[résumé][4].
+[Booking.com][3].  [Follow me on Twitter][1] or [drop me a mail][2].
 
 
 ## Interests
@@ -21,6 +20,5 @@ on [my github page][5].
 [1]: https://twitter.com/yati_itay
 [2]: mailto:yati.sagade@gmail.com
 [3]: https://www.booking.com
-[4]: /static/cv.pdf
 [5]: https://github.com/yati-sagade
 
