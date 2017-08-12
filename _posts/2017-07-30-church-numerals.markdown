@@ -33,7 +33,7 @@ example, $0$ is encoded as _no_ application, $1$ is encoded as just one
 application of $f$, while an arbitrary natural number $n$ is encoded as the
 function composition $f^n$. Let's try this out in some Perl 6 code:
 
-```perl6
+{% highlight perl6 %}
 
 # zero($f) returns a function that just returns its argument, i.e., the identity
 # function.
@@ -49,7 +49,7 @@ sub two ($f) {
     -> $x { $f($f($x)) }
 }
 
-```
+{% endhighlight %}
 
 So, for example, `two($foo)` is a function that, when called with some parameter
 `$x`, will apply `$foo` twice, i.e., compute `$f($f($x))`.
@@ -58,7 +58,7 @@ Of course we don't want to write out all numbers as functions, so we just define
 `zero`, and a successor function, which transforms a Church encoded natural
 number to the next higher natural number.
 
-```perl6
+{% highlight perl6 %}
 
 sub successor ($n) {
     -> $f {
@@ -68,7 +68,7 @@ sub successor ($n) {
     }
 }
 
-```
+{% endhighlight %}
 
 The key here is the bit `$f($n($f)($x))`, which is where the "increment" happens
 by applying `$f` one more time:
@@ -93,19 +93,19 @@ the Church representation to normal Perl 6 numbers. We want to invent a function
 `$g` and a value `$a`, that when used with any of our Church encoded numbers,
 give us the corresponding integers. Concretely, we want:
 
-```perl6
+{% highlight perl6 %}
 
 zero($g)($a) --> 0
 one($g)($a)  --> 1
 successor(successor(one))($g)($a) --> 2
 ...
 
-```
+{% endhighlight %}
 
 One choice could be to use `$g = { $_ + 1 }`, i.e., the increment function, with
 `$a = 0`:
 
-```perl6
+{% highlight perl6 %}
 
 sub increment ($x) { $x + 1 }
 
@@ -115,11 +115,12 @@ sub church-to-human ($n) {
 
 church-to-human(successor(successor(successor(zero)))).say; #: 3
 
-```
+{% endhighlight %}
 
 Once we understand this function, the rest of the operations are easy to derive:
 
-```perl6
+{% highlight perl6 %}
+
 sub zero ($f) {
     -> $x { $x }
 }
@@ -147,7 +148,8 @@ sub multiply ($y, $z) {
         }
     }
 }
-```
+
+{% endhighlight %}
 
 The predecessor function, however, is a bit more involved: given a numeral $n$,
 that applies $f$ for $n$ times to an initial value $x$, we want to derive a
@@ -188,7 +190,7 @@ a data object that stores two other objects, and provides the two functions
 `first` and `second` for accessing those objects. This can be implemented like
 so:
 
-```perl6
+{% highlight perl6 %}
 
 # The constructor returns a function which takes a function and applies it
 # to the contained objects.
@@ -208,12 +210,12 @@ sub second ($pair) {
     $pair(-> $x, $y { $y })
 }
 
-```
+{% endhighlight %}
 
 To take things even further, let's also encode the boolean type, and implement
 a conditional function:
 
-```perl6
+{% highlight perl6 %}
 
 my $true = -> $fst {
     -> $snd {
@@ -230,11 +232,13 @@ my $false = -> $fst {
 sub If ($cond, $then, $else) {
     $cond($then)($else)
 }
-```
+
+{% endhighlight %}
 
 Now let's implement the predecessor function, finally:
 
-```perl6
+{% highlight perl6 %}
+
 sub pred ($n) {
     -> $f {
         -> $x {
@@ -260,7 +264,7 @@ sub subtract ($y, $z) {
     }
 }
 
-```
+{% endhighlight %}
 
 
 [1]: https://en.wikipedia.org/wiki/Church_encoding 
