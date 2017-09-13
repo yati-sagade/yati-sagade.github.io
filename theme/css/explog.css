@@ -245,4 +245,8 @@ blockquote em {
     font-family: "Open Sans Italic";
 }
 
+.MathJax_Display {
+    padding-left: 25px!important;
+}
+
 

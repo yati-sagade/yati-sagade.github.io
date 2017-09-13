@@ -104,7 +104,7 @@ and then add the following line:
 
 ```cron
 
-0 * * * *  rsync -az --files-from=~/backup.txt ~ ys@dome:~/backup
+0 * * * *  rsync -az --files-from=/home/ys/backup.txt /home/ys ys@dome:~/backup
 
 ```
 and exit. Whenever a new path is added to the backup list, the next run of
