@@ -154,11 +154,21 @@ $$
 $$
 
 Now using $\beta = {f\over N}$, we get $T_h = \frac{1}{f}\ln{\left(N-1\right)}
-= \Theta\left(\ln{N}\right)$.  Since the half life of the process is logarithmic
-in the number of participants $N$, the overall number of rounds for convergence
---- i.e., the number of rounds to guarantee dissemination across the cluster
-with high probability --- is also logarithmic in $N$. This means that the
-algorithm is fairly scalable for even huge clusters.
+= O\left(\ln{N}\right)$.  Hence, the half life of the process is logarithmic
+in the number of participants $N$. Now, to find the number of rounds it takes
+for $99\%$ of the uninfected nodes to befome infected can be computed as:
+
+$$
+\begin{align*}
+\frac{N-1}{N-1+e^{N\beta T_{0.99}}} = 0.99
+\implies N\beta T_{0.99} &= \ln\left(\frac{N-1}{9}\right) \\
+\implies  T_{0.99} &= {\ln\left(\frac{N-1}{9}\right) \over N\beta } = O\left(\ln{N}\right)\\
+\end{align*}
+$$
+
+So we see that within a logarithmic number of rounds, a _most_ of the nodes
+get infected with high probability.
+
 
 ### Message load per member
 
