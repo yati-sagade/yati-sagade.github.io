@@ -11,9 +11,16 @@ I'm Yati Sagade and this a log of my explorations. I am a software developer at
 ring:9badc73586967684a3f67512c961ae7562f04f58
 
 ## Interests
+
 I am interested in programming, compilers, computer vision, physics and the
 meaning of life, the universe and everything. My projects can be found mostly
 on [my github page][5].
+
+## Talks and presentations
+
+- [Writing parts of Android apps in Perl][6]
+- [Enabling an organisation to be (Big) Data driven][7]
+
 
 
 <a href="http://stackexchange.com/users/351165">
@@ -24,4 +31,6 @@ on [my github page][5].
 [2]: mailto:yati.sagade@gmail.com
 [3]: https://www.booking.com
 [5]: https://github.com/yati-sagade
-
+[6]: https://www.youtube.com/watch?v=XRJo9FWFNMY
+[7]: https://www.youtube.com/watch?v=XRJo9FWFNMY
+[8]: https://www.youtube.com/watch?v=xEFyaF-92Js
