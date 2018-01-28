@@ -9,7 +9,7 @@ permalink: /about/
 </a>
 
 I'm Yati Sagade and this a log of my explorations. I am a software developer at
-[Booking.com][3].  I am interested in programming, compilers, computer vision,
+[Booking.com][3] and am interested in programming, compilers, computer vision,
 physics and the meaning of life, the universe and everything. My projects can be
 found on [my github page][5].
 
