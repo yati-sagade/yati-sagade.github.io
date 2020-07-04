@@ -4,11 +4,7 @@ title: About
 permalink: /about/
 ---
 
-<a href="http://stackexchange.com/users/351165">
-<img src="http://stackexchange.com/users/flair/351165.png" width="208" height="58" alt="profile for yati sagade on Stack Exchange, a network of free, community-driven Q&amp;A sites" title="profile for yati sagade on Stack Exchange, a network of free, community-driven Q&amp;A sites">
-</a>
-
-I'm Yati Sagade and this a log of my explorations.
+I'm Yati Sagade and this a log of my explorations (so all opinions expressed are mine). I like Blues, Rock,  Indian Classical music and colourful socks. I enjoy walking and think it is a great exercise for the body and the mind. Wireless headphones/mice/keyboards are not my thing, nor is voice controlled UI.
 
 ## Talks and presentations
 
@@ -17,5 +13,4 @@ I'm Yati Sagade and this a log of my explorations.
 
 
 [6]: https://www.youtube.com/watch?v=XRJo9FWFNMY
-[7]: https://www.youtube.com/watch?v=XRJo9FWFNMY
-[8]: https://www.youtube.com/watch?v=xEFyaF-92Js
+[7]: https://www.youtube.com/watch?v=xEFyaF-92Js
