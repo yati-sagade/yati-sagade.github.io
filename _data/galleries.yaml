@@ -1,0 +1,7 @@
+- id: misc
+  description: Photos, art
+  imagefolder: /img/showcase
+  images:
+    - name: green-balloon.jpeg
+      date: 2020-12-13
+      text: green balloon

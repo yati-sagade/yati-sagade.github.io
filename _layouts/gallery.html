@@ -1,0 +1,16 @@
+---
+
+layout: default
+
+---
+
+{% for gallery in site.data.galleries %}
+  {% if gallery.id == page.galleryid %}
+    {{ gallery.description }}
+    {% for image in gallery.images %}
+      <img src="{{ gallery.imagefolder }}/{{ image.name }}" height="400" width="800" />
+      <br/>{{ image.date }}: {{ image.text }}<br/><hr/>
+    {% endfor %}
+  {% endif %}
+{% endfor %}
+
