@@ -1,36 +1,45 @@
 <!DOCTYPE html>
 <html>
 
-  {% include head.html %}
+{% include head.html %}
 
-    <body>
+<body>
 
-    {% include header.html %}
+  {% include header.html %}
 
-    <div class="page-content">
-      <div class="wrap">
+  <div class="page-content">
+    <div class="wrap">
       {{ content }}
-      </div>
     </div>
+  </div>
 
-    {% include footer.html %}
+  {% include footer.html %}
+  <script>
+    indow.MathJax = {
+      tex: {
+        tags: "ams",
+        inlineMath: [['$', '$']],
+        displayMath: [['$$', '$$']],
+        processEscapes: true,
+        autoload: {
+          color: [],
+          colorv2: ['color']
+        },
+        packages: { '[+]': ['noerrors'] }
+      },
+      chtml: {
+        displayAlign: 'left'
+      },
+      options: {
+        ignoreHtmlClass: 'tex2jax_ignore',
+        processHtmlClass: 'tex2jax_process'
+      },
+      loader: {
+        load: ['[tex]/noerrors']
+      }
+    };
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" id="MathJax-script"></script>
+</body>
 
-    <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type= "text/javascript">
-       MathJax.Hub.Config({
-           config: ["MMLorHTML.js"],
-           jax: ["input/TeX","input/MathML","output/HTML-CSS","output/NativeMML"],
-           TeX: { extensions: ["AMSmath.js","AMSsymbols.js","noErrors.js","noUndefined.js"], equationNumbers: { autoNumber: "AMS" } },
-           extensions: ["tex2jax.js","mml2jax.js","MathMenu.js","MathZoom.js"],
-           tex2jax: { 
-               inlineMath: [ ['$','$'] ],
-               displayMath: [ ['$$','$$'] ],
-               processEscapes: true },
-           "HTML-CSS": {
-               styles: { ".MathJax .mo, .MathJax .mi": {color: "black ! important"}}
-           },
-           displayAlign: 'left'
-       });
-    </script>
-
-    </body>
 </html>
