@@ -18,14 +18,14 @@
     indow.MathJax = {
       tex: {
         tags: "ams",
-        inlineMath: [['$', '$']],
+        inlineMath: [['$', '$'], ["\\(", "\\)"]],
         displayMath: [['$$', '$$']],
         processEscapes: true,
         autoload: {
           color: [],
           colorv2: ['color']
         },
-        packages: { '[+]': ['noerrors'] }
+        packages: { '[+]': ['noerrors', 'braket'] }
       },
       chtml: {
         displayAlign: 'left'
@@ -35,7 +35,7 @@
         processHtmlClass: 'tex2jax_process'
       },
       loader: {
-        load: ['[tex]/noerrors']
+        load: ['[tex]/noerrors', '[tex]/braket']
       }
     };
   </script>
