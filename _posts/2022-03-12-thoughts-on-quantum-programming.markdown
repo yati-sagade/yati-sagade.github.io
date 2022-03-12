@@ -5,8 +5,8 @@ tags: qc
 ---
 
 After getting the basics of QC down with
-[quantum.country](https://quantum.country/), I think programming languages to
-target quantum computers will be a pretty cool area of work.
+[quantum.country](https://quantum.country/), I find thinking about and surveying
+quantum programming languages a lot of fun.
 
 Below, I have my textbook implementation of Grover search in Cirq ([runnable
 Colab](https://colab.research.google.com/drive/1pg6MhRkOze27EDY6TiIfJVa0JHOUmZ1T?usp=sharing)).
@@ -36,6 +36,16 @@ efficiently do the quantum stuff. Would a single language for both classical and
 quantum components make sense? I think at least in the near future, a separate
 quantum service will be the norm in large part due to quantum hardware being
 only available with a few providers.
+
+I will next look at a few quantum programming frameworks, e.g.,
+
+* [Quipper: An embedded, scalable functional programming language for quantum computing](https://hackage.haskell.org/package/quipper-0.8.1)
+* [Silq: High-level programming language for quantum computing with a strong static type system](https://silq.ethz.ch/): This one sounds particularly promising re. points (1) and (2) above.
+* [Qiskit](https://qiskit.org/): IBM Quantum Lab's framework
+* [Q#](https://azure.microsoft.com/en-us/resources/development-kit/quantum-computing/#overview): A high-level programming language from Microsoft.
+* ...
+
+`__END__`
 
 ## Grover search impl
 
